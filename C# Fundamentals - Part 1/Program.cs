@@ -272,101 +272,194 @@ namespace C__Fundamentals___Part_1
 
             ////task-10-------MEDIUM -------------------------------------------------------------------
 
-            //task-11-------Hard -------------------------------------------------------------------
+            ////task-11-------Hard -------------------------------------------------------------------
 
 
-            Console.WriteLine("Enter your Age: ");
-            int Age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your Age: ");
+            //int Age = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter your monthly income: ");
-            int Mincome = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your monthly income: ");
+            //int Mincome = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(" have an existing loan (yes/no): ");
-            String ExistingLoan = Console.ReadLine().ToLower();
+            //Console.WriteLine(" have an existing loan (yes/no): ");
+            //String ExistingLoan = Console.ReadLine().ToLower();
 
 
-            if (Age>=21 && Age<= 60 && Mincome >= 400 && ExistingLoan != "yes")
+            //if (Age>=21 && Age<= 60 && Mincome >= 400 && ExistingLoan != "yes")
+            //{
+            //    Console.WriteLine("You are eligible for a loan.");
+            //}
+            //else
+            //{
+
+            //    if (Age < 21 || Age > 60)
+            //    {
+            //        Console.WriteLine("You are ineligible for a loan.");
+            //        Console.WriteLine("Reason: Age must be between 21 and 60.");
+            //    }
+            //    if (Mincome < 400)
+            //    {
+            //        Console.WriteLine("You are ineligible for a loan.");
+            //        Console.WriteLine("Reason: Monthly income must be at least 400.");
+            //    }
+
+            //    if (ExistingLoan =="yes") 
+            //    {
+            //        Console.WriteLine("You are ineligible for a loan.");
+            //        Console.WriteLine("Reason: You must not have an existing loan.");
+            //    }
+            //}
+
+            ////task-11-------Hard -------------------------------------------------------------------
+
+
+            //task-12-------Hard -------------------------------------------------------------------
+
+
+
+            Console.WriteLine("the package weight (in kg) please: ");
+            double PackageWeight = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Where you Want to Send the package ('A' for local, 'B' for national, 'C' for international): ");
+            char regioncode = Char.Parse(Console.ReadLine().ToLower());
+
+            double baseCost = 0;
+            double extraCharge = 0;
+
+
+            switch (regioncode)
             {
-                Console.WriteLine("You are eligible for a loan.");
+                case 'a':
+                    baseCost = 1.000;
+
+                    if (PackageWeight > 10)
+
+                    {
+                        extraCharge = 5.000;
+                    }
+
+                    else if (PackageWeight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+                    break;
+
+                case 'b':
+                    baseCost = 3.000;
+
+                    if (PackageWeight > 10)
+
+                    {
+                        extraCharge = 5.000;
+                    }
+
+                    else if (PackageWeight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+                    break;
+
+                    
+                case 'c':
+                    baseCost = 7.000;
+
+                    if (PackageWeight > 10)
+
+                    { 
+                        extraCharge = 5.000;
+                    }
+                        
+                    else if (PackageWeight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+
+                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
+                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+                    break;
+
+
+                    default: 
+                    Console.WriteLine("Invalid region code. Please enter 'A', 'B', or 'C'.");
+                    break;
             }
-            else
-            {
-                
-                if (Age < 21 || Age > 60)
-                {
-                    Console.WriteLine("You are ineligible for a loan.");
-                    Console.WriteLine("Reason: Age must be between 21 and 60.");
-                }
-                if (Mincome < 400)
-                {
-                    Console.WriteLine("You are ineligible for a loan.");
-                    Console.WriteLine("Reason: Monthly income must be at least 400.");
-                }
 
-                if (ExistingLoan =="yes") 
-                {
-                    Console.WriteLine("You are ineligible for a loan.");
-                    Console.WriteLine("Reason: You must not have an existing loan.");
-                }
+
+
+
+
+
+
+
+
+
+
+                    //task-12-------Hard -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
-
-            //task-11-------Hard -------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
     }
 }
