@@ -228,49 +228,89 @@ namespace C__Fundamentals___Part_1
             //task-10-------MEDIUM -------------------------------------------------------------------
 
 
-            Console.Write("Enter the first number: ");
-            Double num1 = Double.Parse(Console.ReadLine());
+            //Console.Write("Enter the first number: ");
+            //Double num1 = Double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the second number: ");
-            Double num2 = Double.Parse(Console.ReadLine());
+            //Console.Write("Enter the second number: ");
+            //Double num2 = Double.Parse(Console.ReadLine());
 
-            Console.Write("Enter an operator ot the Operation that you want to Implemant (+, -, *, /, %): ");
-            char OperationCh = char.Parse( Console.ReadLine());
+            //Console.Write("Enter an operator ot the Operation that you want to Implemant (+, -, *, /, %): ");
+            //char OperationCh = char.Parse( Console.ReadLine());
 
-            switch (OperationCh)
+            //switch (OperationCh)
+            //{
+            //    case '+':
+            //        Console.WriteLine("Result = " + (num1 + num2));
+            //        break;
+
+            //    case '-':
+            //        Console.WriteLine("Result = " + (num1 - num2));
+            //        break;
+
+            //    case '*':
+            //        Console.WriteLine("Result = " + (num1 * num2));
+            //        break;
+
+            //    case '/':
+            //        if (num2 != 0)
+            //            Console.WriteLine("Result = " + (num1 / (double)num2));
+            //        else
+            //            Console.WriteLine("Cannot divide by zero");
+            //        break;
+
+            //    case '%':
+            //        if (num2 != 0)
+            //            Console.WriteLine("Result = " + (num1 % num2));
+            //        else
+            //            Console.WriteLine("Cannot divide by zero");
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Invalid operator please use only (+, -, *, /, %) ");
+            //        break;
+            //}
+
+            ////task-10-------MEDIUM -------------------------------------------------------------------
+
+            //task-11-------Hard -------------------------------------------------------------------
+
+
+            Console.WriteLine("Enter your Age: ");
+            int Age = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter your monthly income: ");
+            int Mincome = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(" have an existing loan (yes/no): ");
+            String ExistingLoan = Console.ReadLine().ToLower();
+
+
+            if (Age>=21 && Age<= 60 && Mincome >= 400 && ExistingLoan != "yes")
             {
-                case '+':
-                    Console.WriteLine("Result = " + (num1 + num2));
-                    break;
+                Console.WriteLine("You are eligible for a loan.");
+            }
+            else
+            {
+                
+                if (Age < 21 || Age > 60)
+                {
+                    Console.WriteLine("You are ineligible for a loan.");
+                    Console.WriteLine("Reason: Age must be between 21 and 60.");
+                }
+                if (Mincome < 400)
+                {
+                    Console.WriteLine("You are ineligible for a loan.");
+                    Console.WriteLine("Reason: Monthly income must be at least 400.");
+                }
 
-                case '-':
-                    Console.WriteLine("Result = " + (num1 - num2));
-                    break;
-
-                case '*':
-                    Console.WriteLine("Result = " + (num1 * num2));
-                    break;
-
-                case '/':
-                    if (num2 != 0)
-                        Console.WriteLine("Result = " + (num1 / (double)num2));
-                    else
-                        Console.WriteLine("Cannot divide by zero");
-                    break;
-
-                case '%':
-                    if (num2 != 0)
-                        Console.WriteLine("Result = " + (num1 % num2));
-                    else
-                        Console.WriteLine("Cannot divide by zero");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid operator please use only (+, -, *, /, %) ");
-                    break;
+                if (ExistingLoan =="yes") 
+                {
+                    Console.WriteLine("You are ineligible for a loan.");
+                    Console.WriteLine("Reason: You must not have an existing loan.");
+                }
             }
 
-                    //task-10-------MEDIUM -------------------------------------------------------------------
+            //task-11-------Hard -------------------------------------------------------------------
 
 
 
@@ -327,8 +367,6 @@ namespace C__Fundamentals___Part_1
 
 
 
-
-
-            }
+        }
     }
 }
