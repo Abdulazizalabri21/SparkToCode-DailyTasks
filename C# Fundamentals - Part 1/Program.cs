@@ -396,101 +396,104 @@ namespace C__Fundamentals___Part_1
             //task-12-------Hard -------------------------------------------------------------------
 
 
-            //task-13-------Hard -------------------------------------------------------------------
+            ////task-13-------Hard -------------------------------------------------------------------
 
-            Console.Write("Enter the length of the first side: ");
-            double side1 = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the length of the first side: ");
+            //double side1 = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the length of the second side: ");
-            double side2 = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the length of the second side: ");
+            //double side2 = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the length of the third side: ");
-            double side3 = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the length of the third side: ");
+            //double side3 = double.Parse(Console.ReadLine());
 
-            if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)
+            //if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)
+            //{
+            //    Console.WriteLine("Valid triangle");
+            //    if (side1 == side2 && side1 == side3 && side2 == side3) 
+            //    {
+            //        Console.WriteLine("the trianglr is equilateral (all sides equal)");
+            //    }
+
+            //    else   
+            //    {
+            //        if (side1 == side2 || side1 == side3 || side2 == side3)
+            //        {
+            //            Console.WriteLine("the trianglr isIsosceles (exactly two sides equal)");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("the trianglr is Scalene (all sides different)");
+            //        }
+            //    }
+
+
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid triangle");
+            //}
+
+
+            ////task-13-------Hard -------------------------------------------------------------------
+
+
+
+            //task-14-------Advance -------------------------------------------------------------------
+
+
+            Console.Write("Enter a product code (1, 2, or 3): ");
+            int productCode = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the quantity you want to buy: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Console.Write("Do you have a discount coupon? (yes/no): ");
+            string coupon = Console.ReadLine().ToLower();
+
+            double ProductPrice = 0;
+
+            switch (productCode)
             {
-                Console.WriteLine("Valid triangle\"");
-                if (side1 == side2 && side1 == side3 && side2 == side3) 
-                {
-                    Console.WriteLine("the trianglr is equilateral (all sides equal)\"");
-                }
+                case 1:
+                    ProductPrice = 8.500;
+                    break;
 
-                else   
-                {
-                    if (side1 == side2 || side1 == side3 || side2 == side3)
-                    {
-                        Console.WriteLine("the trianglr isIsosceles (exactly two sides equal)\"");
-                    }
-                    else
-                    {
-                        Console.WriteLine("the trianglr is Scalene (all sides different)\"");
-                    }
-                }
+                case 2:
+                    ProductPrice = 12.000;
+                    break;
 
+                case 3:
+                    ProductPrice = 5.000;
+                    break;
 
-
+                default:
+                    Console.WriteLine("Invalid product code please enter only (1, 2, or 3)");
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Invalid triangle");
-            }
+                    double subtotal = ProductPrice * quantity;
 
+                    double discount = 0;
 
-            //task-13-------Hard -------------------------------------------------------------------
+                    if (coupon == "yes" && subtotal > 20)
+                    {
+                        discount = subtotal * 0.10;
+                    }
 
+                    double afterDiscount = subtotal - discount;
+                    double tax = afterDiscount * 0.05;
+                    double total = afterDiscount + tax;
 
+                    Console.WriteLine("Subtotal = " + subtotal);
+                    Console.WriteLine("Discount = " + discount);
+                    Console.WriteLine("Tax = " + tax);
+                    Console.WriteLine("Total = " + total);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //task-14-------Advance -------------------------------------------------------------------
 
         }
+
     }
 }
+
