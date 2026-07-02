@@ -313,153 +313,184 @@ namespace C__Fundamentals___Part_1
             ////task-11-------Hard -------------------------------------------------------------------
 
 
+            ////task-12-------Hard -------------------------------------------------------------------
+
+
+
+            //Console.WriteLine("the package weight (in kg) please: ");
+            //double PackageWeight = double.Parse(Console.ReadLine());
+
+            //Console.WriteLine("Where you Want to Send the package ('A' for local, 'B' for national, 'C' for international): ");
+            //char regioncode = Char.Parse(Console.ReadLine().ToLower());
+
+            //double baseCost = 0;
+            //double extraCharge = 0;
+
+
+            //switch (regioncode)
+            //{
+            //    case 'a':
+            //        baseCost = 1.000;
+
+            //        if (PackageWeight > 10)
+
+            //        {
+            //            extraCharge = 5.000;
+            //        }
+
+            //        else if (PackageWeight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+
+            //        Console.WriteLine("Base Cost: " + baseCost + " OMR");
+            //        Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+            //        Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+            //        break;
+
+            //    case 'b':
+            //        baseCost = 3.000;
+
+            //        if (PackageWeight > 10)
+
+            //        {
+            //            extraCharge = 5.000;
+            //        }
+
+            //        else if (PackageWeight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+
+            //        Console.WriteLine("Base Cost: " + baseCost + " OMR");
+            //        Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+            //        Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+            //        break;
+
+
+            //    case 'c':
+            //        baseCost = 7.000;
+
+            //        if (PackageWeight > 10)
+
+            //        { 
+            //            extraCharge = 5.000;
+            //        }
+
+            //        else if (PackageWeight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+
+            //        Console.WriteLine("Base Cost: " + baseCost + " OMR");
+            //        Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
+            //        Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
+            //        break;
+
+
+            //        default: 
+            //        Console.WriteLine("Invalid region code. Please enter 'A', 'B', or 'C'.");
+            //        break;
+            //}
+
             //task-12-------Hard -------------------------------------------------------------------
 
 
+            //task-13-------Hard -------------------------------------------------------------------
 
-            Console.WriteLine("the package weight (in kg) please: ");
-            double PackageWeight = double.Parse(Console.ReadLine());
+            Console.Write("Enter the length of the first side: ");
+            double side1 = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Where you Want to Send the package ('A' for local, 'B' for national, 'C' for international): ");
-            char regioncode = Char.Parse(Console.ReadLine().ToLower());
+            Console.Write("Enter the length of the second side: ");
+            double side2 = double.Parse(Console.ReadLine());
 
-            double baseCost = 0;
-            double extraCharge = 0;
+            Console.Write("Enter the length of the third side: ");
+            double side3 = double.Parse(Console.ReadLine());
 
-
-            switch (regioncode)
+            if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)
             {
-                case 'a':
-                    baseCost = 1.000;
+                Console.WriteLine("Valid triangle\"");
+                if (side1 == side2 && side1 == side3 && side2 == side3) 
+                {
+                    Console.WriteLine("the trianglr is equilateral (all sides equal)\"");
+                }
 
-                    if (PackageWeight > 10)
-
+                else   
+                {
+                    if (side1 == side2 || side1 == side3 || side2 == side3)
                     {
-                        extraCharge = 5.000;
+                        Console.WriteLine("the trianglr isIsosceles (exactly two sides equal)\"");
                     }
-
-                    else if (PackageWeight > 5)
+                    else
                     {
-                        extraCharge = 2.000;
+                        Console.WriteLine("the trianglr is Scalene (all sides different)\"");
                     }
-
-                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
-                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
-                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
-                    break;
-
-                case 'b':
-                    baseCost = 3.000;
-
-                    if (PackageWeight > 10)
-
-                    {
-                        extraCharge = 5.000;
-                    }
-
-                    else if (PackageWeight > 5)
-                    {
-                        extraCharge = 2.000;
-                    }
-
-                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
-                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
-                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
-                    break;
-
-                    
-                case 'c':
-                    baseCost = 7.000;
-
-                    if (PackageWeight > 10)
-
-                    { 
-                        extraCharge = 5.000;
-                    }
-                        
-                    else if (PackageWeight > 5)
-                    {
-                        extraCharge = 2.000;
-                    }
-
-                    Console.WriteLine("Base Cost: " + baseCost + " OMR");
-                    Console.WriteLine("Extra Charge: " + extraCharge + " OMR");
-                    Console.WriteLine("Total Cost: " + (baseCost + extraCharge) + " OMR");
-                    break;
-
-
-                    default: 
-                    Console.WriteLine("Invalid region code. Please enter 'A', 'B', or 'C'.");
-                    break;
-            }
-
-
-
-
-
-
-
-
-
-
-
-                    //task-12-------Hard -------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }
 
 
 
             }
+            else
+            {
+                Console.WriteLine("Invalid triangle");
+            }
+
+
+            //task-13-------Hard -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
     }
 }
