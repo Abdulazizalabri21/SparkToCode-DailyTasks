@@ -135,11 +135,27 @@
             }
             //task-6-------MEDIUM --------------------------------------------------------------------
 
+            //task-7-------MEDIUM --------------------------------------------------------------------
 
+            Console.WriteLine("Enter your Age ");
+            int Age =int.Parse (Console.ReadLine());
 
+            if (Age >= 0 && Age <= 12)
+            {
+                Console.WriteLine("You are a child so your ticket price 2.000 OMR");
+            }
+            else if (Age >= 13 && Age <= 59) 
+            {
+                Console.WriteLine("You are an adult so your ticket price 5.000 OMR");
 
+            }
+            else
+            {  
+                Console.WriteLine("You are a senior so your ticket price 3.000 OMR");
+            }
 
 
+                //task-7-------MEDIUM --------------------------------------------------------------------
 
 
 
@@ -205,6 +221,11 @@
 
 
 
-        }
+
+
+
+
+
+            }
     }
 }
