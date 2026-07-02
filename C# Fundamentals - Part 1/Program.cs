@@ -1,4 +1,7 @@
-﻿namespace C__Fundamentals___Part_1
+﻿using System.ComponentModel.Design;
+using System.Xml;
+
+namespace C__Fundamentals___Part_1
 {
     internal class Program
     {
@@ -113,9 +116,9 @@
 
 
 
-
+            /*
             //task-6-------MEDIUM --------------------------------------------------------------------
-            Console.WriteLine(" Enter the temperature in Celsius "); 
+            Console.WriteLine(" Enter the temperature in Celsius ");
             double Celsius = double.Parse(Console.ReadLine());
 
             double F = (Celsius * 9 / 5) + 32;
@@ -138,28 +141,63 @@
             //task-7-------MEDIUM --------------------------------------------------------------------
 
             Console.WriteLine("Enter your Age ");
-            int Age =int.Parse (Console.ReadLine());
+            int Age = int.Parse(Console.ReadLine());
 
             if (Age >= 0 && Age <= 12)
             {
                 Console.WriteLine("You are a child so your ticket price 2.000 OMR");
             }
-            else if (Age >= 13 && Age <= 59) 
+            else if (Age >= 13 && Age <= 59)
             {
                 Console.WriteLine("You are an adult so your ticket price 5.000 OMR");
 
             }
             else
-            {  
+            {
                 Console.WriteLine("You are a senior so your ticket price 3.000 OMR");
+            }
+            */
+            //task-7-------MEDIUM --------------------------------------------------------------------
+
+
+            //task-8------MEDIUM --------------------------------------------------------------------
+
+            Console.WriteLine("Is this your first time here (YES/NO)? ");
+            string loyalty = Console.ReadLine().ToUpper();
+            Console.WriteLine("Enter your bill amount");
+            double billAmount = double.Parse(Console.ReadLine());
+
+            if (loyalty == "YES" && billAmount >= 20)
+            {
+
+                Console.WriteLine("You are got a 15% discount.");
+                Console.WriteLine("the discount will be: " + (billAmount * 15) / 100);
+                Console.WriteLine("Your final bill amount is: " + (billAmount - ((billAmount * 15) / 100)) + " OMR");
+            }
+            else
+            {
+                Console.WriteLine("Your final bill amount is: " + billAmount+" OMR");
             }
 
 
-                //task-7-------MEDIUM --------------------------------------------------------------------
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //task-8-------MEDIUM --------------------------------------------------------------------
 
 
 
