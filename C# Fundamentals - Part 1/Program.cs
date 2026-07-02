@@ -440,57 +440,116 @@ namespace C__Fundamentals___Part_1
 
 
 
-            //task-14-------Advance -------------------------------------------------------------------
+            ////task-14-------Advance -------------------------------------------------------------------
 
 
-            Console.Write("Enter a product code (1, 2, or 3): ");
-            int productCode = int.Parse(Console.ReadLine());
+            //Console.Write("Enter a product code (1, 2, or 3): ");
+            //int productCode = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter the quantity you want to buy: ");
-            int quantity = int.Parse(Console.ReadLine());
+            //Console.Write("Enter the quantity you want to buy: ");
+            //int quantity = int.Parse(Console.ReadLine());
 
-            Console.Write("Do you have a discount coupon? (yes/no): ");
-            string coupon = Console.ReadLine().ToLower();
+            //Console.Write("Do you have a discount coupon? (yes/no): ");
+            //string coupon = Console.ReadLine().ToLower();
 
-            double ProductPrice = 0;
+            //double ProductPrice = 0;
 
-            switch (productCode)
+            //switch (productCode)
+            //{
+            //    case 1:
+            //        ProductPrice = 8.500;
+            //        break;
+
+            //    case 2:
+            //        ProductPrice = 12.000;
+            //        break;
+
+            //    case 3:
+            //        ProductPrice = 5.000;
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Invalid product code please enter only (1, 2, or 3)");
+            //        break;
+            //}
+            //        double subtotal = ProductPrice * quantity;
+
+            //        double discount = 0;
+
+            //        if (coupon == "yes" && subtotal > 20)
+            //        {
+            //            discount = subtotal * 0.10;
+            //        }
+
+            //        double afterDiscount = subtotal - discount;
+            //        double tax = afterDiscount * 0.05;
+            //        double total = afterDiscount + tax;
+
+            //        Console.WriteLine("Subtotal = " + subtotal);
+            //        Console.WriteLine("Discount = " + discount);
+            //        Console.WriteLine("Tax = " + tax);
+            //        Console.WriteLine("Total = " + total);
+
+            ////task-14-------Advance -------------------------------------------------------------------
+
+
+
+
+
+            ////task-15-------Advance -------------------------------------------------------------------
+
+            Console.Write("Enter program type (S for Science, A for Arts): ");
+            char program = char.Parse(Console.ReadLine().ToUpper());
+
+            Console.Write("Enter GPA out of 4: ");
+            double GPA = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter entrance exam score out of 100: ");
+            int examScore = int.Parse(Console.ReadLine());
+
+            Console.Write("Do you have an extracurricular achievement? (yes/no): ");
+            string achievement = Console.ReadLine().ToLower();
+
+            switch (program)
             {
-                case 1:
-                    ProductPrice = 8.500;
+                case 'S':
+                    if (GPA >= 3 && examScore >= 75)
+                    {
+                        Console.WriteLine("Admitted");
+                    }
+                    else if (achievement == "yes")
+                    {
+                        Console.WriteLine("Conditionally Admitted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Admitted");
+                    }
+
+                    Console.WriteLine("Program: Science");
                     break;
 
-                case 2:
-                    ProductPrice = 12.000;
-                    break;
+                case 'A':
+                    if (GPA >= 2.5 && examScore >= 60)
+                    {
+                        Console.WriteLine("Admitted");
+                    }
+                    else if (achievement == "yes")
+                    {
+                        Console.WriteLine("Conditionally Admitted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Admitted");
+                    }
 
-                case 3:
-                    ProductPrice = 5.000;
+                    Console.WriteLine("Program: Arts");
                     break;
 
                 default:
-                    Console.WriteLine("Invalid product code please enter only (1, 2, or 3)");
+                    Console.WriteLine("Invalid program type PLEASE write only S or A");
                     break;
             }
-                    double subtotal = ProductPrice * quantity;
-
-                    double discount = 0;
-
-                    if (coupon == "yes" && subtotal > 20)
-                    {
-                        discount = subtotal * 0.10;
-                    }
-
-                    double afterDiscount = subtotal - discount;
-                    double tax = afterDiscount * 0.05;
-                    double total = afterDiscount + tax;
-
-                    Console.WriteLine("Subtotal = " + subtotal);
-                    Console.WriteLine("Discount = " + discount);
-                    Console.WriteLine("Tax = " + tax);
-                    Console.WriteLine("Total = " + total);
-
-            //task-14-------Advance -------------------------------------------------------------------
 
         }
 
