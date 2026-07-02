@@ -185,44 +185,92 @@ namespace C__Fundamentals___Part_1
             //task-9------MEDIUM --------------------------------------------------------------------
 
 
-            Console.WriteLine("Please Enter The day Number ");
-            int DayNumber = int.Parse (Console.ReadLine());
+            //Console.WriteLine("Please Enter The day Number ");
+            //int DayNumber = int.Parse (Console.ReadLine());
 
 
-            switch (DayNumber) 
+            //switch (DayNumber) 
+            //{
+
+            //case 1:
+            //        Console.WriteLine("The day is Sunday");
+            //        break;
+            //case 2:
+            //        Console.WriteLine("The day is Monday");
+            //        break;
+            //case 3:
+
+            //        Console.WriteLine("The day is Tuesday");
+            //        break;
+            //case 4:
+            //        Console.WriteLine("The day is Wednesday");
+            //        break;
+
+            //case 5:
+            //        Console.WriteLine("The day is Thursday");
+            //        break;
+
+            //case 6:
+            //        Console.WriteLine("The day is Friday");
+            //        break;
+            //case 7:
+            //        Console.WriteLine("The day is Saturday");
+            //        break;
+            //default:
+            //        Console.WriteLine("Invalid day number");
+            //        break;
+
+            //}
+
+            ////task-9-------MEDIUM -------------------------------------------------------------------
+
+
+            //task-10-------MEDIUM -------------------------------------------------------------------
+
+
+            Console.Write("Enter the first number: ");
+            Double num1 = Double.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            Double num2 = Double.Parse(Console.ReadLine());
+
+            Console.Write("Enter an operator ot the Operation that you want to Implemant (+, -, *, /, %): ");
+            char OperationCh = char.Parse( Console.ReadLine());
+
+            switch (OperationCh)
             {
-            
-            case 1:
-                    Console.WriteLine("The day is Sunday");
-                    break;
-            case 2:
-                    Console.WriteLine("The day is Monday");
-                    break;
-            case 3:
-                
-                    Console.WriteLine("The day is Tuesday");
-                    break;
-            case 4:
-                    Console.WriteLine("The day is Wednesday");
-                    break;
-                    
-            case 5:
-                    Console.WriteLine("The day is Thursday");
+                case '+':
+                    Console.WriteLine("Result = " + (num1 + num2));
                     break;
 
-            case 6:
-                    Console.WriteLine("The day is Friday");
-                    break;
-            case 7:
-                    Console.WriteLine("The day is Saturday");
-                    break;
-            default:
-                    Console.WriteLine("Invalid day number");
+                case '-':
+                    Console.WriteLine("Result = " + (num1 - num2));
                     break;
 
+                case '*':
+                    Console.WriteLine("Result = " + (num1 * num2));
+                    break;
+
+                case '/':
+                    if (num2 != 0)
+                        Console.WriteLine("Result = " + (num1 / (double)num2));
+                    else
+                        Console.WriteLine("Cannot divide by zero");
+                    break;
+
+                case '%':
+                    if (num2 != 0)
+                        Console.WriteLine("Result = " + (num1 % num2));
+                    else
+                        Console.WriteLine("Cannot divide by zero");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid operator please use only (+, -, *, /, %) ");
+                    break;
             }
 
-            //task-9-------MEDIUM -------------------------------------------------------------------
+                    //task-10-------MEDIUM -------------------------------------------------------------------
 
 
 
@@ -281,10 +329,6 @@ namespace C__Fundamentals___Part_1
 
 
 
-
-
-
-
-        }
+            }
     }
 }
