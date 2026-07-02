@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            //task-1---------------------------------------------------------------------------------------------
+           /* //task-1---------------------------------------------------------------------------------------------
             String personalname = "Abdulaziz";
             bool studentornot = false;
             int age = 20;
@@ -70,6 +70,45 @@
                 Console.WriteLine("You are NOT eligible to vote");
             }
             //task-4---------------------------------------------------------------------------------------------
+           */
+            //task-5---------------------------------------------------------------------------------------------
+            Console.WriteLine("Enter a character ");
+            Char character = char.Parse(Console.ReadLine());
+
+            switch (character)
+            { 
+       
+                case 'A':
+                    Console.WriteLine("EXCELLENT");
+                    break;
+
+                case 'B':
+                    Console.WriteLine("VERY GOOD");
+                    break;
+            
+                case 'C':
+
+                    Console.WriteLine("GOOD");
+                    break;
+            
+                case 'D':
+
+                    Console.WriteLine(" PSS");
+                    break;
+
+                case'F': 
+
+                    Console.WriteLine("FAILL");
+                    break;
+
+                default: 
+
+                    Console.WriteLine("Invalid character");
+                    break;
+
+            }
+
+            //task-5---------------------------------------------------------------------------------------------
         }
     }
 }
