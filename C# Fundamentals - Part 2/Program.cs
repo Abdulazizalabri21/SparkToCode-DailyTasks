@@ -46,31 +46,69 @@
             ////task-3--------------EASY-------------------------------------------------------
 
 
-            //task-4--------------EASY-------------------------------------------------------
+            ////task-4--------------EASY-------------------------------------------------------
 
           
 
-            string password = "Spark2026";
-            string Pass = "";
+            //string password = "Spark2026";
+            //string Pass = "";
 
-            while (Pass != password)
-            {
-                Console.WriteLine("Enter the Password ");
-                Pass = Console.ReadLine();
-                Console.WriteLine(" ");
+            //while (Pass != password)
+            //{
+            //    Console.WriteLine("Enter the Password ");
+            //    Pass = Console.ReadLine();
+            //    Console.WriteLine(" ");
 
-                if (Pass != password)
+            //    if (Pass != password)
+            //    {
+            //        Console.WriteLine("Incorrect password. Please try again. ");
+            //    }
+
+            //}
+            //Console.WriteLine("Access Granted ");
+
+
+            ////task-4--------------EASY-------------------------------------------------------
+
+
+            //task-5--------------MEDIUM-------------------------------------------------------
+            
+            int number= 55;
+            int guess = 0;
+            int attemptsCounter = 0;
+
+            do 
+            { 
+                Console.WriteLine("Guess the number ");
+                guess = int.Parse(Console.ReadLine());
+                attemptsCounter++;
+
+                if (guess < number)
                 {
-                    Console.WriteLine("Incorrect password. Please try again. ");
+                    Console.WriteLine("Too low. Try again.");
+                   
                 }
+                else if (guess > number)
+                {
+                    Console.WriteLine("Too high. Try again.");
+                    
+                }
+            
+                else
+                {
+                    Console.WriteLine("Congratulations, You guessed the number correctly ");
+                    Console.WriteLine("You attempts: " + attemptsCounter++);
+
+                }
+            
 
             }
-            Console.WriteLine("Access Granted ");
+            
+            while ( guess < number || guess > number);
 
 
-            //task-4--------------EASY-------------------------------------------------------
 
-
+            //task-5--------------MEDIUM-------------------------------------------------------
 
 
 
