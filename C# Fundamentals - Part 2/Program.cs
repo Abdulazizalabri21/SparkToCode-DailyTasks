@@ -33,17 +33,63 @@
             ////task-2--------------EASY-------------------------------------------------------
 
 
-            //task-3--------------EASY-------------------------------------------------------
-           
-            Console.WriteLine("Enter the number");
-            int number = int.Parse(Console.ReadLine());
+            ////task-3--------------EASY-------------------------------------------------------
 
-            for (int i = 1; i <= 10; i++)
+            //Console.WriteLine("Enter the number");
+            //int number = int.Parse(Console.ReadLine());
+
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    Console.WriteLine(number + " x " + i + " = " + (number * i));
+            //}
+
+            ////task-3--------------EASY-------------------------------------------------------
+
+
+            //task-4--------------EASY-------------------------------------------------------
+
+          
+
+            string password = "Spark2026";
+            string Pass = "";
+
+            while (Pass != password)
             {
-                Console.WriteLine(number + " x " + i + " = " + (number * i));
-            }
+                Console.WriteLine("Enter the Password ");
+                Pass = Console.ReadLine();
+                Console.WriteLine(" ");
 
-            //task-3--------------EASY-------------------------------------------------------
+                if (Pass != password)
+                {
+                    Console.WriteLine("Incorrect password. Please try again. ");
+                }
+
+            }
+            Console.WriteLine("Access Granted ");
+
+
+            //task-4--------------EASY-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
