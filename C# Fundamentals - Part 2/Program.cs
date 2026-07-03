@@ -48,7 +48,7 @@
 
             ////task-4--------------EASY-------------------------------------------------------
 
-          
+
 
             //string password = "Spark2026";
             //string Pass = "";
@@ -71,45 +71,68 @@
             ////task-4--------------EASY-------------------------------------------------------
 
 
-            //task-5--------------MEDIUM-------------------------------------------------------
-            
-            int number= 55;
-            int guess = 0;
-            int attemptsCounter = 0;
+            ////task-5--------------MEDIUM-------------------------------------------------------
 
-            do 
-            { 
-                Console.WriteLine("Guess the number ");
-                guess = int.Parse(Console.ReadLine());
-                attemptsCounter++;
+            //int number= 55;
+            //int guess = 0;
+            //int attemptsCounter = 0;
 
-                if (guess < number)
-                {
-                    Console.WriteLine("Too low. Try again.");
-                   
-                }
-                else if (guess > number)
-                {
-                    Console.WriteLine("Too high. Try again.");
-                    
-                }
-            
-                else
-                {
-                    Console.WriteLine("Congratulations, You guessed the number correctly ");
-                    Console.WriteLine("You attempts: " + attemptsCounter++);
+            //do 
+            //{ 
+            //    Console.WriteLine("Guess the number ");
+            //    guess = int.Parse(Console.ReadLine());
+            //    attemptsCounter++;
 
-                }
-            
+            //    if (guess < number)
+            //    {
+            //        Console.WriteLine("Too low. Try again.");
 
+            //    }
+            //    else if (guess > number)
+            //    {
+            //        Console.WriteLine("Too high. Try again.");
+
+            //    }
+
+            //    else
+            //    {
+            //        Console.WriteLine("Congratulations, You guessed the number correctly ");
+            //        Console.WriteLine("You attempts: " + attemptsCounter++);
+
+            //    }
+
+
+            //}
+
+            //while ( guess < number || guess > number);
+
+
+
+            ////task-5--------------MEDIUM-------------------------------------------------------
+
+
+            //task-6--------------MEDIUM-------------------------------------------------------
+            Console.WriteLine("Enter first number");
+            int num1 = int.Parse(Console.ReadLine());
+
+
+
+            try
+            {
+                Console.WriteLine("Enter Second number");
+
+                int num2 = int.Parse(Console.ReadLine());
+                int result = num1 / num2;
+                Console.WriteLine("Result: " + result);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("Invalid input. you can not divide by zero.");
+                Console.WriteLine(ex.Message);
             }
             
-            while ( guess < number || guess > number);
 
-
-
-            //task-5--------------MEDIUM-------------------------------------------------------
-
+                //task-6--------------MEDIUM-------------------------------------------------------
 
 
 
@@ -130,7 +153,6 @@
 
 
 
-
+            }
         }
-    }
 }
