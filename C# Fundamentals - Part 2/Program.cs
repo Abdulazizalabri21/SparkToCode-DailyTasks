@@ -19,19 +19,31 @@
 
 
 
-            //task-2--------------EASY-------------------------------------------------------
-            
-            Console.WriteLine("Enter the number (positive number only). ");
+            ////task-2--------------EASY-------------------------------------------------------
+
+            //Console.WriteLine("Enter the number (positive number only). ");
+            //int number = int.Parse(Console.ReadLine());
+            //int sum = 0;
+            //for (int i = 1; i <= number; i++) 
+            //{
+            //    sum += i;
+            //}
+            //Console.WriteLine("The sum of the numbers from 1 to " + number + " is: " + sum);
+
+            ////task-2--------------EASY-------------------------------------------------------
+
+
+            //task-3--------------EASY-------------------------------------------------------
+           
+            Console.WriteLine("Enter the number");
             int number = int.Parse(Console.ReadLine());
-            int sum = 0;
-            for (int i = 1; i <= number; i++) 
+
+            for (int i = 1; i <= 10; i++)
             {
-                sum += i;
+                Console.WriteLine(number + " x " + i + " = " + (number * i));
             }
-            Console.WriteLine("The sum of the numbers from 1 to " + number + " is: " + sum);
 
-
-            //task-2--------------EASY-------------------------------------------------------
+            //task-3--------------EASY-------------------------------------------------------
 
 
 
