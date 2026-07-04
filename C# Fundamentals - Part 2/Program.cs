@@ -111,48 +111,90 @@
             ////task-5--------------MEDIUM-------------------------------------------------------
 
 
-            //task-6--------------MEDIUM-------------------------------------------------------
-            Console.WriteLine("Enter first number");
-            int num1 = int.Parse(Console.ReadLine());
+            ////task-6--------------MEDIUM-------------------------------------------------------
+            //Console.WriteLine("Enter first number");
+            //int num1 = int.Parse(Console.ReadLine());
 
 
 
-            try
+            //try
+            //{
+            //    Console.WriteLine("Enter Second number");
+
+            //    int num2 = int.Parse(Console.ReadLine());
+            //    int result = num1 / num2;
+            //    Console.WriteLine("Result: " + result);
+            //}
+            //catch (DivideByZeroException ex)
+            //{
+            //    Console.WriteLine("Invalid input. you can not divide by zero.");
+            //    Console.WriteLine(ex.Message);
+            //}
+
+
+            ////task-6--------------MEDIUM-------------------------------------------------------
+
+
+            //task-7--------------MEDIUM-------------------------------------------------------
+
+           
+            int MDriver = 0;
+            while (MDriver != 3)
             {
-                Console.WriteLine("Enter Second number");
+                try
+                {
+                    Console.WriteLine("Please enter 1  for hello or 2 t greeting or 3 to Exit.");
+                    MDriver = int.Parse(Console.ReadLine());
+                }
 
-                int num2 = int.Parse(Console.ReadLine());
-                int result = num1 / num2;
-                Console.WriteLine("Result: " + result);
-            }
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("Invalid input. you can not divide by zero.");
-                Console.WriteLine(ex.Message);
-            }
-            
+                catch (Exception ex)        
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number." + ex);
+                
+                switch (MDriver)
+                {
+                    case 1:
+                        Console.WriteLine("Hello");
+                        break;
 
-                //task-6--------------MEDIUM-------------------------------------------------------
+                    case 2:
+                        Console.WriteLine("Good Afternoon");
+                        break;
 
+                    case 3:
+                        Console.WriteLine("Exiting the program......");
+                        break;
 
+                    default:
+                        Console.WriteLine("Invalid input. Please enter 1, 2, or 3 to exit.");
+                        break;
+                }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }
 
 
             }
+
+
+            //task-7--------------MEDIUM-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+    }
 }
