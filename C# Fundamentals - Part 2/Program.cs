@@ -1,4 +1,7 @@
-﻿namespace C__Fundamentals___Part_2
+﻿using System.Diagnostics.CodeAnalysis;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace C__Fundamentals___Part_2
 {
     internal class Program
     {
@@ -135,50 +138,97 @@
             ////task-6--------------MEDIUM-------------------------------------------------------
 
 
-            //task-7--------------MEDIUM-------------------------------------------------------
+            ////task-7--------------MEDIUM-------------------------------------------------------
 
-           
-            int MDriver = 0;
-            while (MDriver != 3)
+
+            //int MDriver = 0;
+            //while (MDriver != 3)
+            //{
+            //    try
+            //    {
+            //        Console.WriteLine("Please enter 1  for hello or 2 t greeting or 3 to Exit.");
+            //        MDriver = int.Parse(Console.ReadLine());
+            //    }
+
+            //    catch (Exception ex)        
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a valid number." + ex);
+
+            //    switch (MDriver)
+            //    {
+            //        case 1:
+            //            Console.WriteLine("Hello");
+            //            break;
+
+            //        case 2:
+            //            Console.WriteLine("Good Afternoon");
+            //            break;
+
+            //        case 3:
+            //            Console.WriteLine("Exiting the program......");
+            //            break;
+
+            //        default:
+            //            Console.WriteLine("Invalid input. Please enter 1, 2, or 3 to exit.");
+            //            break;
+            //    }
+
+            //    }
+
+
+            //}
+
+            ////task-7--------------MEDIUM-------------------------------------------------------
+
+
+            //task-8--------------MEDIUM-------------------------------------------------------
+            try
             {
-                try
-                {
-                    Console.WriteLine("Please enter 1  for hello or 2 t greeting or 3 to Exit.");
-                    MDriver = int.Parse(Console.ReadLine());
-                }
-
-                catch (Exception ex)        
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number." + ex);
                 
-                switch (MDriver)
+
+                Console.WriteLine("Enter a positive whole number ");
+                int Numbars = int.Parse(Console.ReadLine());
+                if (Numbars <= 0)
                 {
-                    case 1:
-                        Console.WriteLine("Hello");
-                        break;
-
-                    case 2:
-                        Console.WriteLine("Good Afternoon");
-                        break;
-
-                    case 3:
-                        Console.WriteLine("Exiting the program......");
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid input. Please enter 1, 2, or 3 to exit.");
-                        break;
+                    Console.WriteLine("Please enter a positive whole number.");
                 }
+                else
+                {
+                   
+                    int sum = 0;
 
+
+
+                    for (int i = 0; i <= Numbars; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            sum += i;
+                        }
+                    }
+                    Console.WriteLine("The sum of even numbers = " + sum);
                 }
-
-
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Please Enter Number ONLY ");
             }
 
 
-            //task-7--------------MEDIUM-------------------------------------------------------
 
 
+
+
+
+
+
+
+
+
+
+
+            //task-8--------------MEDIUM-------------------------------------------------------
 
 
 
