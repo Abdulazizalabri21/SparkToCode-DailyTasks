@@ -181,56 +181,85 @@ namespace C__Fundamentals___Part_2
             ////task-7--------------MEDIUM-------------------------------------------------------
 
 
-            //task-8--------------MEDIUM-------------------------------------------------------
-            try
-            {
+            ////task-8--------------MEDIUM-------------------------------------------------------
+            //try
+            //{
                 
 
-                Console.WriteLine("Enter a positive whole number ");
-                int Numbars = int.Parse(Console.ReadLine());
-                if (Numbars <= 0)
-                {
-                    Console.WriteLine("Please enter a positive whole number.");
-                }
-                else
-                {
+            //    Console.WriteLine("Enter a positive whole number ");
+            //    int Numbars = int.Parse(Console.ReadLine());
+            //    if (Numbars <= 0)
+            //    {
+            //        Console.WriteLine("Please enter a positive whole number.");
+            //    }
+            //    else
+            //    {
                    
-                    int sum = 0;
+            //        int sum = 0;
 
 
 
-                    for (int i = 0; i <= Numbars; i++)
-                    {
-                        if (i % 2 == 0)
-                        {
-                            sum += i;
-                        }
-                    }
-                    Console.WriteLine("The sum of even numbers = " + sum);
-                }
-            }
-            catch (Exception ex)
+            //        for (int i = 0; i <= Numbars; i++)
+            //        {
+            //            if (i % 2 == 0)
+            //            {
+            //                sum += i;
+            //            }
+            //        }
+            //        Console.WriteLine("The sum of even numbers = " + sum);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("Please Enter Number ONLY ");
+            //}
+
+
+            ////task-8--------------MEDIUM-------------------------------------------------------
+
+
+
+            //task-9--------------HARD-------------------------------------------------------
+
+
+            int number = 0;
+            bool valid = false;
+
+            do
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Please Enter Number ONLY ");
+                try
+                {
+                    Console.Write("Enter a positive whole number: ");
+                    number = int.Parse(Console.ReadLine());
+
+                    if (number >= 0)
+                    {
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a positive whole number.");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please enter a whole number.");
+                }
+
+            } while (!valid);
+
+            int sum = 0;
+
+            for (int i = 1; i <= number; i++)
+            {
+                sum += i;
             }
 
+            Console.WriteLine("Sum = " + sum);
 
 
-
-
-
-
-
-
-
-
-
-
-
-            //task-8--------------MEDIUM-------------------------------------------------------
-
-
+            //task-9--------------HARD-------------------------------------------------------
 
 
 
