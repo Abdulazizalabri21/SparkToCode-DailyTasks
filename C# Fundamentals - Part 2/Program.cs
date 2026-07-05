@@ -263,6 +263,134 @@ namespace C__Fundamentals___Part_2
 
 
 
+            //task-10--------------ADVANCED-------------------------------------------------------
+
+
+            int PIN = 1234;
+            double balance = 100.000;
+            bool pinCorrect = true;
+            bool exit = false;
+            int choice = 0;
+            int pin = 0;
+            double withdraw = 0;
+            double deposit = 0;
+
+            for (int attempts = 1; attempts <= 3; attempts++)
+            {
+                try
+                {
+
+
+                    Console.Write("Enter PIN: ");
+                    pin = int.Parse(Console.ReadLine());
+
+                    if (pin == PIN)
+                    {
+
+
+
+
+                        while (!exit)
+                        {
+                            Console.WriteLine(" ");
+                            Console.WriteLine("1. Deposit");
+                            Console.WriteLine("2. Withdraw");
+                            Console.WriteLine("3. Check Balance");
+                            Console.WriteLine("4. Exit");
+                            Console.WriteLine(" ");
+
+                            Console.Write("Choose an option: ");
+                            choice = int.Parse(Console.ReadLine());
+
+                            switch (choice)
+                            {
+                                case 1:
+                                    try
+                                    {
+                                        Console.Write("Enter deposit amount: ");
+                                        deposit = double.Parse(Console.ReadLine());
+
+                                        if (deposit < 0)
+                                        {
+                                            Console.WriteLine("Invalid amount");
+                                        }
+                                        else
+                                        {
+                                            balance += deposit;
+                                            Console.WriteLine("Balance = " + balance + " OMR");
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("Invalid input");
+                                    }
+                                    break;
+
+                                case 2:
+                                    try
+                                    {
+                                        Console.Write("Enter withdrawal amount: ");
+                                        withdraw = double.Parse(Console.ReadLine());
+
+                                        if (withdraw < 0)
+                                        {
+                                            Console.WriteLine("Invalid amount");
+                                        }
+                                        else if (withdraw > balance)
+                                        {
+                                            Console.WriteLine("Insufficient balance");
+                                        }
+                                        else
+                                        {
+                                            balance -= withdraw;
+                                            Console.WriteLine("Balance = " + balance + " OMR");
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("Invalid input");
+                                    }
+                                    break;
+
+                                case 3:
+                                    Console.WriteLine("Balance = " + balance + " OMR");
+                                    break;
+
+                                case 4:
+
+                                    Console.WriteLine("Thank you for using the ATM.");
+                                    exit = true;
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Invalid option");
+                                    break;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect PIN");
+                        if (!pinCorrect || attempts == 3)
+                        {
+                            Console.WriteLine("Card Blocked");
+
+                        }
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid PIN");
+                }
+
+
+            }
+
+
+
+
+            //task-10--------------ADVANCED-------------------------------------------------------
 
 
 
