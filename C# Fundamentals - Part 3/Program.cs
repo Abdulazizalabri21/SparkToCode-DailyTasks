@@ -49,24 +49,41 @@ namespace C__Fundamentals___Part_3
 
             ////task-3---------EASY ------------------------------------------------------------------------
 
-            //task-4---------EASY ------------------------------------------------------------------------
+            ////task-4---------EASY ------------------------------------------------------------------------
 
 
            
-            Console.WriteLine("Enter the number of days for the trial period: ");
-            int trailDays = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the number of days for the trial period: ");
+            //int trailDays = int.Parse(Console.ReadLine());
 
 
-            DateTime currentDate = DateTime.Now;
-            DateTime endDate = currentDate.AddDays(trailDays);
+            //DateTime currentDate = DateTime.Now;
+            //DateTime endDate = currentDate.AddDays(trailDays);
 
            
-            Console.WriteLine("The trial period will Start on: "+ currentDate.ToString("dd/MM/yyyy") 
-                + "\n The trial period will end on: " + endDate.ToString("dd/MM/yyyy"));
+            //Console.WriteLine("The trial period will Start on: "+ currentDate.ToString("dd/MM/yyyy") 
+            //    + "\n The trial period will end on: " + endDate.ToString("dd/MM/yyyy"));
 
 
-            //task-4---------EASY ------------------------------------------------------------------------
+            ////task-4---------EASY ------------------------------------------------------------------------
 
+            //task-5---------MEDIUM ------------------------------------------------------------------------
+            
+            Console.WriteLine("Enter your Exam score: ");
+            float Score = float.Parse(Console.ReadLine());
+
+            double RaundedScore = Math.Round(Score,0);
+            
+            if (RaundedScore >= 60)
+            { 
+                Console.WriteLine("Congratulations! You passed the exam with a score of " + RaundedScore);
+            }
+            else
+            {
+                Console.WriteLine("Sorry, you failed the exam with a score of " + RaundedScore);
+            }
+
+            //task-5---------MEDIUM ------------------------------------------------------------------------
 
 
 
