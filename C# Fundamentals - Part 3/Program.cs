@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Linq.Expressions;
 
 namespace C__Fundamentals___Part_3
 {
@@ -187,39 +188,86 @@ namespace C__Fundamentals___Part_3
 
 
 
-             // task - 10-------- - HARD------------------------------------------------------------------------
+            // // task - 10-------- - HARD------------------------------------------------------------------------
+
+            //Console.WriteLine("Enter a sentence: ");
+            //string Sentence = Console.ReadLine();
+
+
+            //Console.Write("Enter a word to search for: ");
+            //string word = Console.ReadLine();
+
+            //int FirstAppear =Sentence.IndexOf(word);
+            //int LastAppear =Sentence.LastIndexOf(word);
+
+
+
+            //if (FirstAppear == -1 || LastAppear == -1)
+            //{
+            //    Console.WriteLine("Word not found.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("\nThe first occurrence of the word is at index: " + FirstAppear);
+            //    Console.WriteLine("\nThe Last occurrence of the word is at index:" + LastAppear);
+
+            //}
+
+
+
+
+
+            //// task - 11-------- - ADVANCED------------------------------------------------------------------------
+
+
+
            
-            Console.WriteLine("Enter a sentence: ");
-            string Sentence = Console.ReadLine();
-
-
-            Console.Write("Enter a word to search for: ");
-            string word = Console.ReadLine();
-
-            int FirstAppear =Sentence.IndexOf(word);
-            int LastAppear =Sentence.LastIndexOf(word);
 
 
 
-            if (FirstAppear == -1 || LastAppear == -1)
+           
+                
+
+                Random rnd = new Random();
+                int OTP = rnd.Next(1000, 10000);
+                int ReadOtp = 0;
+                Console.WriteLine("Your OTP is: " +OTP);
+
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("Word not found.");
+                try
+                { 
+                    Console.WriteLine("enter the OTP: ");
+                    ReadOtp = int.Parse(Console.ReadLine());
+                   if (ReadOtp == OTP)
+                   {
+                    Console.WriteLine("the OTP is correct");
+                 
+                        break;
+                    }
+                   else
+                   {
+                    Console.WriteLine("the OTP is Wrong");
+
+                    if (i>=2)
+                    {
+                            Console.WriteLine("You have entered an invalid OTP 3 times. Please try again later.");
+                    }
+
+                    }
+                }
+
+
+                catch 
+                {
+                   
+                        Console.WriteLine("Invalid input. Please enter a valid OTP.");
+                }
+               
             }
-            else
-            {
-                Console.WriteLine("\nThe first occurrence of the word is at index: " + FirstAppear);
-                Console.WriteLine("\nThe Last occurrence of the word is at index:" + LastAppear);
-
-            }
-
-
-
-
-
-            // task - 10-------- - HARD------------------------------------------------------------------------
-
-
-
+            
+       
+            // task - 11------- - ADVANCED------------------------------------------------------------------------
 
 
         }
