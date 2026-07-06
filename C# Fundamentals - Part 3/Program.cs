@@ -35,21 +35,37 @@ namespace C__Fundamentals___Part_3
             //Console.WriteLine("the square root of " + number + " = " + squareRoot);
             ////task-2---------EASY ------------------------------------------------------------------------
 
-            //task-3---------EASY ------------------------------------------------------------------------
+            ////task-3---------EASY ------------------------------------------------------------------------
             
-            Console.WriteLine("Enter you full name: ");
-            string fullName = Console.ReadLine();
+            //Console.WriteLine("Enter you full name: ");
+            //string fullName = Console.ReadLine();
 
-            Console.WriteLine("The lower case style of "+ fullName +" => " + fullName.ToLower());
-            Console.WriteLine("The upper case style of " + fullName + " => "+ fullName.ToUpper());
-
-
-            int length =  fullName.Length;
-            Console.WriteLine("The length of "+ fullName +" is "+ length +" characters");
-
-            //task-3---------EASY ------------------------------------------------------------------------
+            //Console.WriteLine("The lower case style of "+ fullName +" => " + fullName.ToLower());
+            //Console.WriteLine("The upper case style of " + fullName + " => "+ fullName.ToUpper());
 
 
+            //int length =  fullName.Length;
+            //Console.WriteLine("The length of "+ fullName +" is "+ length +" characters");
+
+            ////task-3---------EASY ------------------------------------------------------------------------
+
+            //task-4---------EASY ------------------------------------------------------------------------
+
+
+           
+            Console.WriteLine("Enter the number of days for the trial period: ");
+            int trailDays = int.Parse(Console.ReadLine());
+
+
+            DateTime currentDate = DateTime.Now;
+            DateTime endDate = currentDate.AddDays(trailDays);
+
+           
+            Console.WriteLine("The trial period will Start on: "+ currentDate.ToString("dd/MM/yyyy") 
+                + "\n The trial period will end on: " + endDate.ToString("dd/MM/yyyy"));
+
+
+            //task-4---------EASY ------------------------------------------------------------------------
 
 
 
