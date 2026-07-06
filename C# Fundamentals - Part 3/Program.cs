@@ -173,20 +173,50 @@ namespace C__Fundamentals___Part_3
 
 
 
-            // task - 9--------- HARD------------------------------------------------------------------------
+            //// task - 9--------- HARD------------------------------------------------------------------------
 
-            Console.WriteLine("Enter decimal number to round it ");
-            double decNumber = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter decimal number to round it ");
+            //double decNumber = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("the rounding up of " + decNumber +" = " + Math.Ceiling(decNumber));
-            Console.WriteLine("the rounding down of " + decNumber + " = " + Math.Floor(decNumber));
-            Console.WriteLine("the rounding to the nearest whole number  " + decNumber + " = " + Math.Round(decNumber));
-
-
-            // task - 9-------- - HARD------------------------------------------------------------------------
+            //Console.WriteLine("the rounding up of " + decNumber +" = " + Math.Ceiling(decNumber));
+            //Console.WriteLine("the rounding down of " + decNumber + " = " + Math.Floor(decNumber));
+            //Console.WriteLine("the rounding to the nearest whole number  " + decNumber + " = " + Math.Round(decNumber));
 
 
+            //// task - 9-------- - HARD------------------------------------------------------------------------
 
+
+
+             // task - 10-------- - HARD------------------------------------------------------------------------
+           
+            Console.WriteLine("Enter a sentence: ");
+            string Sentence = Console.ReadLine();
+
+
+            Console.Write("Enter a word to search for: ");
+            string word = Console.ReadLine();
+
+            int FirstAppear =Sentence.IndexOf(word);
+            int LastAppear =Sentence.LastIndexOf(word);
+
+
+
+            if (FirstAppear == -1 || LastAppear == -1)
+            {
+                Console.WriteLine("Word not found.");
+            }
+            else
+            {
+                Console.WriteLine("\nThe first occurrence of the word is at index: " + FirstAppear);
+                Console.WriteLine("\nThe Last occurrence of the word is at index:" + LastAppear);
+
+            }
+
+
+
+
+
+            // task - 10-------- - HARD------------------------------------------------------------------------
 
 
 
