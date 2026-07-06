@@ -30,13 +30,13 @@ namespace C__Fundamentals___Part_3
             //double squar = Math.Pow(number, 2);
             //double squareRoot = Math.Sqrt(number);
 
-            
+
             //Console.WriteLine("the square of " + number + " = " + squar);
             //Console.WriteLine("the square root of " + number + " = " + squareRoot);
             ////task-2---------EASY ------------------------------------------------------------------------
 
             ////task-3---------EASY ------------------------------------------------------------------------
-            
+
             //Console.WriteLine("Enter you full name: ");
             //string fullName = Console.ReadLine();
 
@@ -52,7 +52,7 @@ namespace C__Fundamentals___Part_3
             ////task-4---------EASY ------------------------------------------------------------------------
 
 
-           
+
             //Console.WriteLine("Enter the number of days for the trial period: ");
             //int trailDays = int.Parse(Console.ReadLine());
 
@@ -60,31 +60,61 @@ namespace C__Fundamentals___Part_3
             //DateTime currentDate = DateTime.Now;
             //DateTime endDate = currentDate.AddDays(trailDays);
 
-           
+
             //Console.WriteLine("The trial period will Start on: "+ currentDate.ToString("dd/MM/yyyy") 
             //    + "\n The trial period will end on: " + endDate.ToString("dd/MM/yyyy"));
 
 
             ////task-4---------EASY ------------------------------------------------------------------------
 
-            //task-5---------MEDIUM ------------------------------------------------------------------------
-            
-            Console.WriteLine("Enter your Exam score: ");
-            float Score = float.Parse(Console.ReadLine());
+            ////task-5---------MEDIUM ------------------------------------------------------------------------
 
-            double RaundedScore = Math.Round(Score,0);
+            //Console.WriteLine("Enter your Exam score: ");
+            //float Score = float.Parse(Console.ReadLine());
+
+            //double RaundedScore = Math.Round(Score,0);
+
+            //if (RaundedScore >= 60)
+            //{ 
+            //    Console.WriteLine("Congratulations! You passed the exam with a score of " + RaundedScore);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Sorry, you failed the exam with a score of " + RaundedScore);
+            //}
+
+            ////task-5---------MEDIUM ------------------------------------------------------------------------
+
+            //task-6---------MEDIUM ------------------------------------------------------------------------
+           
             
-            if (RaundedScore >= 60)
-            { 
-                Console.WriteLine("Congratulations! You passed the exam with a score of " + RaundedScore);
+            string NotAllowed = "password";
+            Console.WriteLine("Enter the password: ");
+            string Password =Console.ReadLine();
+
+
+            int passLength = Password.Length;
+            if (!Password.ToLower().Contains("password") && passLength >= 8)
+            {
+                Console.WriteLine("Password is strong");
             }
             else
             {
-                Console.WriteLine("Sorry, you failed the exam with a score of " + RaundedScore);
+                Console.WriteLine("Weak password");
+
+                if (Password.Length < 8)
+                {
+                    Console.WriteLine("Reason: Password must be at least 8 characters long.");
+                }
+
+                if (Password.ToLower().Contains("password"))
+                {
+                    Console.WriteLine("Reason: Password must not contain the word \"password\".");
+                }
             }
 
-            //task-5---------MEDIUM ------------------------------------------------------------------------
 
+            //task-6---------MEDIUM ------------------------------------------------------------------------
 
 
 
