@@ -141,39 +141,49 @@ namespace C__Fundamentals___Part_3
 
             // //task-7---------MEDIUM ------------------------------------------------------------------------
 
-            //task-8---------MEDIUM ------------------------------------------------------------------------
-            try 
-            { 
-            Console.WriteLine("enter their membership start date ");
-            DateTime MembershipDate = DateTime.Parse(Console.ReadLine());
+            //   //task-8---------MEDIUM ------------------------------------------------------------------------
+            //   try 
+            //   { 
+            //   Console.WriteLine("enter their membership start date ");
+            //   DateTime MembershipDate = DateTime.Parse(Console.ReadLine());
 
-            Console.WriteLine(MembershipDate);
-            Console.WriteLine("enter the number of valid membership days ");
-            int validDays = int.Parse(Console.ReadLine());
+            //   Console.WriteLine(MembershipDate);
+            //   Console.WriteLine("enter the number of valid membership days ");
+            //   int validDays = int.Parse(Console.ReadLine());
 
-            DateTime ExpirationDate = MembershipDate.AddDays(validDays);
+            //   DateTime ExpirationDate = MembershipDate.AddDays(validDays);
 
-                if (ExpirationDate >= DateTime.Today)
-                {
-                    Console.WriteLine("Active");
-                }
-                else
-                {
-                    Console.WriteLine("Expired");
-                }
+            //       if (ExpirationDate >= DateTime.Today)
+            //       {
+            //           Console.WriteLine("Active");
+            //       }
+            //       else
+            //       {
+            //           Console.WriteLine("Expired");
+            //       }
 
-            }
-        
-         catch
-            { 
-            Console.WriteLine("Invalid input. Please enter a valid date and number of days.");
-            }
+            //   }
 
-            //task-8---------MEDIUM ------------------------------------------------------------------------
+            //catch
+            //   { 
+            //   Console.WriteLine("Invalid input. Please enter a valid date and number of days.");
+            //   }
 
-
+            //   //task-8---------MEDIUM ------------------------------------------------------------------------
 
 
+
+            // task - 9--------- HARD------------------------------------------------------------------------
+
+            Console.WriteLine("Enter decimal number to round it ");
+            double decNumber = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("the rounding up of " + decNumber +" = " + Math.Ceiling(decNumber));
+            Console.WriteLine("the rounding down of " + decNumber + " = " + Math.Floor(decNumber));
+            Console.WriteLine("the rounding to the nearest whole number  " + decNumber + " = " + Math.Round(decNumber));
+
+
+            // task - 9-------- - HARD------------------------------------------------------------------------
 
 
 
