@@ -117,30 +117,59 @@ namespace C__Fundamentals___Part_3
 
             //task - 6-------- - MEDIUM------------------------------------------------------------------------
 
-            //task-7---------MEDIUM ------------------------------------------------------------------------
+            // //task-7---------MEDIUM ------------------------------------------------------------------------
 
-            Console.WriteLine("enter the username: ");
-            string username = Console.ReadLine();
+            // Console.WriteLine("enter the username: ");
+            // string username = Console.ReadLine();
 
-            Console.WriteLine("enter the username again: ");
-            string username2 = Console.ReadLine();
+            // Console.WriteLine("enter the username again: ");
+            // string username2 = Console.ReadLine();
 
-           string trimedusername = username.Trim().ToLower();
-           string trimedusername2 = username2.Trim().ToLower();
+            //string trimedusername = username.Trim().ToLower();
+            //string trimedusername2 = username2.Trim().ToLower();
 
 
-            if (trimedusername == trimedusername2)
-            {
-                Console.WriteLine("Match");
+            // if (trimedusername == trimedusername2)
+            // {
+            //     Console.WriteLine("Match");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("No Match");
+            // }
+
+
+            // //task-7---------MEDIUM ------------------------------------------------------------------------
+
+            //task-8---------MEDIUM ------------------------------------------------------------------------
+            try 
+            { 
+            Console.WriteLine("enter their membership start date ");
+            DateTime MembershipDate = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine(MembershipDate);
+            Console.WriteLine("enter the number of valid membership days ");
+            int validDays = int.Parse(Console.ReadLine());
+
+            DateTime ExpirationDate = MembershipDate.AddDays(validDays);
+
+                if (ExpirationDate >= DateTime.Today)
+                {
+                    Console.WriteLine("Active");
+                }
+                else
+                {
+                    Console.WriteLine("Expired");
+                }
+
             }
-            else
-            {
-                Console.WriteLine("No Match");
+        
+         catch
+            { 
+            Console.WriteLine("Invalid input. Please enter a valid date and number of days.");
             }
 
-
-            //task-7---------MEDIUM ------------------------------------------------------------------------
-
+            //task-8---------MEDIUM ------------------------------------------------------------------------
 
 
 
