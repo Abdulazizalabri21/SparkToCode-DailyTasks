@@ -1,4 +1,6 @@
-﻿namespace C__Fundamentals___Part_3
+﻿using System.ComponentModel;
+
+namespace C__Fundamentals___Part_3
 {
     internal class Program
     {
@@ -19,19 +21,33 @@
 
             ////task-1---------EASY ------------------------------------------------------------------------
 
-            //task-2---------EASY ------------------------------------------------------------------------
+            ////task-2---------EASY ------------------------------------------------------------------------
 
 
-            Console.WriteLine("Enter the number: ");
-            int number = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the number: ");
+            //int number = int.Parse(Console.ReadLine());
 
-            double squar = Math.Pow(number, 2);
-            double squareRoot = Math.Sqrt(number);
+            //double squar = Math.Pow(number, 2);
+            //double squareRoot = Math.Sqrt(number);
 
             
-            Console.WriteLine("the square of " + number + " = " + squar);
-            Console.WriteLine("the square root of " + number + " = " + squareRoot);
-            //task-2---------EASY ------------------------------------------------------------------------
+            //Console.WriteLine("the square of " + number + " = " + squar);
+            //Console.WriteLine("the square root of " + number + " = " + squareRoot);
+            ////task-2---------EASY ------------------------------------------------------------------------
+
+            //task-3---------EASY ------------------------------------------------------------------------
+            
+            Console.WriteLine("Enter you full name: ");
+            string fullName = Console.ReadLine();
+
+            Console.WriteLine("The lower case style of "+ fullName +" => " + fullName.ToLower());
+            Console.WriteLine("The upper case style of " + fullName + " => "+ fullName.ToUpper());
+
+
+            int length =  fullName.Length;
+            Console.WriteLine("The length of "+ fullName +" is "+ length +" characters");
+
+            //task-3---------EASY ------------------------------------------------------------------------
 
 
 
