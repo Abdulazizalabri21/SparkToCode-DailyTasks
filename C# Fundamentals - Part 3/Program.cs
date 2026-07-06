@@ -85,37 +85,61 @@ namespace C__Fundamentals___Part_3
 
             ////task-5---------MEDIUM ------------------------------------------------------------------------
 
+            //task - 6-------- - MEDIUM------------------------------------------------------------------------
+
+
+
+            //string NotAllowed = "password";
+            //Console.WriteLine("Enter the password: ");
+            //string Password = Console.ReadLine();
+
+
+            //int passLength = Password.Length;
+            //if (!Password.ToLower().Contains("password") && passLength >= 8)
+            //{
+            //    Console.WriteLine("Password is strong");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Weak password");
+
+            //    if (Password.Length < 8)
+            //    {
+            //        Console.WriteLine("Reason: Password must be at least 8 characters long.");
+            //    }
+
+            //    if (Password.ToLower().Contains("password"))
+            //    {
+            //        Console.WriteLine("Reason: Password must not contain the word \"password\".");
+            //    }
+            //}
+
+
+            //task - 6-------- - MEDIUM------------------------------------------------------------------------
+
             //task-6---------MEDIUM ------------------------------------------------------------------------
-           
-            
-            string NotAllowed = "password";
-            Console.WriteLine("Enter the password: ");
-            string Password =Console.ReadLine();
+
+            Console.WriteLine("enter the username: ");
+            string username = Console.ReadLine();
+
+            Console.WriteLine("enter the username again: ");
+            string username2 = Console.ReadLine();
+
+           string trimedusername = username.Trim().ToLower();
+           string trimedusername2 = username2.Trim().ToLower();
 
 
-            int passLength = Password.Length;
-            if (!Password.ToLower().Contains("password") && passLength >= 8)
+            if (trimedusername == trimedusername2)
             {
-                Console.WriteLine("Password is strong");
+                Console.WriteLine("Match");
             }
             else
             {
-                Console.WriteLine("Weak password");
-
-                if (Password.Length < 8)
-                {
-                    Console.WriteLine("Reason: Password must be at least 8 characters long.");
-                }
-
-                if (Password.ToLower().Contains("password"))
-                {
-                    Console.WriteLine("Reason: Password must not contain the word \"password\".");
-                }
+                Console.WriteLine("No Match");
             }
 
 
             //task-6---------MEDIUM ------------------------------------------------------------------------
-
 
 
 
