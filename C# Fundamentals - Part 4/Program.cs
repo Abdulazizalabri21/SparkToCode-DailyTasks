@@ -59,66 +59,118 @@ namespace C__Fundamentals___Part_4
 
         }
 
-        static void Main(string[] args)
+        //Task 7 - Grade Letter Function
+
+        public static string GetGradeLetter(int score)
         {
-            /* //Task 1 - Personalized Welcome Function----------
-
-             Console.WriteLine("Enter your name: ");
-             string name = Console.ReadLine();
-             PrintWelcome(name);
-             //Task 1 - Personalized Welcome Function-------
-
-             //Task 2 - Square Number Function-----------
-             Console.WriteLine("Enter the Number: ");
-             int Number = int.Parse(Console.ReadLine());
-             Console.WriteLine("the square =" + SquareNumber(Number));
-
-             //Task 2 - Square Number Function----------
-
-             // Task 3 - Celsius to Fahrenheit Function
-             Console.WriteLine("Enter the Celsius degree: ");
-             double Celsius = double.Parse(Console.ReadLine());
-
-             double ConvertedDegree = CelsiusToFahrenheit(Celsius);
-             Console.WriteLine("The converted degree in Fahrenheit is: " + ConvertedDegree);
-
-             // Task 3 - Celsius to Fahrenheit Function
-
-             // Task 4 - Fixed Menu Display Function
-
-             DisplayMenu(); // clall the DisplayMenu function to show the menu options
-
-             //Task 4 - Fixed Menu Display Function
+          
+                if (score >= 90)
+                {
+                    return "A";
+                }
+                else if (score >= 80)
+                {
+                    return "B";
+                }
+                else if (score >= 70)
+                {
+                    return "C";
+                }
+                else if (score >= 60)
+                {
+                    return "D";
+                }
+                else
+                {
+                    return "F";
+                }
+        }    
 
 
-             //Task 5 - Even or Odd Function
-             Console.WriteLine("Enter the Number: ");
-             int Num = int.Parse(Console.ReadLine());
-
-             bool Result = IsEven(Num);
-             if (Result == true)
-             {
-                 Console.WriteLine("The number is Even");
-             }
-             else
-             {
-                 Console.WriteLine("The number is Odd");
-             }
-                 //Task 5 - Even or Odd Function
-           */
-
-            //Task 6 - Rectangle Area & Perimeter Functions
 
 
-            Console.WriteLine("enter the length:");
-            double length= double.Parse(Console.ReadLine());
+            static void Main(string[] args)
+            {
+            /*          //Task 1 - Personalized Welcome Function----------
 
-            Console.WriteLine("Enter the width");
-            double width = double.Parse(Console.ReadLine());
+                      Console.WriteLine("Enter your name: ");
+                      string name = Console.ReadLine();
+                      PrintWelcome(name);
+                      //Task 1 - Personalized Welcome Function-------
 
-            Console.WriteLine("the area = "+CalculateArea(length , width));
-            Console.WriteLine("the Perimeter = " + CalculatePerimeter(length, width));
+                      //Task 2 - Square Number Function-----------
+                      Console.WriteLine("Enter the Number: ");
+                      int Number = int.Parse(Console.ReadLine());
+                      Console.WriteLine("the square =" + SquareNumber(Number));
+
+                      //Task 2 - Square Number Function----------
+
+                      // Task 3 - Celsius to Fahrenheit Function
+                      Console.WriteLine("Enter the Celsius degree: ");
+                      double Celsius = double.Parse(Console.ReadLine());
+
+                      double ConvertedDegree = CelsiusToFahrenheit(Celsius);
+                      Console.WriteLine("The converted degree in Fahrenheit is: " + ConvertedDegree);
+
+                      // Task 3 - Celsius to Fahrenheit Function
+
+                      // Task 4 - Fixed Menu Display Function
+
+                      DisplayMenu(); // clall the DisplayMenu function to show the menu options
+
+                      //Task 4 - Fixed Menu Display Function
+
+
+                      //Task 5 - Even or Odd Function
+                      Console.WriteLine("Enter the Number: ");
+                      int Num = int.Parse(Console.ReadLine());
+
+                      bool Result = IsEven(Num);
+                      if (Result == true)
+                      {
+                          Console.WriteLine("The number is Even");
+                      }
+                      else
+                      {
+                          Console.WriteLine("The number is Odd");
+                      }
+                          //Task 5 - Even or Odd Function
+
+
+                     //Task 6 - Rectangle Area & Perimeter Functions
+
+
+                     Console.WriteLine("enter the length:");
+                     double length= double.Parse(Console.ReadLine());
+
+                     Console.WriteLine("Enter the width");
+                     double width = double.Parse(Console.ReadLine());
+
+                     Console.WriteLine("the area = "+CalculateArea(length , width));
+                     Console.WriteLine("the Perimeter = " + CalculatePerimeter(length, width));
+
+                    //Task 6 - Rectangle Area & Perimeter Functions
+
+
+         */
+
+
+            //Task 7 - Grade Letter Function
+
+            Console.WriteLine("Enter your exam score: ");
+                int score = int.Parse(Console.ReadLine());
+
+
+                Console.WriteLine("Your Grade => " + (GetGradeLetter(score)));
+
+            //Task 7 - Grade Letter Function
+
+
+
+
+
 
         }
+
     }
 }
