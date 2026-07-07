@@ -21,6 +21,13 @@ namespace C__Fundamentals___Part_4
         }
 
 
+        // Task 3 - Celsius to Fahrenheit Function
+
+        public static double CelsiusToFahrenheit(double celsius)
+        {
+            double F = (celsius * 9 / 5) + 32;
+            return F;
+        }
 
         static void Main(string[] args)
         {
@@ -37,6 +44,15 @@ namespace C__Fundamentals___Part_4
             Console.WriteLine("the square =" + SquareNumber(Number));
 
             //Task 2 - Square Number Function----------
+
+            // Task 3 - Celsius to Fahrenheit Function
+            Console.WriteLine("Enter the Celsius degree: ");
+            double Celsius = double.Parse(Console.ReadLine());
+
+            double ConvertedDegree = CelsiusToFahrenheit(Celsius);
+            Console.WriteLine("The converted degree in Fahrenheit is: " + ConvertedDegree);
+
+            // Task 3 - Celsius to Fahrenheit Function
 
 
 
