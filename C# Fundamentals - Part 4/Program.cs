@@ -84,9 +84,17 @@ namespace C__Fundamentals___Part_4
                 {
                     return "F";
                 }
-        }    
+        }
 
-
+        //Task 8 - Countdown Function
+        public static void Countdown(int start)
+        {
+            for (int i = start; i >= 1; i--)
+            {
+                Console.WriteLine(i);
+               
+            }
+        }
 
 
             static void Main(string[] args)
@@ -152,20 +160,30 @@ namespace C__Fundamentals___Part_4
                     //Task 6 - Rectangle Area & Perimeter Functions
 
 
-         */
-
+         
 
             //Task 7 - Grade Letter Function
 
             Console.WriteLine("Enter your exam score: ");
                 int score = int.Parse(Console.ReadLine());
 
-
                 Console.WriteLine("Your Grade => " + (GetGradeLetter(score)));
 
             //Task 7 - Grade Letter Function
+*/
 
 
+
+            //Task 8 - Countdown Function
+
+            Console.WriteLine("Enter the starting number for countdown: ");
+            int StartingNumber = int.Parse(Console.ReadLine());
+
+           Program.Countdown(StartingNumber);
+
+
+
+            //Task 8 - Countdown Function
 
 
 
