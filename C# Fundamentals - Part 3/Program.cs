@@ -221,53 +221,123 @@ namespace C__Fundamentals___Part_3
 
 
 
-           
 
 
 
-           
-                
 
-                Random rnd = new Random();
-                int OTP = rnd.Next(1000, 10000);
-                int ReadOtp = 0;
-                Console.WriteLine("Your OTP is: " +OTP);
 
-            for (int i = 0; i < 3; i++)
+
+
+            //    Random rnd = new Random();
+            //    int OTP = rnd.Next(1000, 10000);
+            //    int ReadOtp = 0;
+            //    Console.WriteLine("Your OTP is: " +OTP);
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    try
+            //    { 
+            //        Console.WriteLine("enter the OTP: ");
+            //        ReadOtp = int.Parse(Console.ReadLine());
+            //       if (ReadOtp == OTP)
+            //       {
+            //        Console.WriteLine("the OTP is correct");
+
+            //            break;
+            //        }
+            //       else
+            //       {
+            //        Console.WriteLine("the OTP is Wrong");
+
+            //        if (i>=2)
+            //        {
+            //                Console.WriteLine("You have entered an invalid OTP 3 times. Please try again later.");
+            //        }
+
+            //        }
+            //    }
+
+
+            //    catch 
+            //    {
+
+            //            Console.WriteLine("Invalid input. Please enter a valid OTP.");
+            //    }
+
+            //}
+
+
+            //// task - 11------- - ADVANCED------------------------------------------------------------------------
+
+            // task - 12------- - ADVANCED------------------------------------------------------------------------
+            //try
+            //{
+            //    Console.WriteLine("Enter your birthdate  ");
+            //    DateTime birthDate = DateTime.Parse(Console.ReadLine());
+
+
+            //    int age = DateTime.Today.Year - birthDate.Year;
+
+            //    if (age < DateTime.Today.Year)
+            //    {  
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Age: " + age + " years");
+            //        Console.WriteLine("Day of Birth: " + birthDate.DayOfWeek);
+            //    }
+
+            //}
+            //catch
+            //{
+            //    Console.WriteLine("Invalid date");
+
+            //}
+
+
+
+
+
+
+
+            // task - 12------- - ADVANCED------------------------------------------------------------------------
+
+
+
+
+
+            try
             {
-                try
-                { 
-                    Console.WriteLine("enter the OTP: ");
-                    ReadOtp = int.Parse(Console.ReadLine());
-                   if (ReadOtp == OTP)
-                   {
-                    Console.WriteLine("the OTP is correct");
-                 
-                        break;
-                    }
-                   else
-                   {
-                    Console.WriteLine("the OTP is Wrong");
+                Console.Write("Enter your date of birth (yyyy-MM-dd): ");
+                DateTime birthDate = DateTime.Parse(Console.ReadLine());
 
-                    if (i>=2)
-                    {
-                            Console.WriteLine("You have entered an invalid OTP 3 times. Please try again later.");
-                    }
+                int age = DateTime.Today.Year - birthDate.Year;
 
-                    }
-                }
-
-
-                catch 
+                if (DateTime.Today.Month == birthDate.Month && DateTime.Today.Day < birthDate.Day)
                 {
-                   
-                        Console.WriteLine("Invalid input. Please enter a valid OTP.");
+                    Console.WriteLine(" You are not born yet.");
+
                 }
-               
+
+                Console.WriteLine("Age: " + age + " years");
+                Console.WriteLine("Day of Birth: " + birthDate.DayOfWeek);
             }
-            
-       
-            // task - 11------- - ADVANCED------------------------------------------------------------------------
+            catch
+            {
+                Console.WriteLine("Invalid date.");
+            }
+
+
+
+
+
+
+
+
+
+
+
 
 
         }
