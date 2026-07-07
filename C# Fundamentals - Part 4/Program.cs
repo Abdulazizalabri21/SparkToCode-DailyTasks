@@ -46,59 +46,79 @@ namespace C__Fundamentals___Part_4
             return (number % 2 == 0);
         }
 
+        //Task 6 - Rectangle Area & Perimeter Functions
+
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
+        }
+
+        public static double CalculatePerimeter(double length, double width)
+        {
+            return 2 * (length + width);
+
+        }
 
         static void Main(string[] args)
         {
-           /* //Task 1 - Personalized Welcome Function----------
+            /* //Task 1 - Personalized Welcome Function----------
 
-            Console.WriteLine("Enter your name: ");
-            string name = Console.ReadLine();
-            PrintWelcome(name);
-            //Task 1 - Personalized Welcome Function-------
+             Console.WriteLine("Enter your name: ");
+             string name = Console.ReadLine();
+             PrintWelcome(name);
+             //Task 1 - Personalized Welcome Function-------
 
-            //Task 2 - Square Number Function-----------
-            Console.WriteLine("Enter the Number: ");
-            int Number = int.Parse(Console.ReadLine());
-            Console.WriteLine("the square =" + SquareNumber(Number));
+             //Task 2 - Square Number Function-----------
+             Console.WriteLine("Enter the Number: ");
+             int Number = int.Parse(Console.ReadLine());
+             Console.WriteLine("the square =" + SquareNumber(Number));
 
-            //Task 2 - Square Number Function----------
+             //Task 2 - Square Number Function----------
 
-            // Task 3 - Celsius to Fahrenheit Function
-            Console.WriteLine("Enter the Celsius degree: ");
-            double Celsius = double.Parse(Console.ReadLine());
+             // Task 3 - Celsius to Fahrenheit Function
+             Console.WriteLine("Enter the Celsius degree: ");
+             double Celsius = double.Parse(Console.ReadLine());
 
-            double ConvertedDegree = CelsiusToFahrenheit(Celsius);
-            Console.WriteLine("The converted degree in Fahrenheit is: " + ConvertedDegree);
+             double ConvertedDegree = CelsiusToFahrenheit(Celsius);
+             Console.WriteLine("The converted degree in Fahrenheit is: " + ConvertedDegree);
 
-            // Task 3 - Celsius to Fahrenheit Function
+             // Task 3 - Celsius to Fahrenheit Function
 
-            // Task 4 - Fixed Menu Display Function
+             // Task 4 - Fixed Menu Display Function
 
-            DisplayMenu(); // clall the DisplayMenu function to show the menu options
+             DisplayMenu(); // clall the DisplayMenu function to show the menu options
 
-            //Task 4 - Fixed Menu Display Function
+             //Task 4 - Fixed Menu Display Function
+
+
+             //Task 5 - Even or Odd Function
+             Console.WriteLine("Enter the Number: ");
+             int Num = int.Parse(Console.ReadLine());
+
+             bool Result = IsEven(Num);
+             if (Result == true)
+             {
+                 Console.WriteLine("The number is Even");
+             }
+             else
+             {
+                 Console.WriteLine("The number is Odd");
+             }
+                 //Task 5 - Even or Odd Function
            */
 
-            //Task 5 - Even or Odd Function
-            Console.WriteLine("Enter the Number: ");
-            int Num = int.Parse(Console.ReadLine());
-
-            bool Result = IsEven(Num);
-            if (Result == true)
-            {
-                Console.WriteLine("The number is Even");
-            }
-            else
-            {
-                Console.WriteLine("The number is Odd");
-            }
-                //Task 5 - Even or Odd Function
+            //Task 6 - Rectangle Area & Perimeter Functions
 
 
+            Console.WriteLine("enter the length:");
+            double length= double.Parse(Console.ReadLine());
 
+            Console.WriteLine("Enter the width");
+            double width = double.Parse(Console.ReadLine());
 
+            Console.WriteLine("the area = "+CalculateArea(length , width));
+            Console.WriteLine("the Perimeter = " + CalculatePerimeter(length, width));
 
-
-            }
+        }
     }
 }
