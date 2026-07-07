@@ -39,9 +39,17 @@ namespace C__Fundamentals___Part_4
             Console.WriteLine("4. Exit");
         }
 
+        //Task 5 - Even or Odd Function
+        public static bool IsEven(int number)
+
+        {
+            return (number % 2 == 0);
+        }
+
+
         static void Main(string[] args)
         {
-            //Task 1 - Personalized Welcome Function----------
+           /* //Task 1 - Personalized Welcome Function----------
 
             Console.WriteLine("Enter your name: ");
             string name = Console.ReadLine();
@@ -69,9 +77,28 @@ namespace C__Fundamentals___Part_4
             DisplayMenu(); // clall the DisplayMenu function to show the menu options
 
             //Task 4 - Fixed Menu Display Function
+           */
+
+            //Task 5 - Even or Odd Function
+            Console.WriteLine("Enter the Number: ");
+            int Num = int.Parse(Console.ReadLine());
+
+            bool Result = IsEven(Num);
+            if (Result == true)
+            {
+                Console.WriteLine("The number is Even");
+            }
+            else
+            {
+                Console.WriteLine("The number is Odd");
+            }
+                //Task 5 - Even or Odd Function
 
 
 
-        }
+
+
+
+            }
     }
 }
