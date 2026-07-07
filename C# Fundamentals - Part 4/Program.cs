@@ -96,8 +96,27 @@ namespace C__Fundamentals___Part_4
             }
         }
 
+        //Task 9 - Overloaded Multiply Function
+         
+        public static int Multiply(int a, int b)// --1
+        {
+            return a * b;
+        }
 
-            static void Main(string[] args)
+        public static double Multiply(double a, double b)//--2
+        {
+            return a * b;
+        }
+        public static int Multiply(int a, int b, int c)//--3
+        {
+            return a * b * c;
+        }
+
+
+
+
+
+        static void Main(string[] args)
             {
             /*          //Task 1 - Personalized Welcome Function----------
 
@@ -170,7 +189,6 @@ namespace C__Fundamentals___Part_4
                 Console.WriteLine("Your Grade => " + (GetGradeLetter(score)));
 
             //Task 7 - Grade Letter Function
-*/
 
 
 
@@ -185,10 +203,47 @@ namespace C__Fundamentals___Part_4
 
             //Task 8 - Countdown Function
 
+*/
 
 
 
-        }
+
+            //Task 9 - Overloaded Multiply Function
+
+            Console.WriteLine("Multiply(int, int) = " + Multiply(1, 2));
+            Console.WriteLine("Multiply(double, double) = " +Multiply(2.5, 3.3));
+            Console.WriteLine("Multiply(int, int, int) = " +   Multiply (1,6,5));
+
+  
+            //Task 9 - Overloaded Multiply Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
     }
 }
