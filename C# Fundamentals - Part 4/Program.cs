@@ -123,6 +123,46 @@ namespace C__Fundamentals___Part_4
          return Math.Pow( a , 2);        
         }
 
+        //Task 11 - Function-Based Calculator
+
+        static double Add(double num1, double num2)
+        {
+            return (num1 + num2);
+        }
+
+        static double Subtract(double num1, double num2)
+        {
+            return num1 - num2;
+        }
+
+        static double MultiplyNumbers(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+
+        static double DivideNumbers(double num1, double num2) 
+        {
+            try
+            {
+                if (num2 == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+
+                return num1 / num2;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+                return 0;
+            }
+            
+        }
+
+        static void DisplayResult(string operation, double result)
+        {
+            Console.WriteLine(operation + " Result = " + result);
+        }
 
 
 
@@ -234,10 +274,62 @@ namespace C__Fundamentals___Part_4
             Console.WriteLine(  Area(5, 10)); // for rectangle
             Console.WriteLine(Area(10));      // for square
 
-
-
             //Task 10 - Overloaded Area Calculator
 
+
+
+            //Task 11 - Function - Based Calculator
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("\nCalculator Menu");
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. Subtract");
+                Console.WriteLine("3. Multiply");
+                Console.WriteLine("4. Divide");
+                Console.WriteLine("5. Exit");
+
+                Console.Write("Choose an option: ");
+                int choice = int.Parse(Console.ReadLine());
+
+                if (choice == 5)
+                {
+                    exit = true;
+                    break;
+                }
+
+                Console.Write("Enter the first number: ");
+                double num1 = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter the second number: ");
+                double num2 = double.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        DisplayResult("Addition", Add(num1, num2));
+                        break;
+
+                    case 2:
+                        DisplayResult("Subtraction", Subtract(num1, num2));
+                        break;
+
+                    case 3:
+                        DisplayResult("Multiplication", MultiplyNumbers(num1, num2));
+                        break;
+
+                    case 4:
+                        DisplayResult("Division", DivideNumbers(num1, num2));
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+            }
+
+
+            //Task 11 - Function - Based Calculator
 
 
 
