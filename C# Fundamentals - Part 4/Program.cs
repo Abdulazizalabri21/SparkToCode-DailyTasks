@@ -29,6 +29,16 @@ namespace C__Fundamentals___Part_4
             return F;
         }
 
+
+        // Task 4 - Fixed Menu Display Function
+
+        public static void DisplayMenu()
+        {
+            Console.WriteLine("1. Start");
+            Console.WriteLine("2. Help");
+            Console.WriteLine("4. Exit");
+        }
+
         static void Main(string[] args)
         {
             //Task 1 - Personalized Welcome Function----------
@@ -54,6 +64,11 @@ namespace C__Fundamentals___Part_4
 
             // Task 3 - Celsius to Fahrenheit Function
 
+            // Task 4 - Fixed Menu Display Function
+
+            DisplayMenu(); // clall the DisplayMenu function to show the menu options
+
+            //Task 4 - Fixed Menu Display Function
 
 
 
