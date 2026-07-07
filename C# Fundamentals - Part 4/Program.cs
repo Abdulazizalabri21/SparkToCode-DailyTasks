@@ -13,6 +13,14 @@ namespace C__Fundamentals___Part_4
             Console.WriteLine($"Welcome Mr/Ms "+ name);
         }
 
+        // Task 2 - Square Number Function
+
+        public static int SquareNumber(int number)
+        {
+            return number * number;
+        }
+
+
 
         static void Main(string[] args)
         {
@@ -22,6 +30,13 @@ namespace C__Fundamentals___Part_4
             string name = Console.ReadLine();
             PrintWelcome(name);
             //Task 1 - Personalized Welcome Function-------
+
+            //Task 2 - Square Number Function-----------
+            Console.WriteLine("Enter the Number: ");
+            int Number = int.Parse(Console.ReadLine());
+            Console.WriteLine("the square =" + SquareNumber(Number));
+
+            //Task 2 - Square Number Function----------
 
 
 
