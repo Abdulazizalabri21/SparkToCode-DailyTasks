@@ -112,6 +112,16 @@ namespace C__Fundamentals___Part_4
             return a * b * c;
         }
 
+        //Task 10 - Overloaded Area Calculator
+
+        public static double Area(double length, double width) // for rectangle
+        {
+            return length * width;
+        }
+        public static double Area(double a) // for square
+        {
+         return Math.Pow( a , 2);        
+        }
 
 
 
@@ -203,7 +213,7 @@ namespace C__Fundamentals___Part_4
 
             //Task 8 - Countdown Function
 
-*/
+
 
 
 
@@ -214,8 +224,19 @@ namespace C__Fundamentals___Part_4
             Console.WriteLine("Multiply(double, double) = " +Multiply(2.5, 3.3));
             Console.WriteLine("Multiply(int, int, int) = " +   Multiply (1,6,5));
 
-  
+
             //Task 9 - Overloaded Multiply Function
+*/
+
+            //Task 10 - Overloaded Area Calculator
+
+
+            Console.WriteLine(  Area(5, 10)); // for rectangle
+            Console.WriteLine(Area(10));      // for square
+
+
+
+            //Task 10 - Overloaded Area Calculator
 
 
 
@@ -241,9 +262,7 @@ namespace C__Fundamentals___Part_4
 
 
 
-
-
-    }
+        }
 
     }
 }
