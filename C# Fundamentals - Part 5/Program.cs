@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace C__Fundamentals___Part_5
@@ -17,6 +18,24 @@ namespace C__Fundamentals___Part_5
         public static int FindFirstFailing(List<int> grades)
         {
             return grades.Find(x => x < 60);
+        }
+
+
+        static Queue<string> RemoveJob(Queue<string> jobs, string jobToRemove)
+        {
+            Queue<string> updatedQueue = new Queue<string>();
+
+            while (jobs.Count > 0)
+            {
+                string job = jobs.Dequeue();
+
+                if (job != jobToRemove)
+                {
+                    updatedQueue.Enqueue(job);
+                }
+            }
+
+            return updatedQueue;
         }
         static void Main(string[] args)
         {
@@ -246,7 +265,7 @@ namespace C__Fundamentals___Part_5
 
             //Task 8 - Undo Last Action
 
-*/
+
             //Task 9 - Grade Analyzer with Functions
 
             try
@@ -282,7 +301,7 @@ namespace C__Fundamentals___Part_5
                 Console.WriteLine("First Failing Grade: " + firstFailing);
             }
 
-}
+              }
 
 
             catch
@@ -292,7 +311,49 @@ namespace C__Fundamentals___Part_5
 
             //Task 9 - Grade Analyzer with Functions
 
+*/
+            // Task 10 - Print Queue Manager
 
+
+
+
+            Queue<string> printQueue = new Queue<string>();
+
+            string job = "";
+
+            while (job.ToLower() != "done")
+            {
+                Console.Write("Enter a print job (or type 'done' to finish): ");
+                job = Console.ReadLine();
+
+                if (job.ToLower() != "done")
+                {
+                    printQueue.Enqueue(job);
+                }
+            }
+
+            Console.WriteLine("\nPrint Queue:");
+            foreach (string item in printQueue)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.Write("\nEnter the job to cancel: ");
+            string cancelJob = Console.ReadLine();
+
+            printQueue = RemoveJob(printQueue, cancelJob);
+
+            Console.WriteLine("\nUpdated Print Queue:");
+            foreach (string item in printQueue)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+
+
+            // Task 10 - Print Queue Manager
 
 
 
