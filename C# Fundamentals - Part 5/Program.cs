@@ -24,7 +24,7 @@
 
 
             //Task 1 - Fixed Grades Array
-            */
+            
 
             List<string> ToDoList = new List<string>();
             Console.WriteLine("Enter your tasks for today: ");
@@ -45,17 +45,25 @@
             }
             Console.WriteLine("------------------ your tasks-------------------- ");
 
-            //Task 2 - Dynamic To - Do List
+*/
+            //Task 3 - Browsing History Stack
+
+             Stack <string> browserpagehistory = new Stack<string>();
+             Console.WriteLine("Enter the pages you visited today: ");
+
+            for (int i = 0; i < 3; i++)
+            {
+               
+                browserpagehistory.Push(Console.ReadLine());
+            }
+          
+            browserpagehistory.Pop();  // sumilating the user going back to the last page they visited
+
+            Console.WriteLine("The last page you visited is: " + browserpagehistory.Peek());
 
 
+            //Task 3 - Browsing History Stack
 
-
-
-
-
-
-
-            //Task 2 - Dynamic To - Do List
 
 
 
