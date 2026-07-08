@@ -114,7 +114,7 @@ namespace C__Fundamentals___Part_5
             Console.WriteLine("The lowest grade is: " + grades[0]);
             //Task 5 - Array Grade Range
 
-*/
+
 
                 //Task 6 - Filtered Shopping List
 
@@ -167,8 +167,31 @@ namespace C__Fundamentals___Part_5
             }
             //Task 6 - Filtered Shopping List
 
+*/
+           // Task 7 - High Score Podium
 
+
+            List<int> score = new List<int>();
+
+            Console.WriteLine("Enter the scores of the games: ");
+
+            for (int i = 0; i < 5; i++) 
+            {
+                score.Add(int.Parse(Console.ReadLine()));
+
+            }
+
+            score.Sort();
+            score.Reverse();
+   
+               Console.WriteLine("The top 3 scors: ");
+               Console.WriteLine("1st place: " + score[0]);
+               Console.WriteLine("2nd place: " + score[1]);
+               Console.WriteLine("3rd place: " + score[2]);
             
+            //Task 7 - High Score Podium
+
+
         }
     }
 }
