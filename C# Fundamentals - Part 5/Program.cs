@@ -65,7 +65,7 @@ namespace C__Fundamentals___Part_5
 
 
             //Task 3 - Browsing History Stack
-            */
+            
 
             //Task 4 - Customer Service Queue
 
@@ -89,8 +89,30 @@ namespace C__Fundamentals___Part_5
             Console.WriteLine("\nThe next customer in line is: " + nextCustomer);
 
             //Task 4 - Customer Service Queue
+*/
 
+            //Task 5 - Array Grade Range
 
+            double[] grades = new double[5];
+            Console.WriteLine("Enter  the grades: ");
+
+            for (int i = 0; i < grades.Length; i++)
+            {
+                grades[i] = double.Parse(Console.ReadLine());
+            }
+
+            Array.Sort(grades);
+
+            double sum = 0;
+            for (int i = 0; i < grades.Length; i++)
+            {
+                sum += grades[i];
+            }
+            Console.WriteLine("The grades results : ");
+            Console.WriteLine("The average grade is: " + (sum / grades.Length));
+            Console.WriteLine("The highest grade is: " + grades[grades.Length - 1]);
+            Console.WriteLine("The lowest grade is: " + grades[0]);
+            //Task 5 - Array Grade Range
 
 
         }
