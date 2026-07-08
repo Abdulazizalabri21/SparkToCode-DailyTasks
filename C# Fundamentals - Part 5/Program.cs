@@ -1,4 +1,6 @@
-﻿namespace C__Fundamentals___Part_5
+﻿using System.Collections;
+
+namespace C__Fundamentals___Part_5
 {
     internal class Program
     {
@@ -45,7 +47,7 @@
             }
             Console.WriteLine("------------------ your tasks-------------------- ");
 
-*/
+
             //Task 3 - Browsing History Stack
 
              Stack <string> browserpagehistory = new Stack<string>();
@@ -63,7 +65,30 @@
 
 
             //Task 3 - Browsing History Stack
+            */
 
+            //Task 4 - Customer Service Queue
+
+            string CustomerL;
+            Queue<string> customersLine = new Queue<string>();
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Enter Your Name");
+                customersLine.Enqueue(Console.ReadLine());
+            }
+
+            customersLine.Peek();
+            Console.WriteLine("\nThe first customer in line is: " + customersLine.Peek());
+
+            string servedCustomer = customersLine.Dequeue();
+
+      
+            Console.WriteLine("\nCustomer served: " + servedCustomer);
+            
+            string nextCustomer = customersLine.Peek();
+            Console.WriteLine("\nThe next customer in line is: " + nextCustomer);
+
+            //Task 4 - Customer Service Queue
 
 
 
