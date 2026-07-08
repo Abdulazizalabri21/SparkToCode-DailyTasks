@@ -1,9 +1,23 @@
 ﻿using System.Collections;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace C__Fundamentals___Part_5
 {
     internal class Program
     {
+
+
+        public static double CalculateAverage(List<int> grades)
+
+        {
+            return grades.Average();
+        }
+
+
+        public static int FindFirstFailing(List<int> grades)
+        {
+            return grades.Find(x => x < 60);
+        }
         static void Main(string[] args)
         {
             //Task 1 - Fixed Grades Array
@@ -190,7 +204,7 @@ namespace C__Fundamentals___Part_5
                Console.WriteLine("3rd place: " + score[2]);
             
             //Task 7 - High Score Podium
-*/
+
 
 
             //Task 8 - Undo Last Action
@@ -231,6 +245,65 @@ namespace C__Fundamentals___Part_5
             }
 
             //Task 8 - Undo Last Action
+
+*/
+            //Task 9 - Grade Analyzer with Functions
+
+            try
+            {
+
+                List<int> grades = new List<int>();
+
+                Console.WriteLine("Enter the numbers of the grades you want to write: ");
+                int num = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < num; i++)
+                {
+
+                    Console.Write("Enter grade " + (i + 1) + ": ");
+                    grades.Add(int.Parse(Console.ReadLine()));
+                }
+
+            
+            
+
+
+            double average = CalculateAverage(grades);
+            int firstFailing = FindFirstFailing(grades);
+
+            Console.WriteLine("\nAverage Grade: " + average);
+
+            if (firstFailing == 0)
+            {
+                Console.WriteLine("No failing grades were found.");
+            }
+            else
+            {
+                Console.WriteLine("First Failing Grade: " + firstFailing);
+            }
+
+}
+
+
+            catch
+            {
+                Console.WriteLine("only numbers allowed to enter!!");
+            }
+
+            //Task 9 - Grade Analyzer with Functions
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
