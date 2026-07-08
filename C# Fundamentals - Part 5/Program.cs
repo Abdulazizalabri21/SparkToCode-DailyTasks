@@ -89,7 +89,7 @@ namespace C__Fundamentals___Part_5
             Console.WriteLine("\nThe next customer in line is: " + nextCustomer);
 
             //Task 4 - Customer Service Queue
-*/
+
 
             //Task 5 - Array Grade Range
 
@@ -114,7 +114,61 @@ namespace C__Fundamentals___Part_5
             Console.WriteLine("The lowest grade is: " + grades[0]);
             //Task 5 - Array Grade Range
 
+*/
 
+                //Task 6 - Filtered Shopping List
+
+            List<string> Shoppinglist = new List<string>();
+
+            string input="";
+            
+           
+
+            while (input.ToLower() !="done")
+            {
+                Console.Write("Enter the item you want to take or ('done' to finsh): ");
+                input = Console.ReadLine();
+                if (input.ToLower() != "done") 
+                {
+                
+                Shoppinglist.Add(input);
+                }
+            }
+
+
+
+            Console.WriteLine("\nShopping List:");
+
+            if (Shoppinglist.Count > 0)
+            {
+                foreach (string items in Shoppinglist)
+                {
+                    Console.WriteLine("==> " + items);
+                }
+            }
+            
+
+            if (Shoppinglist.Count > 0)
+            {
+                Console.WriteLine("\nEnter the item you want to remove ");
+                string Removinput = Console.ReadLine().ToLower();
+                Shoppinglist.Remove(Removinput);
+
+            }
+           
+
+            Console.WriteLine("\nFinal Shopping List:");
+            if (Shoppinglist.Count > 0)
+            {
+                foreach (string items in Shoppinglist)
+                {
+                    Console.WriteLine("==> " + items);
+                }
+            }
+            //Task 6 - Filtered Shopping List
+
+
+            
         }
     }
 }
