@@ -167,7 +167,7 @@ namespace C__Fundamentals___Part_5
             }
             //Task 6 - Filtered Shopping List
 
-*/
+
            // Task 7 - High Score Podium
 
 
@@ -190,6 +190,58 @@ namespace C__Fundamentals___Part_5
                Console.WriteLine("3rd place: " + score[2]);
             
             //Task 7 - High Score Podium
+*/
+
+
+            //Task 8 - Undo Last Action
+
+            Stack <string> undo = new Stack<string>();
+
+            string Imput = "";
+
+            while (Imput.ToLower() != "stop")
+            {
+                Console.Write("Enter an action (or type 'stop' to finish): ");
+                Imput= Console.ReadLine();
+                if (Imput.ToLower() != "stop")
+                {
+                    undo.Push(Imput);
+                }
+
+            }
+
+
+
+           
+            Console.WriteLine("\nUndo 1: " + undo.Pop());
+           
+            Console.WriteLine("Undo 2: " + undo.Pop());
+
+            Console.WriteLine("\nRemaining Actions:");
+            if (undo.Count > 0)
+            {
+                foreach (string item in undo)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No thing remainig in the list");
+            }
+
+            //Task 8 - Undo Last Action
+
+
+
+
+
+
+
+
+
+
+
 
 
         }
