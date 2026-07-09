@@ -93,7 +93,52 @@ namespace C__Fundamentals___Mini_Compound_Project
         }
 
 
+        //Service 3 - Withdraw Money
 
+        public static void WithdrawMoney()
+        {
+            Console.Write("Enter account number: ");
+            int accountNumber = int.Parse(Console.ReadLine());
+
+            int index = accountNumbers.IndexOf(accountNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.Write("Enter Withdraw amount: ");
+
+            double amount;
+
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid amount.");
+                return;
+            }
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Withdrawal amount must be more than zero.");
+                return;
+            }
+
+            if (balances[index] < amount)
+            {
+                Console.WriteLine("Withdrawal amount not available.");
+                return;
+            }
+
+            balances[index] -= amount;
+
+            Console.WriteLine("Withdrawal successful.");
+            Console.WriteLine("Updated balance: " + balances[index]);
+        }
 
 
 
@@ -142,7 +187,7 @@ namespace C__Fundamentals___Mini_Compound_Project
 
                         break;
                     case 3:
-                       
+                        WithdrawMoney();
                         break;
                     case 4:
                         //ShowBalance();
