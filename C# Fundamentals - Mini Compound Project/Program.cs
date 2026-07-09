@@ -140,9 +140,38 @@ namespace C__Fundamentals___Mini_Compound_Project
             Console.WriteLine("Updated balance: " + balances[index]);
         }
 
+        //Service 4 - Show Balance
 
 
+        public static void ShowBalance()
+        {
+            Console.Write("Enter account number: ");
 
+            int accountNumber;
+
+            try
+            {
+                accountNumber = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid account number.");
+                return;
+            }
+
+            int index = accountNumbers.IndexOf(accountNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.WriteLine("\nAccount Details");
+            Console.WriteLine("Customer Name : " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Balance       : " + balances[index] + " OMR");
+        }
 
 
 
@@ -190,7 +219,7 @@ namespace C__Fundamentals___Mini_Compound_Project
                         WithdrawMoney();
                         break;
                     case 4:
-                        //ShowBalance();
+                        ShowBalance();
                         break;
                     case 5:
                         //TransferAmount();
