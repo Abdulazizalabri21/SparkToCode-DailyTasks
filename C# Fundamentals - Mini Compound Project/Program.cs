@@ -271,8 +271,48 @@ namespace C__Fundamentals___Mini_Compound_Project
                 Console.WriteLine("---------------------------------------------");
             }
         }
-       // 
-     
+
+        // ---
+        public static void ChangeAccountName()
+        {
+            Console.Write("Enter account number: ");
+
+            int accountNumber;
+
+            try
+            {
+                accountNumber = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid account number.");
+                return;
+            }
+
+            int index = accountNumbers.IndexOf(accountNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            Console.Write("Enter new customer name: ");
+            string newName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                Console.WriteLine("you can not keep the name empty.");
+                return;
+            }
+
+            customerNames[index] = newName;
+
+            Console.WriteLine("Customer name updated successfully.");
+            Console.WriteLine("Account Number : " + accountNumbers[index]);
+            Console.WriteLine("Customer Name  : " + customerNames[index]);
+            Console.WriteLine("Balance        : " + balances[index] + " OMR");
+        }
         static void Main(string[] args)
         {
 
@@ -326,7 +366,7 @@ namespace C__Fundamentals___Mini_Compound_Project
                          ListAllAccounts();
                         break;
                     case 7:
-                        // ChangeAccountName
+                        ChangeAccountName();
                         break;
                     case 8:
                         exitApp = true;
