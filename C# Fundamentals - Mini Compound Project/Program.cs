@@ -250,6 +250,29 @@ namespace C__Fundamentals___Mini_Compound_Project
             Console.WriteLine("Sender Balance  : " + balances[senderIndex] + " OMR");
             Console.WriteLine("Receiver Balance: " + balances[receiverIndex] + " OMR");
         }
+
+        //--service 6 -List All Accounts
+        public static void ListAllAccounts()
+        {
+            if (accountNumbers.Count == 0)
+            {
+                Console.WriteLine("No accounts found.");
+                return;
+            }
+
+            Console.WriteLine("\n===== All Accounts =====");
+
+            for (int i = 0; i < accountNumbers.Count; i++)
+            {
+                Console.WriteLine("Account " + (i + 1));
+                Console.WriteLine("Customer Name : " + customerNames[i]);
+                Console.WriteLine("Account Number: " + accountNumbers[i]);
+                Console.WriteLine("Balance       : " + balances[i] + " OMR");
+                Console.WriteLine("---------------------------------------------");
+            }
+        }
+       // 
+     
         static void Main(string[] args)
         {
 
@@ -263,8 +286,9 @@ namespace C__Fundamentals___Mini_Compound_Project
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. Account Information");
-                Console.WriteLine("7. Change Account Name");
+                Console.WriteLine("6. List All Accounts");    
+                Console.WriteLine("7. change acount name");
+                
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose the service you want to implement: ");
                 int choice;
@@ -299,10 +323,10 @@ namespace C__Fundamentals___Mini_Compound_Project
                         TransferAmount();
                         break;
                     case 6:
-                        // Account Information"
+                         ListAllAccounts();
                         break;
                     case 7:
-                        // Change Account Name
+                        // ChangeAccountName
                         break;
                     case 8:
                         exitApp = true;
