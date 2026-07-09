@@ -1,14 +1,75 @@
-﻿namespace C__Fundamentals___Mini_Compound_Project
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace C__Fundamentals___Mini_Compound_Project
 {
     internal class Program
     {
+      static  List<string> customerNames = new List<string>();
+        static List<int> accountNumbers = new List<int>();
+        static  List<double> balances = new List<double>();
+
+       
+        
+        // Service 1 - Add New Account  function
+        public static void AddNewAccount()
+        {
+            Console.Write("Enter customer name: ");
+            string customerName = Console.ReadLine();
+            try
+            {
+                Console.Write("Enter new account number: ");
+                int accountNumber = int.Parse(Console.ReadLine());
+
+                if (accountNumbers.Contains(accountNumber))
+                {
+                    Console.WriteLine("Error: Account number already exists.");
+                    return;
+                }
+
+                Console.Write("Enter initial deposit: ");
+                double initialDeposit = double.Parse(Console.ReadLine());
+
+                if (initialDeposit < 0)
+                {
+                    Console.WriteLine("Error: Initial deposit cannot be negative.");
+                    return;
+                }
+           
+            
+            customerNames.Add(customerName);
+            accountNumbers.Add(accountNumber);
+            balances.Add(initialDeposit);
+
+            Console.WriteLine("\nAccount created successfully!");
+            Console.WriteLine("Customer Name : " + customerName);
+            Console.WriteLine("Account Number: " + accountNumber);
+            Console.WriteLine("Balance       : " + initialDeposit + " OMR");
+        }
+            catch
+            {
+                Console.WriteLine("Erorr: Only you can use the number. NOT characters of sentence");
+            }
+        }
+        
+        
+
+        
+        
+
+        
+
+       
+
+
+
         static void Main(string[] args)
         {
 
+         
             bool exitApp = false;
             while (!exitApp)
             {
-                Console.WriteLine("\n===== Welcome to Spark Bank =====");
+                Console.WriteLine("\n===== Welcome to Abdulaziz Bank =====");
                 Console.WriteLine("1. Add New Account");
                 Console.WriteLine("2. Deposit Money");
                 Console.WriteLine("3. Withdraw Money");
@@ -31,13 +92,17 @@
                 switch (choice)
                 {
                     case 1:
-                        //AddAccount();
+
+                        AddNewAccount();
+
                         break;
                     case 2:
-                        //DepositMoney();
+                       
+
+                        
                         break;
                     case 3:
-                        //WithdrawMoney();
+                       
                         break;
                     case 4:
                         //ShowBalance();
