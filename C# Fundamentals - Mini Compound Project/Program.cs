@@ -142,7 +142,6 @@ namespace C__Fundamentals___Mini_Compound_Project
 
         //Service 4 - Show Balance
 
-
         public static void ShowBalance()
         {
             Console.Write("Enter account number: ");
@@ -167,15 +166,90 @@ namespace C__Fundamentals___Mini_Compound_Project
                 return;
             }
 
-            Console.WriteLine("\nAccount Details");
-            Console.WriteLine("Customer Name : " + customerNames[index]);
-            Console.WriteLine("Account Number: " + accountNumbers[index]);
             Console.WriteLine("Balance       : " + balances[index] + " OMR");
         }
 
+        //Service 5 - Transfer Amount
 
+        public static void TransferAmount()
+        {
+            Console.Write("Enter sender account number: ");
 
+            int senderAccount;
 
+            try
+            {
+                senderAccount = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid account number.");
+                return;
+            }
+
+            int senderIndex = accountNumbers.IndexOf(senderAccount);
+
+            if (senderIndex == -1)
+            {
+                Console.WriteLine("Sender account not found.");
+                return;
+            }
+
+            Console.Write("Enter receiver account number: ");
+
+            int receiverAccount;
+
+            try
+            {
+                receiverAccount = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid account number.");
+                return;
+            }
+
+            int receiverIndex = accountNumbers.IndexOf(receiverAccount);
+
+            if (receiverIndex == -1)
+            {
+                Console.WriteLine("Receiver account not found.");
+                return;
+            }
+
+            Console.Write("Enter transfer amount: ");
+
+            double amount;
+
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid amount.");
+                return;
+            }
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Transfer amount must be greater than zero.");
+                return;
+            }
+
+            if (balances[senderIndex] < amount)
+            {
+                Console.WriteLine("Insufficient balance.");
+                return;
+            }
+
+            balances[senderIndex] -= amount;
+            balances[receiverIndex] += amount;
+
+            Console.WriteLine("Transfer successful.");
+            Console.WriteLine("Sender Balance  : " + balances[senderIndex] + " OMR");
+            Console.WriteLine("Receiver Balance: " + balances[receiverIndex] + " OMR");
+        }
         static void Main(string[] args)
         {
 
@@ -222,7 +296,7 @@ namespace C__Fundamentals___Mini_Compound_Project
                         ShowBalance();
                         break;
                     case 5:
-                        //TransferAmount();
+                        TransferAmount();
                         break;
                     case 6:
                         // Account Information"
