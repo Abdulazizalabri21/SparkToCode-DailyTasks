@@ -66,6 +66,31 @@
     }
 
 
+    public class Student
+    {
+        //properties 
+        public int Grade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        private string email { get; set; } 
+        int age { get; set; } 
+
+        //methods 
+        public void Register(string Email)
+        {
+            email = Email;
+
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Email notification sent.");
+
+        }
+    }
+
+
 
 
     internal class Program
@@ -73,6 +98,7 @@
 
         static void Main(string[] args)
         {
+            //==============================================
 
             BankAccount B1 = new BankAccount();
             B1.AccountNumber = 1234;
@@ -84,6 +110,20 @@
             B2.AccountNumber = 1677;
             B2.HolderName = "KRIMO";
             B2.Balance = 95;
+            //==============================================
+            Student student1 = new Student();
+            student1.Name = "Ali";
+            student1.Address = "Muscat";
+            student1.Grade = 65;
+
+            Student student2 = new Student();
+            student2.Name = "Ahmed";
+            student2.Address = "Muscat";
+            student2.Grade = 70;
+            //==============================================
+
+
+
 
             bool exitApp = false;
 
