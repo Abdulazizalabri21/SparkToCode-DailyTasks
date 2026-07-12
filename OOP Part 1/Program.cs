@@ -1,4 +1,6 @@
-﻿namespace OOP_Part_1
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace OOP_Part_1
 {
 
 
@@ -91,6 +93,54 @@
     }
 
 
+    public class Products() 
+    {
+        public string ProductName { get; set; }
+        public int StockQuantity { get; set; }
+        public double Price { get; set; }
+
+        //Methodes
+
+        public void sell(int SoldQuantity)
+        {
+            
+                if (StockQuantity >= SoldQuantity)
+                {
+                    StockQuantity -= SoldQuantity;
+                }
+            
+                else
+                  {
+                      Console.WriteLine("Stock quantity not enough ");
+                  }
+        }
+
+        public void Restock(int quantity)
+        {
+            StockQuantity += quantity;
+            LogTransaction();
+        }
+
+        private void LogTransaction()
+        {
+            Console.WriteLine("Transaction logged ");
+        }
+
+        public double GetInventoryValue()
+        {
+            PrintDetails();
+            return Price * StockQuantity;
+        }
+
+       
+        private void PrintDetails()
+        {
+            Console.WriteLine($"Product Name: {ProductName}");
+            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Stock Quantity: {StockQuantity}");
+        }
+
+    }
 
 
     internal class Program
@@ -121,8 +171,18 @@
             student2.Address = "Muscat";
             student2.Grade = 70;
             //==============================================
+            Products Product1 = new Products();
+            Product1.ProductName = "Wireless Mouse";
+            Product1.Price = 5.500;
+            Product1.StockQuantity = 50;
 
 
+            Products Product2 = new Products();
+            Product2.ProductName = "Mechanical Keyboard";
+            Product2.Price = 15.750;
+            Product2.StockQuantity = 20;
+
+            //==============================================
 
 
             bool exitApp = false;
