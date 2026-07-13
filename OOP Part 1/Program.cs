@@ -463,6 +463,43 @@ namespace OOP_Part_1
                 }
             }
         }
+
+
+        public static void UpdateStudentGrade()
+        {
+            Student student = ChooseStudent();
+
+            if (student != null)
+            {
+                try
+                {
+                    Console.Write("Enter the new grade (0-100): ");
+                    int newGrade = int.Parse(Console.ReadLine());
+
+
+
+                    if (newGrade <= 0 || newGrade >= 100)
+                    {
+                        Console.WriteLine("Invalid grade. Grade must be between 0 and 100.");
+                        return;
+                    }
+
+                    student.Grade = newGrade;
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+
+
+                Console.WriteLine("Grade updated successfully.");
+                Console.WriteLine(student.Name + "'s new grade is: " + student.Grade);
+            }
+        }
+
+
+
+
         static void Main(string[] args)
         {
            
@@ -518,7 +555,7 @@ namespace OOP_Part_1
                     case 7: CompareAccountBalances(); break;
                     case 8: RestockProduct(); break;
                     case 9: TransferBetweenAccounts(); break;
-                    case 10:// UpdateStudentGrade(); break;
+                    case 10:UpdateStudentGrade(); break;
                     case 11:// StudentReportCard(); break;
                     case 12: //AccountHealthStatus(); break;
                     case 13:// BulkSaleWithRevenue(); break;
