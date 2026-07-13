@@ -31,6 +31,16 @@ namespace OOP_Part_1
 
         }
 
+        //----18 overdrwen 
+
+        public bool IsOverdrawn
+        {
+            get
+            {
+                return Balance < 0;
+            }
+        }
+
         // methodes 
 
         public void Deposit(double amount)
@@ -196,7 +206,7 @@ namespace OOP_Part_1
         {
             AccountNumber = 1677,
             HolderName = "KRIMO",
-            Balance = 95
+            Balance = -100
         };
 
         static BankAccount B2 = new BankAccount()
@@ -757,6 +767,29 @@ namespace OOP_Part_1
         {
             Console.WriteLine("Total students: " + Student.GetStudentCount());
         }
+
+        public static void OverdrawnAccountCheck()
+        {
+            BankAccount account = ChooseAccount();
+
+            if (account == null)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            
+            Console.WriteLine("Balance: " + account.Balance);
+
+            if (account.IsOverdrawn)
+            {
+                Console.WriteLine("The account is currently overdrawn");
+            }
+            else
+            {
+                Console.WriteLine("The account is not overdrawn");
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -820,7 +853,7 @@ namespace OOP_Part_1
                     case 15: FullBalanceTopUpFlow(); break;
                     case 16: QuickAccountOpening(); break;
                     case 17: TotalStudentsCounter(); break;
-                    case 18: //OverdrawnAccountCheck(); break;
+                    case 18: OverdrawnAccountCheck(); break;
                     case 19: //SetStudentSecurityPin(); break;
                     case 20:
                         exitApp = true;
