@@ -652,6 +652,37 @@ namespace OOP_Part_1
                 }
             }
         }
+
+
+        public static void FullBalanceTopUpFlow()
+        {
+            BankAccount account = ChooseAccount();
+
+            if (account == null)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+
+            double balanceBefore = account.Balance;
+
+            if (account.Balance < 50)
+            {
+                double topUpAmount = 100 - account.Balance;
+
+                account.Deposit(topUpAmount);
+
+                Console.WriteLine("Top-up completed successfully.");
+                Console.WriteLine("Balance before: " + balanceBefore);
+                Console.WriteLine("Top-up amount: " + topUpAmount);
+                Console.WriteLine("Balance after: " + account.Balance);
+            }
+            else
+            {
+                Console.WriteLine("No top-up is needed.");
+                Console.WriteLine("Current balance: " + account.Balance);
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -712,7 +743,7 @@ namespace OOP_Part_1
                     case 12: AccountHealthStatus(); break;
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
-                    case 15: //FullBalanceTopUpFlow(); break;
+                    case 15: FullBalanceTopUpFlow(); break;
                     case 16: //QuickAccountOpening(); break;
                     case 17: //TotalStudentsCounter(); break;
                     case 18: //OverdrawnAccountCheck(); break;
