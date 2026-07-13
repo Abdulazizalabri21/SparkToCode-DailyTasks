@@ -419,6 +419,50 @@ namespace OOP_Part_1
 
           
         }
+
+
+        public static void TransferBetweenAccounts()
+        {
+            Console.WriteLine("Select the source account:");
+            BankAccount source = ChooseAccount();
+
+            if (source != null)
+            {
+                Console.WriteLine("Select the destination account:");
+                BankAccount destination = ChooseAccount();
+
+                if (destination != null)
+                {
+
+                if (source == destination)
+                {
+                    Console.WriteLine("Source and destination accounts cannot be the same.");
+                    return;
+                }
+
+                Console.Write("Enter transfer amount: ");
+                double amount = Convert.ToDouble(Console.ReadLine());
+
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Invalid amount.");
+                    return;
+                }
+
+                if (source.Balance >= amount)
+                 {
+                    source.Withdraw(amount);
+                    destination.Deposit(amount);
+                    Console.WriteLine("Transfer completed successfully.");
+                 }
+                else
+                 {
+                     Console.WriteLine("Transfer failed. Insufficient balance.");
+                 }
+
+                }
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -473,7 +517,7 @@ namespace OOP_Part_1
                     case 6: RegisterStudent(); break;
                     case 7: CompareAccountBalances(); break;
                     case 8: RestockProduct(); break;
-                    case 9: //TransferBetweenAccounts(); break;
+                    case 9: TransferBetweenAccounts(); break;
                     case 10:// UpdateStudentGrade(); break;
                     case 11:// StudentReportCard(); break;
                     case 12: //AccountHealthStatus(); break;
