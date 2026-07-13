@@ -343,6 +343,18 @@ namespace OOP_Part_1
            
         }
 
+        public static void ViewProductDetails()
+        {
+            Products product = ChooseProduct();
+
+            if (product != null)
+            {
+                double inventoryValue = product.GetInventoryValue();
+
+                Console.WriteLine("Inventory Value: " + inventoryValue);
+            }
+        }
+
         static void Main(string[] args)
         {
            
@@ -393,7 +405,7 @@ namespace OOP_Part_1
                     case 2: UpdateStudentAddress(); break;
                     case 3:  MakeDeposit(); break;
                     case 4:   MakeWithdrawal(); break;
-                    case 5: //ViewProductDetails(); break;
+                    case 5: ViewProductDetails(); break;
                     case 6: //RegisterStudent(); break;
                     case 7: //CompareAccountBalances(); break;
                     case 8: //RestockProduct(); break;
