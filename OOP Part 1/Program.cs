@@ -130,6 +130,25 @@ namespace OOP_Part_1
             return StudentCount;
         }
 
+        //---19
+
+        private int securityPIN;
+
+        public int SecurityPIN
+        {
+            set
+            {
+                if (value >= 1000 && value <= 9999)
+                {
+                    securityPIN = value;
+                }
+                else
+                {
+                    Console.WriteLine("PIN must be a 4 digit number ");
+                }
+            }
+        }
+
         private void SendEmail()
         {
             Console.WriteLine("Email notification sent.");
@@ -789,7 +808,33 @@ namespace OOP_Part_1
             {
                 Console.WriteLine("The account is not overdrawn");
             }
+        } //--> read only by using get without set 
+
+
+        public static void SetStudentSecurityPin()
+        {
+            Student student = ChooseStudent();
+
+            if (student == null)
+            {
+                Console.WriteLine("Student not found.");
+                return;
+            }
+
+            Console.Write("Enter a 4 digit PIN: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int pin)) //---- validation to the int if the user entered a string --> error messeage
+            {
+                Console.WriteLine("Invalid PIN.");
+                return;
+            }
+
+            student.SecurityPIN = pin;
+
+            Console.WriteLine("Security PIN has been set successfully.");
         }
+
+
         static void Main(string[] args)
         {
            
@@ -854,7 +899,7 @@ namespace OOP_Part_1
                     case 16: QuickAccountOpening(); break;
                     case 17: TotalStudentsCounter(); break;
                     case 18: OverdrawnAccountCheck(); break;
-                    case 19: //SetStudentSecurityPin(); break;
+                    case 19: SetStudentSecurityPin(); break;
                     case 20:
                         exitApp = true;
                         Console.WriteLine("Goodbye!");
