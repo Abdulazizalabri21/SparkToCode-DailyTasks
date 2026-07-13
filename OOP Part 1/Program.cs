@@ -355,6 +355,21 @@ namespace OOP_Part_1
             }
         }
 
+        public static void RegisterStudent()
+        {
+            Student student = ChooseStudent();
+
+            if (student != null)
+            {
+                Console.Write("Enter email: ");
+                string email = Console.ReadLine();
+
+                student.Register(email);
+
+                Console.WriteLine(student.Name + " has been registered successfully.");
+            }
+        }
+
         static void Main(string[] args)
         {
            
@@ -406,7 +421,7 @@ namespace OOP_Part_1
                     case 3:  MakeDeposit(); break;
                     case 4:   MakeWithdrawal(); break;
                     case 5: ViewProductDetails(); break;
-                    case 6: //RegisterStudent(); break;
+                    case 6: RegisterStudent(); break;
                     case 7: //CompareAccountBalances(); break;
                     case 8: //RestockProduct(); break;
                     case 9: //TransferBetweenAccounts(); break;
