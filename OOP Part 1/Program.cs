@@ -1,19 +1,38 @@
 ﻿using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 
 namespace OOP_Part_1
 {
 
 
-   public class BankAccount() 
+   public class BankAccount
     {
         // properties
        public int AccountNumber { get; set; }
           public string HolderName { get; set; }
          public Double Balance { get; set; }
 
+        // Default constructor for previous cases to avoid the conflact
+        public BankAccount()
+        {
+
+        }
+
+        // Parameterized Constructor
+
+        public BankAccount (int accountNumber, string holderName, Double Balance1) 
+        
+        {
+
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = Balance1;
+
+        }
+
         // methodes 
-      
+
         public void Deposit(double amount)
         {
             Balance += amount;
@@ -172,6 +191,16 @@ namespace OOP_Part_1
         };
         //------------------------
 
+
+        //static Student student1 = new Student();
+        //student1.Name = "Ali";
+        //    student1.Address = "Muscat";
+        //    student1.Grade = 65;
+        //static Student student2 = new Student();
+        //student2.Name = "Ahmed";
+        //    student2.Address = "Muscat";
+        //    student2.Grade = 70;
+
         static Student student1 = new Student()
         {
             Name = "Ali",
@@ -185,17 +214,9 @@ namespace OOP_Part_1
             Address = "Muscat",
             Grade = 70
         };
-        //static Student student1 = new Student();
-        //student1.Name = "Ali";
-        //    student1.Address = "Muscat";
-        //    student1.Grade = 65;
 
-        //static Student student2 = new Student();
-
-        //student2.Name = "Ahmed";
-        //    student2.Address = "Muscat";
-        //    student2.Grade = 70;
         //--------------------------
+
         //static Products Product1 = new Products();
         //Product1.ProductName = "Wireless Mouse";
         //    Product1.Price = 5.500;
@@ -239,6 +260,7 @@ namespace OOP_Part_1
             {
                 return B2;
             }
+            
             else
             {
                 Console.WriteLine("Invalid choice.");
@@ -683,6 +705,36 @@ namespace OOP_Part_1
                 Console.WriteLine("Current balance: " + account.Balance);
             }
         }
+
+
+        //16--QuickAccountOpening
+        public static void QuickAccountOpening()
+        {
+            Console.Write("Enter account number: ");
+            int accountNumber =int.Parse(Console.ReadLine()) ;
+
+            Console.Write("Enter holder name: ");
+            string holderName = Console.ReadLine();
+
+            Console.Write("Enter starting balance: ");
+            double Balance1 = double.Parse(Console.ReadLine());
+
+            if (Balance1 < 0 || Balance1 == null)
+            {
+
+                Console.WriteLine("Invalid balance.");
+            }
+
+
+            // Create object using ONLY the constructor
+             BankAccount account = new BankAccount(accountNumber, holderName, Balance1);
+           
+            
+            Console.WriteLine("\nAccount created successfully.");
+            Console.WriteLine("Account Number: " + account.AccountNumber);
+            Console.WriteLine("Holder Name: " + account.HolderName);
+            Console.WriteLine("Balance: " + account.Balance);
+        }
         static void Main(string[] args)
         {
            
@@ -744,7 +796,7 @@ namespace OOP_Part_1
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
-                    case 16: //QuickAccountOpening(); break;
+                    case 16: QuickAccountOpening(); break;
                     case 17: //TotalStudentsCounter(); break;
                     case 18: //OverdrawnAccountCheck(); break;
                     case 19: //SetStudentSecurityPin(); break;
