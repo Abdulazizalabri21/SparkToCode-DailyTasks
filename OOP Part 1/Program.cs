@@ -17,12 +17,13 @@ namespace OOP_Part_1
         public void Deposit(double amount)
         {
             Balance += amount;
+            PrintInformation();
             SendEmail();
         }
            
         public void Withdraw(double amount)
         {
-            Console.WriteLine("Enter the diposit amount");
+            Console.WriteLine("Enter the amount you want to Withdraw");
             int Amount = int.Parse(Console.ReadLine());
 
             if (amount <= 0)
@@ -153,58 +154,101 @@ namespace OOP_Part_1
         //--------------------------
         static Products Product1 = new Products();
         static Products Product2 = new Products();
+        //-----------helper-------------
 
-        public static void ViewAccountDetails()
+        public static BankAccount ChooseAccount()
         {
-            Console.WriteLine("Choose an account:");
-            Console.WriteLine("1. Aziz");
-            Console.WriteLine("2. Karimo");
-
-            Console.Write("Enter your choice: ");
+            Console.WriteLine("Choose an account (1 or 2):");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 1)
             {
-                B1.CheckBalance();
-
+                return B1;
             }
             else if (choice == 2)
             {
-                B2.CheckBalance();
+                return B2;
             }
             else
             {
                 Console.WriteLine("Invalid choice.");
+                return null;
+            }
+        }
+        public static Student ChooseStudent()
+        {
+            Console.WriteLine("Choose the student (1 or 2):");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                return student1;
+            }
+            else if (choice == 2)
+            {
+                return student2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+                return null;
+            }
+        }
+
+        public static Products ChooseProduct()
+        {
+            Console.WriteLine("Choose th Product (1 or 2):");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                return Product1;
+            }
+            else if (choice == 2)
+            {
+                return Product2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+                return null;
+            }
+        }
+
+        //----------------------------
+        public static void ViewAccountDetails()
+        {
+            BankAccount account = ChooseAccount();
+
+            if (account != null)
+            {
+                account.CheckBalance();
             }
         }
 
         public static void UpdateStudentAddress()
         {
-            Console.WriteLine("Choose a student:");
-            Console.WriteLine("1. Ali");
-            Console.WriteLine("2. Ahmed");
 
-            Console.Write("Enter your choice: ");
-            int choice = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Enter the new address: ");
-            string newAddress = Console.ReadLine();
-
-            if (choice == 1)
+            Student student = ChooseStudent();
+            if (student != null)
             {
-                student1.Address = newAddress;
+                Console.WriteLine("Enter the new address: ");
+                student.Address = Console.ReadLine();
                 Console.WriteLine("Address updated successfully.");
-                Console.WriteLine("New Address: " + student1.Address);
+                Console.WriteLine(student.Name + "'s new address is: " + student.Address);
             }
-            else if (choice == 2)
+        
+        }
+        public static void MakeDeposit()
+        {
+            BankAccount Account = ChooseAccount();
+
+            if (Account != null)
             {
-                student2.Address = newAddress;
-                Console.WriteLine("Address updated successfully.");
-                Console.WriteLine("New Address: " + student2.Address);
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice.");
+                Console.WriteLine("Enter the amount you want to diposit");
+                double amount = Convert.ToDouble(Console.ReadLine());
+                Account.Deposit(amount);
+                
             }
         }
 
@@ -284,7 +328,7 @@ namespace OOP_Part_1
                 {
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
-                    case 3: //MakeDeposit(); break;
+                    case 3:  MakeDeposit(); break;
                     case 4: //MakeWithdrawal(); break;
                     case 5: //ViewProductDetails(); break;
                     case 6: //RegisterStudent(); break;
