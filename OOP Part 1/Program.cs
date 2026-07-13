@@ -478,7 +478,7 @@ namespace OOP_Part_1
 
 
 
-                    if (newGrade <= 0 || newGrade >= 100)
+                    if (newGrade < 0 || newGrade > 100)
                     {
                         Console.WriteLine("Invalid grade. Grade must be between 0 and 100.");
                         return;
@@ -498,7 +498,36 @@ namespace OOP_Part_1
         }
 
 
+        public static void StudentReportCard()
+        {
+            Student student = ChooseStudent();
 
+            if (student != null)
+            {
+                string result;
+
+                if (student.Grade >= 60)
+                {
+                    result = "Pass";
+                }
+                else
+                {
+                    result = "Fail";
+                }
+
+                Console.WriteLine("Student Report Card :::: ");
+                Console.WriteLine("Name: " + student.Name);
+                Console.WriteLine("Address: " + student.Address);
+                Console.WriteLine("Grade: " + student.Grade);
+                Console.WriteLine("Result: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Student not found");
+
+            }
+
+        }
 
         static void Main(string[] args)
         {
@@ -546,17 +575,17 @@ namespace OOP_Part_1
 
                 switch (choice)
                 {
-                    case 1: ViewAccountDetails(); break;
-                    case 2: UpdateStudentAddress(); break;
+                    case 1:  ViewAccountDetails(); break;
+                    case 2:  UpdateStudentAddress(); break;
                     case 3:  MakeDeposit(); break;
-                    case 4:   MakeWithdrawal(); break;
-                    case 5: ViewProductDetails(); break;
-                    case 6: RegisterStudent(); break;
-                    case 7: CompareAccountBalances(); break;
-                    case 8: RestockProduct(); break;
-                    case 9: TransferBetweenAccounts(); break;
-                    case 10:UpdateStudentGrade(); break;
-                    case 11:// StudentReportCard(); break;
+                    case 4:  MakeWithdrawal(); break;
+                    case 5:  ViewProductDetails(); break;
+                    case 6:  RegisterStudent(); break;
+                    case 7:  CompareAccountBalances(); break;
+                    case 8:  RestockProduct(); break;
+                    case 9:  TransferBetweenAccounts(); break;
+                    case 10: UpdateStudentGrade(); break;
+                    case 11: StudentReportCard(); break;
                     case 12: //AccountHealthStatus(); break;
                     case 13:// BulkSaleWithRevenue(); break;
                     case 14: //ScholarshipEligibilityCheck(); break;
