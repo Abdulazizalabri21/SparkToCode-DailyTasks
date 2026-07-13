@@ -178,6 +178,36 @@ namespace OOP_Part_1
             }
         }
 
+        public static void UpdateStudentAddress()
+        {
+            Console.WriteLine("Choose a student:");
+            Console.WriteLine("1. Ali");
+            Console.WriteLine("2. Ahmed");
+
+            Console.Write("Enter your choice: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the new address: ");
+            string newAddress = Console.ReadLine();
+
+            if (choice == 1)
+            {
+                student1.Address = newAddress;
+                Console.WriteLine("Address updated successfully.");
+                Console.WriteLine("New Address: " + student1.Address);
+            }
+            else if (choice == 2)
+            {
+                student2.Address = newAddress;
+                Console.WriteLine("Address updated successfully.");
+                Console.WriteLine("New Address: " + student2.Address);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+        }
+
         static void Main(string[] args)
         {
             //==============================================
@@ -253,7 +283,7 @@ namespace OOP_Part_1
                 switch (choice)
                 {
                     case 1: ViewAccountDetails(); break;
-                    case 2: //UpdateStudentAddress(); break;
+                    case 2: UpdateStudentAddress(); break;
                     case 3: //MakeDeposit(); break;
                     case 4: //MakeWithdrawal(); break;
                     case 5: //ViewProductDetails(); break;
