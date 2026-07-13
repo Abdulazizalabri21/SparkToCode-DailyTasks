@@ -1,20 +1,16 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography.X509Certificates;
 
 namespace OOP_Part_1
 {
 
 
-
-
-
-    //First class BankAccount
-
    public class BankAccount() 
     {
         // properties
         public int AccountNumber { get; set; }
-        public string HolderName { get; set; }
-        public Double Balance { get; set; }
+         public string HolderName { get; set; }
+         public Double Balance { get; set; }
 
         // methodes 
       
@@ -49,6 +45,7 @@ namespace OOP_Part_1
 
         public double CheckBalance()
         {
+          
             PrintInformation();
 
             return Balance;
@@ -64,6 +61,8 @@ namespace OOP_Part_1
         {
             Console.WriteLine("Email notification sent.");
         }
+
+      
 
     }
 
@@ -145,44 +144,72 @@ namespace OOP_Part_1
 
     internal class Program
     {
+        static BankAccount B1 = new BankAccount();
+        static BankAccount B2 = new BankAccount();
+        //------------------------
+        static Student student1 = new Student();
+        static Student student2 = new Student();
+
+        //--------------------------
+        static Products Product1 = new Products();
+        static Products Product2 = new Products();
+
+        public static void ViewAccountDetails()
+        {
+            Console.WriteLine("Choose an account:");
+            Console.WriteLine("1. Aziz");
+            Console.WriteLine("2. Karimo");
+
+            Console.Write("Enter your choice: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                B1.CheckBalance();
+
+            }
+            else if (choice == 2)
+            {
+                B2.CheckBalance();
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+        }
 
         static void Main(string[] args)
         {
             //==============================================
 
-            BankAccount B1 = new BankAccount();
             B1.AccountNumber = 1234;
             B1.HolderName = "AZIZ";
             B1.Balance = 120;
 
 
-            BankAccount B2 = new BankAccount();
             B2.AccountNumber = 1677;
             B2.HolderName = "KRIMO";
             B2.Balance = 95;
             //==============================================
-            Student student1 = new Student();
             student1.Name = "Ali";
             student1.Address = "Muscat";
             student1.Grade = 65;
 
-            Student student2 = new Student();
             student2.Name = "Ahmed";
             student2.Address = "Muscat";
             student2.Grade = 70;
             //==============================================
-            Products Product1 = new Products();
             Product1.ProductName = "Wireless Mouse";
             Product1.Price = 5.500;
             Product1.StockQuantity = 50;
 
 
-            Products Product2 = new Products();
             Product2.ProductName = "Mechanical Keyboard";
             Product2.Price = 15.750;
             Product2.StockQuantity = 20;
 
             //==============================================
+
 
 
             bool exitApp = false;
@@ -225,7 +252,7 @@ namespace OOP_Part_1
 
                 switch (choice)
                 {
-                    case 1: //ViewAccountDetails(); break;
+                    case 1: ViewAccountDetails(); break;
                     case 2: //UpdateStudentAddress(); break;
                     case 3: //MakeDeposit(); break;
                     case 4: //MakeWithdrawal(); break;
@@ -252,6 +279,9 @@ namespace OOP_Part_1
                         Console.WriteLine("Invalid option, please choose between 1 and 20.");
                         break;
                 }
+                Console.WriteLine("Press any key");
+                Console.ReadKey();
+                Console.Clear();
             }
 
         }
