@@ -370,6 +370,25 @@ namespace OOP_Part_1
             }
         }
 
+        public static void CompareAccountBalances()
+        {
+            if (B1.Balance > B2.Balance)
+            {
+                Console.WriteLine(B1.HolderName + " has more money");
+                Console.WriteLine("Balance: " + B1.Balance);
+            }
+            else if (B2.Balance > B1.Balance)
+            {
+                Console.WriteLine(B2.HolderName + " has more money");
+                Console.WriteLine("Balance: " + B2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Both accounts have the same balance");
+                Console.WriteLine("Balance: " + B1.Balance);
+            }
+        }
+
         static void Main(string[] args)
         {
            
@@ -422,7 +441,7 @@ namespace OOP_Part_1
                     case 4:   MakeWithdrawal(); break;
                     case 5: ViewProductDetails(); break;
                     case 6: RegisterStudent(); break;
-                    case 7: //CompareAccountBalances(); break;
+                    case 7: CompareAccountBalances(); break;
                     case 8: //RestockProduct(); break;
                     case 9: //TransferBetweenAccounts(); break;
                     case 10:// UpdateStudentGrade(); break;
