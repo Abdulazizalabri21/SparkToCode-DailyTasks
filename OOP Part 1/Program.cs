@@ -610,6 +610,48 @@ namespace OOP_Part_1
             Console.WriteLine("Quantity sold: " + quantity);
             Console.WriteLine("Total revenue: " + quantity * product.Price);
         }
+
+
+        public static void ScholarshipEligibilityCheck()
+        {
+            Student student = ChooseStudent();
+
+            if (student == null)
+            {
+                Console.WriteLine("Student not found");
+                return;
+            }
+
+            BankAccount account = ChooseAccount();
+
+            if (account == null)
+            {
+                Console.WriteLine("Account not found");
+                return;
+            }
+
+            bool gradeCondition = student.Grade >= 80;
+            bool balanceCondition = account.Balance >= 100;
+
+            if (gradeCondition && balanceCondition)
+            {
+                Console.WriteLine("Eligible for Scholarship");
+            }
+            else
+            {
+                Console.WriteLine("Not Eligible: ");
+
+                if (!gradeCondition)
+                {
+                    Console.WriteLine("--> Student grade must be 80 or above");
+                }
+
+                if (!balanceCondition)
+                {
+                    Console.WriteLine("-->Account balance must be 100 or above");
+                }
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -669,7 +711,7 @@ namespace OOP_Part_1
                     case 11: StudentReportCard(); break;
                     case 12: AccountHealthStatus(); break;
                     case 13: BulkSaleWithRevenue(); break;
-                    case 14: //ScholarshipEligibilityCheck(); break;
+                    case 14: ScholarshipEligibilityCheck(); break;
                     case 15: //FullBalanceTopUpFlow(); break;
                     case 16: //QuickAccountOpening(); break;
                     case 17: //TotalStudentsCounter(); break;
