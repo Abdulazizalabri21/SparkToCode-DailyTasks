@@ -104,6 +104,22 @@ namespace OOP_Part_1
             SendEmail();
         }
 
+        //- Case 17 - Total Students Counter [Static Fields & Methods]
+
+
+        public static int StudentCount = 0;
+
+        public Student() //--> non static methode it can used with static properties ( public static int StudentCount = 0;)
+        {
+            StudentCount++;
+        }
+
+        public static int GetStudentCount() //--> static methode only can used with class properties and only ( public static int StudentCount = 0;)
+        {
+
+            return StudentCount;
+        }
+
         private void SendEmail()
         {
             Console.WriteLine("Email notification sent.");
@@ -735,6 +751,12 @@ namespace OOP_Part_1
             Console.WriteLine("Holder Name: " + account.HolderName);
             Console.WriteLine("Balance: " + account.Balance);
         }
+
+
+        public static void TotalStudentsCounter()
+        {
+            Console.WriteLine("Total students: " + Student.GetStudentCount());
+        }
         static void Main(string[] args)
         {
            
@@ -797,7 +819,7 @@ namespace OOP_Part_1
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
                     case 16: QuickAccountOpening(); break;
-                    case 17: //TotalStudentsCounter(); break;
+                    case 17: TotalStudentsCounter(); break;
                     case 18: //OverdrawnAccountCheck(); break;
                     case 19: //SetStudentSecurityPin(); break;
                     case 20:
