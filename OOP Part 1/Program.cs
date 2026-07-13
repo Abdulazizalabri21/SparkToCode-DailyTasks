@@ -566,6 +566,50 @@ namespace OOP_Part_1
                 return;
             }
         }
+
+
+
+        public static void BulkSaleWithRevenue()
+        {
+            Products product = ChooseProduct();
+
+            if (product == null)
+            {
+                Console.WriteLine("Product not found.");
+                return;
+            }
+
+            Console.Write("Enter quantity to sell: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int quantity))
+            {
+                Console.WriteLine("Invalid quantity.");
+                return;
+            }
+
+            if (quantity <= 0)
+            {
+                Console.WriteLine("Quantity must be greater than zero.");
+                return;
+            }
+
+            if (product.StockQuantity < quantity)
+            {
+                int additionalUnits = quantity - product.StockQuantity;
+
+                Console.WriteLine("Not enough stock.");
+                Console.WriteLine("You need " + additionalUnits + " more units.");
+                return;
+            }
+
+            product.sell(quantity);
+
+        
+            Console.WriteLine("Sale completed successfully.");
+            Console.WriteLine("Product:       " + product.ProductName);
+            Console.WriteLine("Quantity sold: " + quantity);
+            Console.WriteLine("Total revenue: " + quantity * product.Price);
+        }
         static void Main(string[] args)
         {
            
@@ -624,7 +668,7 @@ namespace OOP_Part_1
                     case 10: UpdateStudentGrade(); break;
                     case 11: StudentReportCard(); break;
                     case 12: AccountHealthStatus(); break;
-                    case 13:// BulkSaleWithRevenue(); break;
+                    case 13: BulkSaleWithRevenue(); break;
                     case 14: //ScholarshipEligibilityCheck(); break;
                     case 15: //FullBalanceTopUpFlow(); break;
                     case 16: //QuickAccountOpening(); break;
