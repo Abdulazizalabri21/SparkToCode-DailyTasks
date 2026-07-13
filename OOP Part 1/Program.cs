@@ -529,6 +529,43 @@ namespace OOP_Part_1
 
         }
 
+
+        public static void AccountHealthStatus()
+        {
+            BankAccount account = ChooseAccount();
+
+            if (account != null)
+            {
+
+
+
+                string status;
+
+                if (account.Balance < 50)
+                {
+                    status = "Low Balance";
+                }
+                else if (account.Balance <= 1000)
+                {
+                    status = "Healthy";
+                }
+                else
+                {
+                    status = "Premium";
+                }
+
+                Console.WriteLine("Account Health Status =====");
+                Console.WriteLine("Account Holder: " + account.HolderName);
+                Console.WriteLine("Account Number: " + account.AccountNumber);
+                Console.WriteLine("Balance: " + account.Balance);
+                Console.WriteLine("Status: " + status);
+            }
+            else
+            {
+                Console.WriteLine("Account not found ");
+                return;
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -586,7 +623,7 @@ namespace OOP_Part_1
                     case 9:  TransferBetweenAccounts(); break;
                     case 10: UpdateStudentGrade(); break;
                     case 11: StudentReportCard(); break;
-                    case 12: //AccountHealthStatus(); break;
+                    case 12: AccountHealthStatus(); break;
                     case 13:// BulkSaleWithRevenue(); break;
                     case 14: //ScholarshipEligibilityCheck(); break;
                     case 15: //FullBalanceTopUpFlow(); break;
