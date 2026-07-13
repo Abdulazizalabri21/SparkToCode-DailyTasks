@@ -8,8 +8,8 @@ namespace OOP_Part_1
    public class BankAccount() 
     {
         // properties
-        public int AccountNumber { get; set; }
-         public string HolderName { get; set; }
+       public int AccountNumber { get; set; }
+          public string HolderName { get; set; }
          public Double Balance { get; set; }
 
         // methodes 
@@ -23,8 +23,7 @@ namespace OOP_Part_1
            
         public void Withdraw(double amount)
         {
-            Console.WriteLine("Enter the amount you want to Withdraw");
-            int Amount = int.Parse(Console.ReadLine());
+           
 
             if (amount <= 0)
             {
@@ -35,6 +34,7 @@ namespace OOP_Part_1
             if (Balance >= amount)
             {
                 Balance -= amount;
+               
                 SendEmail();
 
             }
@@ -145,18 +145,88 @@ namespace OOP_Part_1
 
     internal class Program
     {
-        static BankAccount B1 = new BankAccount();
-        static BankAccount B2 = new BankAccount();
-        //------------------------
-        static Student student1 = new Student();
-        static Student student2 = new Student();
 
+        //static BankAccount B1 = new BankAccount ();
+
+        //B1.AccountNumber = 1677;
+        //    B1.HolderName = "KRIMO";
+        //    B1.Balance = 95;
+
+        //static BankAccount B2 = new BankAccount();
+        //B2.AccountNumber = 1677;
+        //    B2.HolderName = "KRIMO";
+        //    B2.Balance = 95;
+
+        static BankAccount B1 = new BankAccount()
+        {
+            AccountNumber = 1677,
+            HolderName = "KRIMO",
+            Balance = 95
+        };
+
+        static BankAccount B2 = new BankAccount()
+        {
+            AccountNumber = 15203,
+            HolderName = "Ali",
+            Balance = 63
+        };
+        //------------------------
+
+        static Student student1 = new Student()
+        {
+            Name = "Ali",
+            Address = "Muscat",
+            Grade = 65
+        };
+
+        static Student student2 = new Student()
+        {
+            Name = "Ahmed",
+            Address = "Muscat",
+            Grade = 70
+        };
+        //static Student student1 = new Student();
+        //student1.Name = "Ali";
+        //    student1.Address = "Muscat";
+        //    student1.Grade = 65;
+
+        //static Student student2 = new Student();
+
+        //student2.Name = "Ahmed";
+        //    student2.Address = "Muscat";
+        //    student2.Grade = 70;
         //--------------------------
-        static Products Product1 = new Products();
-        static Products Product2 = new Products();
+        //static Products Product1 = new Products();
+        //Product1.ProductName = "Wireless Mouse";
+        //    Product1.Price = 5.500;
+        //    Product1.StockQuantity = 50;
+
+        //static Products Product2 = new Products();
+        //Product2.ProductName = "Mechanical Keyboard";
+        //    Product2.Price = 15.750;
+        //    Product2.StockQuantity = 20;
+
+        static Products Product1 = new Products()
+        {
+            ProductName = "Wireless Mouse",
+            Price = 5.500,
+            StockQuantity = 50
+        };
+
+        static Products Product2 = new Products()
+        {
+            ProductName = "Mechanical Keyboard",
+            Price = 15.750,
+            StockQuantity = 20
+        };
+
+
+
+
+
         //-----------helper-------------
 
-        public static BankAccount ChooseAccount()
+        static BankAccount ChooseAccount()
         {
             Console.WriteLine("Choose an account (1 or 2):");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -175,7 +245,7 @@ namespace OOP_Part_1
                 return null;
             }
         }
-        public static Student ChooseStudent()
+         static Student ChooseStudent()
         {
             Console.WriteLine("Choose the student (1 or 2):");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -195,7 +265,7 @@ namespace OOP_Part_1
             }
         }
 
-        public static Products ChooseProduct()
+         static Products ChooseProduct()
         {
             Console.WriteLine("Choose th Product (1 or 2):");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -216,7 +286,7 @@ namespace OOP_Part_1
         }
 
         //----------------------------
-        public static void ViewAccountDetails()
+         static void ViewAccountDetails()
         {
             BankAccount account = ChooseAccount();
 
@@ -224,9 +294,10 @@ namespace OOP_Part_1
             {
                 account.CheckBalance();
             }
+         
         }
 
-        public static void UpdateStudentAddress()
+         static void UpdateStudentAddress()
         {
 
             Student student = ChooseStudent();
@@ -237,9 +308,10 @@ namespace OOP_Part_1
                 Console.WriteLine("Address updated successfully.");
                 Console.WriteLine(student.Name + "'s new address is: " + student.Address);
             }
-        
+          
+
         }
-        public static void MakeDeposit()
+         static void MakeDeposit()
         {
             BankAccount Account = ChooseAccount();
 
@@ -247,42 +319,33 @@ namespace OOP_Part_1
             {
                 Console.WriteLine("Enter the amount you want to diposit");
                 double amount = Convert.ToDouble(Console.ReadLine());
-                Account.Deposit(amount);
+
+              Account.Deposit(amount);
                 
+                Console.WriteLine("Updated Balance: " + Account.Balance);
             }
+           
+        }
+
+         static void MakeWithdrawal()
+        {
+            BankAccount Account = ChooseAccount();
+            if (Account != null)
+            {
+                Console.WriteLine("Enter the amount you want to Withdraw");
+                double amount = Convert.ToDouble(Console.ReadLine());
+                Account.Withdraw(amount);
+
+                Console.WriteLine("Holder Name is: " +Account.HolderName);
+                Console.WriteLine("Updated Balance: " + Account.Balance);
+
+            }
+           
         }
 
         static void Main(string[] args)
         {
-            //==============================================
-
-            B1.AccountNumber = 1234;
-            B1.HolderName = "AZIZ";
-            B1.Balance = 120;
-
-
-            B2.AccountNumber = 1677;
-            B2.HolderName = "KRIMO";
-            B2.Balance = 95;
-            //==============================================
-            student1.Name = "Ali";
-            student1.Address = "Muscat";
-            student1.Grade = 65;
-
-            student2.Name = "Ahmed";
-            student2.Address = "Muscat";
-            student2.Grade = 70;
-            //==============================================
-            Product1.ProductName = "Wireless Mouse";
-            Product1.Price = 5.500;
-            Product1.StockQuantity = 50;
-
-
-            Product2.ProductName = "Mechanical Keyboard";
-            Product2.Price = 15.750;
-            Product2.StockQuantity = 20;
-
-            //==============================================
+           
 
 
 
@@ -329,7 +392,7 @@ namespace OOP_Part_1
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
                     case 3:  MakeDeposit(); break;
-                    case 4: //MakeWithdrawal(); break;
+                    case 4:   MakeWithdrawal(); break;
                     case 5: //ViewProductDetails(); break;
                     case 6: //RegisterStudent(); break;
                     case 7: //CompareAccountBalances(); break;
@@ -361,3 +424,4 @@ namespace OOP_Part_1
         }
     }
 }
+
