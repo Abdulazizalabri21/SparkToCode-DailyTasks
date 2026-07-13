@@ -389,6 +389,36 @@ namespace OOP_Part_1
             }
         }
 
+
+        public static void RestockProduct()
+        {
+            Products product = ChooseProduct();
+
+            if (product != null)
+            {
+                Console.Write("Enter quantity to add: ");
+                int quantity = Convert.ToInt32(Console.ReadLine());
+
+                product.Restock(quantity);
+
+                Console.WriteLine("Current Stock: " + product.StockQuantity);
+
+                if (product.StockQuantity < 10)
+                {
+                    Console.WriteLine("Stock Level: Low");
+                }
+                else if (product.StockQuantity >= 10 && product.StockQuantity <= 49)
+                {
+                    Console.WriteLine("Stock Level: Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("Stock Level: Well Stocked");
+                }
+            }
+
+          
+        }
         static void Main(string[] args)
         {
            
@@ -442,7 +472,7 @@ namespace OOP_Part_1
                     case 5: ViewProductDetails(); break;
                     case 6: RegisterStudent(); break;
                     case 7: CompareAccountBalances(); break;
-                    case 8: //RestockProduct(); break;
+                    case 8: RestockProduct(); break;
                     case 9: //TransferBetweenAccounts(); break;
                     case 10:// UpdateStudentGrade(); break;
                     case 11:// StudentReportCard(); break;
