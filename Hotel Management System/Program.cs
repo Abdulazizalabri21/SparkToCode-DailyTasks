@@ -125,8 +125,65 @@ namespace Hotel_Management_System
         } //-- only to show the menu, makes the code more organized 
 
 
+        static void AddNewRoom()
+        {
+            Console.WriteLine("\n----- Add New Room -----");
 
-    
+            // entring room number (must be a positive number)
+            Console.Write("Enter room number: ");
+            string roomNumberInput = Console.ReadLine();
+
+            if (!int.TryParse(roomNumberInput, out int roomNumberValue) || roomNumberValue <= 0)
+            {
+                Console.WriteLine("Error: Room number must be a positive number.");
+                return;
+            }
+
+
+            // Check for duplicate room number using LINQ Any()
+            bool roomExists = rooms.Any(r => r.RoomNumber == roomNumberValue);
+            if (roomExists)
+            {
+                Console.WriteLine("Error: Room " + roomNumberValue + " already exist, Cannot add duplicate");
+                return;
+            }
+
+            // room type
+            Console.Write("Enter room type (Single / Double / Suite): ");
+            string roomType = Console.ReadLine();
+
+            if (roomType != "Single" && roomType != "Double" && roomType != "Suite")
+            {
+                Console.WriteLine("Error: Room type must be Single, Double, or Suite");
+                return;
+            }
+
+            // entring the price per night (must be a positive number)
+            Console.Write("Enter price per night: ");
+            string priceInput = Console.ReadLine();
+
+            if (!decimal.TryParse(priceInput, out decimal pricePerNight) || pricePerNight <= 0)
+            {
+                Console.WriteLine("Error: Price per night must be a positive number");
+                return;
+            }
+
+            // Create new Room and add to list called (rooms)
+            Room newRoom = new Room(roomNumberValue, roomType, pricePerNight, true);
+            rooms.Add(newRoom);
+
+            // Success message 
+            Console.WriteLine("\nRoom added successfully!");
+            Console.WriteLine($"Room Number   :" + newRoom.RoomNumber);
+            Console.WriteLine($"Room Type     :" + newRoom.RoomType);
+            Console.WriteLine($"Price/Night   :" + newRoom.PricePerNight);
+            Console.WriteLine($"Status        : Available");
+            Console.WriteLine($"Total Rooms   :" + rooms.Count);
+        }
+
+
+
+
 
 
 
@@ -158,7 +215,7 @@ namespace Hotel_Management_System
                 switch (choice)
                 {
                     case 1:
-                        //AddNewRoom();
+                           AddNewRoom();
                         break;
 
                     case 2:
