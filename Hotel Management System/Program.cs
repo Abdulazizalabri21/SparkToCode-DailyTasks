@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Win32;
+using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 namespace Hotel_Management_System
 {
@@ -45,7 +47,7 @@ namespace Hotel_Management_System
     public class Guest 
     {
 
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
         public string GuestName { get; set; }
         public string RoomNumber { get; set; }
         public DateTime CheckInDate { get; set; }
@@ -55,7 +57,7 @@ namespace Hotel_Management_System
         private const double RatePerNight = 100.000;
 
         // Constructor
-        public Guest (int guestId, string guestName, string roomNumber, DateTime checkInDate, int totalNights)
+        public Guest (string guestId, string guestName, string roomNumber, DateTime checkInDate, int totalNights)
         {
             GuestId = guestId;
             GuestName = guestName;
@@ -181,15 +183,47 @@ namespace Hotel_Management_System
             Console.WriteLine($"Total Rooms   :" + rooms.Count);
         }
 
+        static void RegisterNewGuest()
+        {
+
+
+            string guestId = "G" + (guests.Count() + 1).ToString("D3");
+
+            Console.WriteLine("Enter the Guest Name: ");
+            string guestName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(guestName) || !guestName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c))) //---> validate the name if there are spicail char or numbers 
+            {
+                Console.WriteLine("Error: Guest name must contain only letters (no numbers or symbols).");
+                return;
+            }
+
+            Console.Write("Enter total nights: ");
+            if (!int.TryParse(Console.ReadLine(), out int nights) || nights <= 0) //---> validate the nights number >>>>> (>0) 
+            {
+                Console.WriteLine("Error: Total nights must be a positive number.");
+                return;
+            }
+
+            Console.Write("Enter check-in date (yyyy-MM-dd): ");
+            string dateInput = Console.ReadLine();
+
+            if (!DateTime.TryParse(dateInput, out DateTime checkInDate))//---> validate the date
+            {
+                Console.WriteLine("Error: Invalid date format. Please use yyyy-MM-dd.");
+                return;
+            }
+
+            Guest NewGuest = new Guest(guestId, guestName, "Not Assigned", checkInDate, nights);
+            guests.Add(NewGuest);
+
+            Console.WriteLine(" The "+ guestId + " added successfully!");
+        }
 
 
 
 
-
-
-
-
-        static void Main(string[] args)
+            static void Main(string[] args)
         {
 
 
@@ -219,7 +253,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 2:
-                        //RegisterNewGuest(guests);
+                        RegisterNewGuest();
                         break;
 
                     case 3:
@@ -276,7 +310,7 @@ namespace Hotel_Management_System
 
                 }
 
-                        Console.WriteLine("Press any KEY");
+                Console.WriteLine("Press any KEY");
                 Console.ReadKey();
                 Console.Clear();
             }
