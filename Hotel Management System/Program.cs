@@ -94,12 +94,12 @@ namespace Hotel_Management_System
            static List<Guest> guests = new List<Guest>();
         static void PreloadRooms() 
         {
-            rooms.Add(new Room(101, "Single", 80, true));
+            rooms.Add(new Room(107, "Single", 80, true));
             rooms.Add(new Room(102, "Single", 80, true));
             rooms.Add(new Room(103, "Double", 120, true));
-            rooms.Add(new Room(104, "Double", 120, true));
-            rooms.Add(new Room(104, "Suite", 220, true));
-            rooms.Add(new Room(104, "Suite", 220, true));
+            rooms.Add(new Room(105, "Double", 120, true));
+            rooms.Add(new Room(106, "Suite", 220, true));
+            rooms.Add(new Room(101, "Suite", 220, true));
         } //--> Function to preloadRooms
 
         static void ShowingMenu()
@@ -221,7 +221,7 @@ namespace Hotel_Management_System
         }
 
  
-static void BookRoom()
+         static void BookRoom()
     {
         Console.WriteLine("------ Book a Room ------");
 
@@ -261,8 +261,8 @@ static void BookRoom()
 
         //Assign room to guest, mark room as unavailable
         selectedGuest.RoomNumber = selectedRoom.RoomNumber.ToString();
-            decimal PricePerN = selectedRoom.PricePerNight;
-       selectedRoom.IsAvailable = true;
+        decimal PricePerN = selectedRoom.PricePerNight;
+        selectedRoom.IsAvailable = true;
 
         //Display booking confirmation
         Console.WriteLine("\nBooking confirmed!");
@@ -274,6 +274,41 @@ static void BookRoom()
         Console.WriteLine($"Total Cost    : "+selectedGuest.CalculateTotalCost(PricePerN) +" OMR");
            
     }
+
+        static void ViewAllRooms()
+        {
+            Console.WriteLine("\n----- All Rooms -----");
+
+            //Handle empty list
+            if (!rooms.Any())
+            {
+                Console.WriteLine("No rooms have been added yet.");
+                return;
+            }
+
+            //total room count using Count()
+            Console.WriteLine($"Total Rooms: "+rooms.Count());
+
+            // ordering the list based on room Number ascending
+
+            List <Room> OrderdListOfRooms = rooms.OrderByDescending(o => o.RoomNumber).ToList();
+            //var sortedRooms = rooms.OrderBy(r => r.RoomNumber);
+
+            // 2. Project each room into a formatted display line using Select()
+
+
+            var roomDetails = OrderdListOfRooms.Select(r => new{ RoomNumber = r.RoomNumber, RoomType = r.RoomType,  PricePerNight = r.PricePerNight,   Status = r.IsAvailable ? "Available" : "Booked" });
+
+
+            foreach (var room in roomDetails)
+            {
+                Console.WriteLine($"Room Number : "+room.RoomNumber);
+                Console.WriteLine($"Room Type   : "+room.RoomType);
+                Console.WriteLine($"Price/Night : "+room.PricePerNight);
+                Console.WriteLine($"Status      : "+room.Status);
+                Console.WriteLine("\n");
+            }
+        }
 
 
 
@@ -316,7 +351,7 @@ static void BookRoom()
                         break;
 
                     case 4:
-                        //ViewAllRooms(rooms);
+                         ViewAllRooms();
                         break;
 
                     case 5:
