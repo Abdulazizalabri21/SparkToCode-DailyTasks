@@ -54,7 +54,7 @@ namespace Hotel_Management_System
         public int TotalNights { get; set; }
 
         // rate per night, used for cost calculation only 
-        private const double RatePerNight = 100.000;
+        private const decimal RatePerNight = 100;
 
         // Constructor
         public Guest (string guestId, string guestName, string roomNumber, DateTime checkInDate, int totalNights)
@@ -78,7 +78,7 @@ namespace Hotel_Management_System
             Console.WriteLine("Total Cost   : " + CalculateTotalCost(RatePerNight));
         }
 
-        public double CalculateTotalCost(double pricePerNight)
+        public decimal CalculateTotalCost(decimal RatePerNight)
         {
             return RatePerNight * TotalNights;
         }
@@ -220,13 +220,68 @@ namespace Hotel_Management_System
             Console.WriteLine(" The "+ guestId + " added successfully!");
         }
 
+ 
+static void BookRoom()
+    {
+        Console.WriteLine("------ Book a Room ------");
+
+        // Prompt for guest ID and room number
+        Console.Write("Enter guest ID: ");
+        string guestId = Console.ReadLine();
+
+        Console.Write("Enter room number: ");
+        int roomNumber = int.Parse(Console.ReadLine());
+
+        
+            
+
+        // Use LINQ FirstOrDefault() to find the guest and the room
+        Guest selectedGuest = guests.FirstOrDefault(g => g.GuestId == guestId);
+        Room selectedRoom = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+        if (selectedGuest == null)
+        {
+            Console.WriteLine("Error: Guest not found.");
+            return;
+        }
+
+        if (selectedRoom == null)
+        {
+            Console.WriteLine("Error: Room not found.");
+            return;
+        }
+
+        //Check the room is currently available
+        if (!selectedRoom.IsAvailable)
+        {
+            Console.WriteLine("Room is already booked.");
+            return;
+        }
+
+
+        //Assign room to guest, mark room as unavailable
+        selectedGuest.RoomNumber = selectedRoom.RoomNumber.ToString();
+            decimal PricePerN = selectedRoom.PricePerNight;
+       selectedRoom.IsAvailable = true;
+
+        //Display booking confirmation
+        Console.WriteLine("\nBooking confirmed!");
+        Console.WriteLine($"Guest Name    : "+selectedGuest.GuestName);
+        Console.WriteLine($"Room Number   : "+ selectedRoom.RoomNumber);
+        Console.WriteLine($"Room Type     : "+ selectedRoom.RoomType);
+        Console.WriteLine($"Total Nights  : "+selectedGuest.TotalNights); 
+        Console.WriteLine($"Price/Night   : "+selectedRoom.PricePerNight+ " OMR"); 
+        Console.WriteLine($"Total Cost    : "+selectedGuest.CalculateTotalCost(PricePerN) +" OMR");
+           
+    }
 
 
 
-            static void Main(string[] args)
+
+    static void Main(string[] args)
         {
 
-
+            
 
            PreloadRooms();
 
@@ -257,7 +312,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 3:
-                        // BookRoom(rooms, guests);
+                           BookRoom();
                         break;
 
                     case 4:
