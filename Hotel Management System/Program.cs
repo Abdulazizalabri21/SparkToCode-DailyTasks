@@ -125,8 +125,7 @@ namespace Hotel_Management_System
             Console.WriteLine(" 0. Exit");
             Console.WriteLine("================================================");
         } //-- only to show the menu, makes the code more organized 
-
-
+        //--- Easy cases
         static void AddNewRoom()
         {
             Console.WriteLine("\n----- Add New Room -----");
@@ -220,7 +219,6 @@ namespace Hotel_Management_System
             Console.WriteLine(" The "+ guestId + " added successfully!");
         }
 
- 
          static void BookRoom()
     {
         Console.WriteLine("------ Book a Room ------");
@@ -331,6 +329,132 @@ namespace Hotel_Management_System
                 guest.DisplayGuest();
             }
         }
+        //--MEDIUM
+        static void SearchAndFilterRooms()
+        {
+            int choice;
+
+            do
+            {
+                Console.WriteLine("\n===== Search & Filter Rooms =====");
+                Console.WriteLine("1. Show All Available Rooms");
+                Console.WriteLine("2. Filter by Room Type");
+                Console.WriteLine("3. Filter by Maximum Price");
+                Console.WriteLine("4. Room Price Statistics");
+                Console.WriteLine("0. Back");
+
+                Console.Write("Enter your choice: ");
+
+                // Validate menu choice
+
+                if (!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("You entered invalid input !!");
+
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        // Retrieve available rooms and sort by price
+
+                        List<Room> availableRooms = rooms.Where(r => r.IsAvailable).OrderBy(r => r.PricePerNight).ToList();
+
+
+                        // Display number of available rooms
+                        Console.WriteLine("Available Rooms: " + availableRooms.Count());
+
+                        if (!availableRooms.Any())
+                        {
+                            Console.WriteLine("No rooms found for the selected criteria");
+                            break;
+                        }
+
+                        foreach (Room room in availableRooms)
+                        {
+                            room.displayRooms();
+                        }
+
+                        break;
+
+                    case 2:
+                        // Retrieve rooms matching the entered Room type
+
+                        Console.Write("Enter Room Type: ");
+                        string roomType = Console.ReadLine();
+
+                        List<Room> roomTypes = rooms.Where(r => r.RoomType.Equals(roomType, StringComparison.OrdinalIgnoreCase)).ToList();
+
+                        Console.WriteLine("Rooms Found: " + roomTypes.Count());
+
+                        if (!roomTypes.Any())
+                        {
+                            Console.WriteLine("No rooms found for the selected criteria");
+                            break;
+                        }
+
+                        foreach (Room room in roomTypes)
+                        {
+                            room.displayRooms();
+                        }
+
+                        break;
+
+                    case 3:
+                        // Validate maximum price
+
+                        Console.Write("Enter Maximum Price: ");
+                        decimal maxPrice = decimal.Parse(Console.ReadLine());
+                        // Retrieve available rooms within the price limit
+
+                        List<Room> priceRooms = rooms.Where(r => r.IsAvailable && r.PricePerNight <= maxPrice).OrderBy(r => r.PricePerNight).ToList();
+
+                        // counting the avaliable where <= maxPrice
+                        Console.WriteLine("Rooms Found: " + priceRooms.Count());
+
+                        // Check if no rooms were found
+                        if (!priceRooms.Any())
+                        {
+                            Console.WriteLine("No rooms found for the selected criteria");
+                            break;
+                        }
+                        // Display matching rooms
+
+                        foreach (Room room in priceRooms)
+                        {
+                            room.displayRooms();
+                        }
+
+                        break;
+
+                    case 4:
+
+                        if (rooms.Count() == 0)
+                        {
+                            Console.WriteLine("No rooms have been added yet.");
+                            break;
+                        }
+                        // Display room statistics using LINQ
+                        Console.WriteLine("Total Rooms       : " + rooms.Count());
+                        Console.WriteLine("Available Rooms   : " + rooms.Count(r => r.IsAvailable));
+                        Console.WriteLine("Average Price     : " + rooms.Average(r => r.PricePerNight));
+                        Console.WriteLine("Cheapest Price    : " + rooms.Min(r => r.PricePerNight));
+                        Console.WriteLine("Highest Price     : " + rooms.Max(r => r.PricePerNight));
+
+                        break;
+
+                    case 0:
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Choice.");
+                        break;
+                }
+
+            } while (choice != 0);
+        }
+
+
 
 
 
@@ -380,7 +504,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 6:
-                        //SearchAndFilterRooms(rooms);
+                        SearchAndFilterRooms();
                         break;
 
                     case 7:
