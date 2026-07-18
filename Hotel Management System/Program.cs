@@ -650,6 +650,73 @@ namespace Hotel_Management_System
 
             Console.WriteLine("");
         }
+
+        static void CheckOutGuest()
+        {
+            Console.Write("Enter Guest ID: ");
+            string guestId = Console.ReadLine();
+
+            // Find guest by ID
+            Guest guest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+            if (guest == null)
+            {
+                Console.WriteLine("Guest not found");
+                return;
+            }
+
+            // Check if guest has active booking
+            if (guest.RoomNumber == "Not Assigned")
+            {
+                Console.WriteLine("This guest has no active booking.");
+                return;
+            }
+
+            // Find linked room
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber.ToString() == guest.RoomNumber);
+
+            if (room == null)
+            {
+                Console.WriteLine("Room not found ");
+                return;
+            }
+
+            // Calculate final bill
+            decimal totalCost = guest.CalculateTotalCost(room.PricePerNight);
+
+            Console.WriteLine("\n=>>>>>>>> Final Bill <<<<<<<<<<=");
+            Console.WriteLine("Guest Name     : " + guest.GuestName);
+            Console.WriteLine("Room Number    : " + guest.RoomNumber);
+            Console.WriteLine("Room Type      : " + room.RoomType);
+            Console.WriteLine("Check-In Date  : " + guest.CheckInDate);
+            Console.WriteLine("Total Nights   : " + guest.TotalNights);
+            Console.WriteLine("Price/Night    : OMR " + room.PricePerNight);
+            Console.WriteLine("Total Cost     : OMR " + totalCost);
+
+            Console.Write("\nConfirm Checkout (Y/N): ");
+            string confirm = Console.ReadLine();
+
+            if (confirm.ToUpper() == "Y")
+            {
+                // Free room and remove guest
+                room.IsAvailable = true;
+                guests.Remove(guest);
+
+                Console.WriteLine("\nCheckout completed successfully !!");
+
+                Console.WriteLine("Total Rooms  : " + rooms.Count());
+                Console.WriteLine("Total Guests : " + guests.Count());
+
+                // Confirm room availability
+                bool AvailableRoom = rooms.Any(r => r.RoomNumber.ToString() == guest.RoomNumber && r.IsAvailable);
+
+                Console.WriteLine("Room Available: " + AvailableRoom);
+            }
+            else
+            {
+                Console.WriteLine("Checkout cancelled. No changes were made");
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -716,7 +783,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 11:
-                        // CheckOutGuest(rooms, guests);
+                        CheckOutGuest();
                         break;
 
                     case 12:
