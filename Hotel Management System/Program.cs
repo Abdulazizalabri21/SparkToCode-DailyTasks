@@ -561,7 +561,36 @@ namespace Hotel_Management_System
             Console.WriteLine("New Price   : OMR " + newPrice.ToString());
         }
 
-            static void Main(string[] args)
+        static void GuestLookupByName()
+        {
+         
+            Console.Write("Enter Guest Name: ");
+            string searchName = Console.ReadLine();
+
+            // Search guests whose names contain the search text
+            List<Guest> matchedGuests = guests.Where(g => g.GuestName.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            // Display the number of matches
+            Console.WriteLine("Guests Found: " + matchedGuests.Count());
+
+            // Check if no guests were found
+            if (!matchedGuests.Any())
+            {
+                Console.WriteLine("No guests matched that search.");
+                return;
+            }
+
+            // Display matching guests
+            foreach (Guest guest in matchedGuests)
+            {
+                Console.WriteLine("Guest ID    : " + guest.GuestId);
+                Console.WriteLine("Guest Name  : " + guest.GuestName);
+                Console.WriteLine("Room Number : " + guest.RoomNumber);
+              
+            }
+        }
+
+        static void Main(string[] args)
         {
 
             
@@ -619,7 +648,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 9:
-                        // GuestLookupByName();
+                        GuestLookupByName();
                         break;
 
                     case 10:
