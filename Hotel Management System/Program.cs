@@ -717,6 +717,66 @@ namespace Hotel_Management_System
                 Console.WriteLine("Checkout cancelled. No changes were made");
             }
         }
+
+        static void RemoveUnavailableRooms()
+        {
+            // Find unavailable rooms with no active booking
+            List<Room> removableRooms = rooms
+                .Where(r => !r.IsAvailable &&
+                            !guests.Any(g => g.RoomNumber == r.RoomNumber.ToString()))
+                .OrderBy(r => r.RoomNumber)
+                .ToList();
+
+            if (!removableRooms.Any())
+            {
+                Console.WriteLine("All unavailable rooms are currently occupied. No rooms can be decommissioned.");
+                return;
+            }
+
+            Console.WriteLine("Removable Rooms: " + removableRooms.Count());
+
+            // Display rooms before removal
+            foreach (Room room in removableRooms)
+            {
+                Console.WriteLine(
+                    "Room Number: " + room.RoomNumber +
+                    " | Type: " + room.RoomType +
+                    " | Price: OMR " + room.PricePerNight.ToString("F2"));
+            }
+
+            Console.Write("\nConfirm removal (Y/N): ");
+            string confirm = Console.ReadLine();
+
+            if (confirm.ToUpper() == "Y")
+            {
+                // Remove rooms using the same condition
+                rooms.RemoveAll(r => !r.IsAvailable &&
+                            !guests.Any(g => g.RoomNumber == r.RoomNumber.ToString()));
+
+                Console.WriteLine("\nRooms removed successfully.");
+                Console.WriteLine("Updated Total Rooms: " + rooms.Count());
+
+                // Display remaining rooms using Select()
+                var remainingRooms = rooms.Select(r => new
+                {
+                    r.RoomNumber,
+                    r.RoomType
+                });
+
+                Console.WriteLine("\nRemaining Rooms:");
+
+                foreach (var room in remainingRooms)
+                {
+                    Console.WriteLine(
+                        "Room Number: " + room.RoomNumber +
+                        " | Type: " + room.RoomType);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Removal cancelled. No rooms were removed.");
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -787,11 +847,11 @@ namespace Hotel_Management_System
                         break;
 
                     case 12:
-                        // RemoveUnavailableRooms(rooms);
+                         RemoveUnavailableRooms();
                         break;
 
                     case 13:
-                        // ExtendGuestStay(guests);
+                        // ExtendGuestStay();
                         break;
 
                     case 14:
@@ -799,7 +859,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 15:
-                        // GuestPaginationViewer(guests);
+                        // GuestPaginationViewer();
                         break;
 
                 }
