@@ -516,9 +516,52 @@ namespace Hotel_Management_System
             }
         }
 
+        static void UpdateRoomPrice()
+        {
+            // Prompt for room number
+            Console.Write("Enter Room Number: ");
+            int roomNumber;
 
+            if (!int.TryParse(Console.ReadLine(), out roomNumber))
+            {
+                Console.WriteLine("Invalid room number.");
+                return;
+            }
 
-        static void Main(string[] args)
+            // Find the room using FirstOrDefault()
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+            // Check if room exists
+            if (room == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+
+            // Prompt for new price
+            Console.Write("Enter New Price Per Night: ");
+            decimal newPrice;
+
+            if (!decimal.TryParse(Console.ReadLine(), out newPrice) || newPrice <= 0)
+            {
+                Console.WriteLine("Invalid price.");
+                return;
+            }
+
+            // Save the old price
+            decimal oldPrice = room.PricePerNight;
+
+            // Update the room price
+            room.PricePerNight = newPrice;
+
+            // Display confirmation
+            Console.WriteLine("\nRoom price updated successfully !!");
+            Console.WriteLine("Room Number : " + room.RoomNumber);
+            Console.WriteLine("Old Price   : OMR " + oldPrice.ToString());
+            Console.WriteLine("New Price   : OMR " + newPrice.ToString());
+        }
+
+            static void Main(string[] args)
         {
 
             
@@ -572,7 +615,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 8:
-                        //UpdateRoomPrice();
+                         UpdateRoomPrice();
                         break;
 
                     case 9:
