@@ -260,7 +260,7 @@ namespace Hotel_Management_System
         //Assign room to guest, mark room as unavailable
         selectedGuest.RoomNumber = selectedRoom.RoomNumber.ToString();
         decimal PricePerN = selectedRoom.PricePerNight;
-        selectedRoom.IsAvailable = true;
+        selectedRoom.IsAvailable = false;
 
         //Display booking confirmation
         Console.WriteLine("\nBooking confirmed!");
@@ -454,7 +454,67 @@ namespace Hotel_Management_System
             } while (choice != 0);
         }
 
+       
+        static void GuestBookingStatistics()
+        {
+            // Guests with an assigned room
+            List<Guest> bookedGuests = guests.Where(g => g.RoomNumber != "Not Assigned").ToList();
 
+            // Total registered guests
+            Console.WriteLine("Total Registered Guests : " + guests.Count());
+
+            // Total guests with bookings
+            Console.WriteLine("Guests With Booking     : " + bookedGuests.Count());
+
+            // Total rooms
+            Console.WriteLine("Total Rooms             : " + rooms.Count());
+
+            // Total booked rooms
+            Console.WriteLine("Booked Rooms            : " + rooms.Count(r => !r.IsAvailable));
+
+            // Check if there are active bookings
+            if (!bookedGuests.Any())
+            {
+                Console.WriteLine("No active bookings recorded.");
+                return;
+            }
+
+            // Average nights
+            Console.WriteLine("Average Nights          : "+ bookedGuests.Average(g => g.TotalNights).ToString());
+
+            Console.WriteLine("\n=>>>>>>Top 3 Highest Spending Guests <<<<<=");
+
+            // Top 3 highest spending guests
+              List<Guest> topGuests = bookedGuests.OrderByDescending(g =>g.CalculateTotalCost(rooms.First(r => r.RoomNumber.ToString() == g.RoomNumber).PricePerNight)).Take(3).ToList();
+            
+            foreach (Guest guest in topGuests)
+            {
+                decimal totalCost = guest.CalculateTotalCost( rooms.First(r => r.RoomNumber.ToString() == guest.RoomNumber).PricePerNight);
+
+                Console.WriteLine(guest.GuestName +" - Room "+ guest.RoomNumber + "-OMR" + totalCost);
+            }
+
+            Console.WriteLine("=>>>> Booking Summary <<<<=");
+
+            // Booking summary using Select()
+
+
+            var summary = bookedGuests.Select(g =>
+            {
+                Room room = rooms.First(r => r.RoomNumber.ToString() == g.RoomNumber);
+
+                decimal totalCost = g.CalculateTotalCost(room.PricePerNight);
+
+                return g.GuestName + " - Room " + g.RoomNumber + " - " + g.TotalNights + " nights - OMR " + totalCost.ToString();
+            });
+
+
+
+            foreach (string line in summary)
+            {
+                Console.WriteLine(line);
+            }
+        }
 
 
 
@@ -508,19 +568,19 @@ namespace Hotel_Management_System
                         break;
 
                     case 7:
-                        // GuestBookingStatistics(rooms, guests);
+                        GuestBookingStatistics();
                         break;
 
                     case 8:
-                        //UpdateRoomPrice(rooms);
+                        //UpdateRoomPrice();
                         break;
 
                     case 9:
-                        // GuestLookupByName(guests);
+                        // GuestLookupByName();
                         break;
 
                     case 10:
-                        //RoomTypeBreakdownReport(rooms);
+                        //RoomTypeBreakdownReport();
                         break;
 
                     case 11:
