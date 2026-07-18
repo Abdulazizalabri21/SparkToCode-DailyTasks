@@ -590,6 +590,66 @@ namespace Hotel_Management_System
             }
         }
 
+        static void RoomTypeBreakdownReport()
+        {
+            // Check if there are any rooms
+            if (rooms.Count() == 0)
+            {
+                Console.WriteLine("No rooms have been added yet.");
+                return;
+            }
+
+            // ---------- Single ----------
+           
+            int singleCount = rooms.Where(r => r.RoomType == "Single").Count();
+
+            Console.WriteLine("Single Rooms : " + singleCount);
+
+            if (singleCount > 0)
+            {
+                Console.WriteLine("Average Price: OMR " +rooms.Where(r => r.RoomType == "Single").Average(r => r.PricePerNight).ToString());
+            }
+            else
+            {
+                Console.WriteLine("Average Price: Not Available");
+            }
+
+            Console.WriteLine("");
+
+            // ---------- Double --------
+
+            int doubleCount = rooms.Where(r => r.RoomType == "Double").Count();
+
+            Console.WriteLine("Single Rooms : " + singleCount);
+
+            if (doubleCount > 0)
+            {
+                Console.WriteLine("Average Price: OMR " + rooms.Where(r => r.RoomType == "Double").Average(r => r.PricePerNight).ToString());
+            }
+            else
+            {
+                Console.WriteLine("Average Price: Not Available");
+            }
+
+            Console.WriteLine("");
+
+            // ---------- Suite ----------
+
+            int suiteCount = rooms.Where(r => r.RoomType == "Suite").Count();
+
+            Console.WriteLine("Single Rooms : " + suiteCount);
+
+            if (suiteCount > 0)
+            {
+                Console.WriteLine("Average Price: OMR " + rooms.Where(r => r.RoomType == "Suite").Average(r => r.PricePerNight).ToString());
+            }
+            else
+            {
+                Console.WriteLine("Average Price: Not Available");
+            }
+
+            Console.WriteLine("");
+        }
         static void Main(string[] args)
         {
 
@@ -652,7 +712,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 10:
-                        //RoomTypeBreakdownReport();
+                        RoomTypeBreakdownReport();
                         break;
 
                     case 11:
