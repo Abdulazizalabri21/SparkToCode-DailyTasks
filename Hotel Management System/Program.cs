@@ -294,7 +294,7 @@ namespace Hotel_Management_System
             List <Room> OrderdListOfRooms = rooms.OrderByDescending(o => o.RoomNumber).ToList();
             //var sortedRooms = rooms.OrderBy(r => r.RoomNumber);
 
-            // 2. Project each room into a formatted display line using Select()
+            //Project each room into a formatted display line using Select() 
 
 
             var roomDetails = OrderdListOfRooms.Select(r => new{ RoomNumber = r.RoomNumber, RoomType = r.RoomType,  PricePerNight = r.PricePerNight,   Status = r.IsAvailable ? "Available" : "Booked" });
@@ -310,10 +310,31 @@ namespace Hotel_Management_System
             }
         }
 
+        static void ViewAllGuests()
+        {
+            // Check if there are any registered guests
+            if (guests.Count() == 0)
+            {
+                Console.WriteLine("No guests have been registered yet.");
+                return;
+            }
+
+            // Display total number of guests
+            Console.WriteLine("Total Guests: " + guests.Count());
+
+            // Sort guests alphabetically by guest name
+            List<Guest> guestList = guests.OrderBy(r => r.GuestName).ToList();
+
+            // Display each guest
+            foreach (Guest guest in guestList)
+            {
+                guest.DisplayGuest();
+            }
+        }
 
 
 
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
 
             
@@ -355,7 +376,7 @@ namespace Hotel_Management_System
                         break;
 
                     case 5:
-                        // ViewAllGuests(guests);
+                        ViewAllGuests();
                         break;
 
                     case 6:
