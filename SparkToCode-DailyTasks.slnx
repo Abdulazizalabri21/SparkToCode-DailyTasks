@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="DatabaseTasks/Airline.png" />
+  </Folder>
   <Project Path="C# Fundamentals - Mini Compound Project/C# Fundamentals - Mini Compound Project.csproj" Id="3999d223-167f-4577-882d-f3c47d91cd9d" />
   <Project Path="C# Fundamentals - Part 1/C# Fundamentals - Part 1.csproj" />
   <Project Path="C# Fundamentals - Part 2/C# Fundamentals - Part 2.csproj" Id="4efb25c6-232c-4a2f-af6c-4458ee9911fc" />
