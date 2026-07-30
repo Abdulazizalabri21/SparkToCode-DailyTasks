@@ -1,4 +1,5 @@
 ﻿using E_Commerce_Database.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace E_Commerce_Database
 {
@@ -46,7 +47,7 @@ namespace E_Commerce_Database
                     case 6: PlaceOrder(); break;
                     case 7: ViewMyOrders(); break;
                     case 8: ViewOrderDetails(); break;
-                    case 9: //AddReview(); break;
+                    case 9: AddReview(); break;
                     case 10://ViewReviewsForProduct(); break;
                     case 11://Logout(); break;
                     case 0:
@@ -58,6 +59,9 @@ namespace E_Commerce_Database
                         break;
                 }
 
+                Console.WriteLine("Press any KEY");
+                Console.ReadKey();
+                Console.Clear();
 
             }
         }
@@ -453,7 +457,6 @@ namespace E_Commerce_Database
 
         // 8.View Order Details
 
-
         static void ViewOrderDetails()
         {
             Console.WriteLine("Enter Order ID:");
@@ -509,6 +512,64 @@ namespace E_Commerce_Database
             }
         }
 
+        // 9.Add Reviews
+
+        static void AddReview()
+        {
+            // Check if user is logged in
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("Please login first!");
+                return;
+            }
+
+            Console.WriteLine("Enter Order ID:");
+            int orderId = int.Parse(Console.ReadLine());
+
+            // Check if the order belongs to the logged-in user
+            var order = context.Order.FirstOrDefault(o => o.OrderId == orderId && o.UserID == loggedInUserId);
+
+            if (order == null)
+            {
+                Console.WriteLine("This order does not belong to you.");
+                return;
+            }
+
+            // Check if the order already has a review
+            var review = context.Reviews
+                                .FirstOrDefault(r => r.OrderId == orderId);
+
+            if (review != null)
+            {
+                Console.WriteLine("This order already has a review.");
+                return;
+            }
+
+            Console.WriteLine("Enter Rating (1 -> 5):");
+            int rating = int.Parse(Console.ReadLine());
+
+            if (rating < 1 || rating > 5)
+            {
+                Console.WriteLine("Rating must be between 1 and 5 ");
+                return;
+            }
+
+            Console.WriteLine("Enter Comment:");
+            string comment = Console.ReadLine();
+
+            Review newReview = new Review()
+            {
+                Ratings = rating,
+                Comment = comment,
+                OrderId = orderId,
+                userID = loggedInUserId
+            };
+
+            context.Reviews.Add(newReview);
+            context.SaveChanges();
+
+            Console.WriteLine("Review added successfully!");
+        }
 
 
 
