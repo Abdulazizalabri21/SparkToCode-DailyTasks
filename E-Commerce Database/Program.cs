@@ -44,7 +44,7 @@ namespace E_Commerce_Database
                     case 4: AddProduct(); break;
                     case 5: ViewAllProducts(); break;
                     case 6: PlaceOrder(); break;
-                    case 7: //ViewMyOrders(); break;
+                    case 7: ViewMyOrders(); break;
                     case 8: //ViewOrderDetails(); break;
                     case 9: //AddReview(); break;
                     case 10://ViewReviewsForProduct(); break;
@@ -64,7 +64,7 @@ namespace E_Commerce_Database
 
 
         // functions
-       //-------------------------------------
+        //-------------------------------------
         // 1. Register New User
         static void RegisterUser()
         {
@@ -152,7 +152,7 @@ namespace E_Commerce_Database
         }
 
         // 2.Login
-         static void Login()
+        static void Login()
         {
             Console.Write("Enter Email: ");
             string email = Console.ReadLine().Trim();
@@ -160,14 +160,14 @@ namespace E_Commerce_Database
             Console.Write("Enter Password: ");
             string password = Console.ReadLine();
 
-            Users user = context.User.FirstOrDefault(u =>    u.Email == email &&  u.Password == password);
+            Users user = context.User.FirstOrDefault(u => u.Email == email && u.Password == password);
 
             if (user != null)
             {
-                 loggedInUserId = user.userID;
+                loggedInUserId = user.userID;
 
                 Console.WriteLine("\nLogin successful.");
-                Console.WriteLine($"Welcome " +user.Firstname + user.Lastname);
+                Console.WriteLine($"Welcome " + user.Firstname + user.Lastname);
             }
             else
             {
@@ -175,7 +175,7 @@ namespace E_Commerce_Database
             }
         }
 
-        // add new Category
+        // 3.add new Category
         public static void AddCategory()
         {
             Category category = new Category();
@@ -210,8 +210,8 @@ namespace E_Commerce_Database
         }
 
 
-        // add Product
-         static  void AddProduct()
+        // 4.add Product
+        static void AddProduct()
         {
             Console.WriteLine("Enter Product Name:");
             string name = Console.ReadLine();
@@ -227,7 +227,7 @@ namespace E_Commerce_Database
 
             foreach (var category in categories)
             {
-                Console.WriteLine(+category.CategoryId +" - " +category.CategoryName);
+                Console.WriteLine(+category.CategoryId + " - " + category.CategoryName);
             }
 
 
@@ -253,7 +253,7 @@ namespace E_Commerce_Database
                 Price = price,
 
                 // Link product with category
-               C = selectedCategory
+                C = selectedCategory
             };
 
 
@@ -265,7 +265,7 @@ namespace E_Commerce_Database
             Console.WriteLine("Product added successfully!");
         }
 
-        // view all products
+        // 5.view all products
 
         static void ViewAllProducts()
         {
@@ -285,9 +285,6 @@ namespace E_Commerce_Database
                 products = products.Where(p => p.CategoryId == categoryId).ToList();
 
             }
-
-
-
 
             if (products.Count == 0)
             {
@@ -309,12 +306,12 @@ namespace E_Commerce_Database
             }
         }
 
-        //place an Order
+        //6.place an Order
 
         static void PlaceOrder()
         {
 
-            decimal totalAmount= 0;
+            decimal totalAmount = 0;
 
 
             if (loggedInUserId == 0)
@@ -337,7 +334,7 @@ namespace E_Commerce_Database
 
                 foreach (var product in products)
                 {
-                    Console.WriteLine(+product.ProductId + "-" + product.ProductName+ "-" + product.Price+ " OMR");
+                    Console.WriteLine(+product.ProductId + "-" + product.ProductName + "-" + product.Price + " OMR");
                     Console.WriteLine("-----------------------------------------");
                 }
 
@@ -369,7 +366,7 @@ namespace E_Commerce_Database
 
                 };
 
-                
+
 
                 orderProducts.Add(orderProduct);
 
@@ -405,6 +402,54 @@ namespace E_Commerce_Database
             Console.WriteLine("Order placed successfully!");
         }
 
+        // 7. View My Orders  
+        //with the products that user ordred through {product-order} table 
+        static void ViewMyOrders()
+        {
+
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("Error: Please login first!");
+                return;
+            }
+
+            var products = context.Product.ToList();
+
+            var orders = context.Order.Where(o => o.UserID == loggedInUserId).ToList();
+
+            if (orders.Count == 0)
+            {
+                Console.WriteLine("No orders found.");
+                return;
+            }
+
+            Console.WriteLine("\nMy Orders");
+
+
+            foreach (var order in orders)
+            {
+                Console.WriteLine("Order ID     : " + order.OrderId);
+                Console.WriteLine("Order Date   : " + order.OrderDate);
+                Console.WriteLine("Total Amount : " + order.TotalAmount);
+                Console.WriteLine("--------------------------------");
+
+                var orderProducts = context.Order_Product.Where(op => op.OrderId == order.OrderId).ToList();
+
+                foreach (var op in orderProducts)
+                {
+                    var product = context.Product.FirstOrDefault(p => p.ProductId == op.ProductId);
+
+                    if (product != null)
+                    {
+                        Console.WriteLine("Product: " + product.ProductName);
+                        Console.WriteLine("Price   : " + product.Price);
+                        Console.WriteLine("Quantity: " + op.Quantity);
+                        Console.WriteLine("---------------------------");
+                    }
+                }
+            }
+
+        }
 
 
 
@@ -435,5 +480,10 @@ namespace E_Commerce_Database
 
 
 
+
+
+
+
+        
     }
 }
