@@ -41,7 +41,7 @@ namespace E_Commerce_Database
                     case 1: RegisterUser(); break;
                     case 2: Login(); break;
                     case 3: AddCategory(); break;
-                    case 4: //AddProduct(); break;
+                    case 4: AddProduct(); break;
                     case 5: //ViewAllProducts(); break;
                     case 6: //PlaceOrder(); break;
                     case 7: //ViewMyOrders(); break;
@@ -209,6 +209,63 @@ namespace E_Commerce_Database
             Console.WriteLine($"Category ID: {category.CategoryId}");
         }
 
+
+        // add Product
+         static  void AddProduct()
+        {
+            Console.WriteLine("Enter Product Name:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Enter Product Price:");
+            decimal price = decimal.Parse(Console.ReadLine());
+
+
+            // Display existing categories
+            var categories = context.Category.ToList();
+
+            Console.WriteLine("\nAvailable Categories:");
+
+            foreach (var category in categories)
+            {
+                Console.WriteLine(+category.CategoryId +" - " +category.CategoryName);
+            }
+
+
+            Console.WriteLine("\nChoose Category ID:");
+            int categoryId = int.Parse(Console.ReadLine());
+
+
+            // Find selected category
+            var selectedCategory = context.Category.FirstOrDefault(c => c.CategoryId == categoryId);
+
+
+            if (selectedCategory == null)
+            {
+                Console.WriteLine("Category not found!");
+                return;
+            }
+
+
+            // Create new product
+            Product product = new Product()
+            {
+                ProductName = name,
+                Price = price,
+
+                // Link product with category
+               C = selectedCategory
+            };
+
+
+            // Save to database
+            context.Product.Add(product);
+            context.SaveChanges();
+
+
+            Console.WriteLine("Product added successfully!");
+        }
+
+      
 
 
 
