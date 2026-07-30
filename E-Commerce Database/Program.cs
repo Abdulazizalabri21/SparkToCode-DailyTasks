@@ -43,7 +43,7 @@ namespace E_Commerce_Database
                     case 3: AddCategory(); break;
                     case 4: AddProduct(); break;
                     case 5: ViewAllProducts(); break;
-                    case 6: //PlaceOrder(); break;
+                    case 6: PlaceOrder(); break;
                     case 7: //ViewMyOrders(); break;
                     case 8: //ViewOrderDetails(); break;
                     case 9: //AddReview(); break;
@@ -164,7 +164,7 @@ namespace E_Commerce_Database
 
             if (user != null)
             {
-                loggedInUserId = user.userID;
+                 loggedInUserId = user.userID;
 
                 Console.WriteLine("\nLogin successful.");
                 Console.WriteLine($"Welcome " +user.Firstname + user.Lastname);
@@ -308,6 +308,104 @@ namespace E_Commerce_Database
                 Console.WriteLine("--------------------------------");
             }
         }
+
+        //place an Order
+
+        static void PlaceOrder()
+        {
+
+            decimal totalAmount= 0;
+
+
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("Error: Please login first!");
+                return;
+            }
+
+
+            List<Order_Product> orderProducts = new List<Order_Product>();
+
+
+            while (true)
+            {
+
+                // showing the products
+                var products = context.Product.ToList();
+
+                Console.WriteLine("\nAvailable Products:");
+
+                foreach (var product in products)
+                {
+                    Console.WriteLine(+product.ProductId + "-" + product.ProductName+ "-" + product.Price+ " OMR");
+                    Console.WriteLine("-----------------------------------------");
+                }
+
+
+                // selecting the products
+                Console.WriteLine("\nEnter Product ID:");
+                int productId = int.Parse(Console.ReadLine());
+
+
+                var selectedProduct = context.Product.FirstOrDefault(p => p.ProductId == productId);
+
+
+                if (selectedProduct == null)
+                {
+                    Console.WriteLine("Product not found!");
+                    continue;
+                }
+
+                // adding the quantity
+                Console.WriteLine("Enter Quantity:");
+                int quantity = int.Parse(Console.ReadLine());
+
+                totalAmount += selectedProduct.Price * quantity;
+
+                Order_Product orderProduct = new Order_Product()
+                {
+                    ProductId = selectedProduct.ProductId,
+                    Quantity = quantity,
+
+                };
+
+                
+
+                orderProducts.Add(orderProduct);
+
+                // asking the user if he wants more products
+                Console.WriteLine("Add another product? (y/n)");
+                string answer = Console.ReadLine();
+
+
+                if (answer.ToLower() != "y")
+                {
+                    break;
+                }
+            }
+
+            // adding the order
+            Order order = new Order()
+            {
+                UserID = loggedInUserId,
+                OrderDate = DateTime.Now,
+                TotalAmount = totalAmount.ToString(),
+
+
+                // Linking Order with Order_Product
+                P = orderProducts
+            };
+
+
+
+            context.Order.Add(order);
+            context.SaveChanges();
+
+
+            Console.WriteLine("Order placed successfully!");
+        }
+
+
 
 
 
