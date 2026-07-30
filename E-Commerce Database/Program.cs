@@ -45,7 +45,7 @@ namespace E_Commerce_Database
                     case 5: ViewAllProducts(); break;
                     case 6: PlaceOrder(); break;
                     case 7: ViewMyOrders(); break;
-                    case 8: //ViewOrderDetails(); break;
+                    case 8: ViewOrderDetails(); break;
                     case 9: //AddReview(); break;
                     case 10://ViewReviewsForProduct(); break;
                     case 11://Logout(); break;
@@ -451,6 +451,63 @@ namespace E_Commerce_Database
 
         }
 
+        // 8.View Order Details
+
+
+        static void ViewOrderDetails()
+        {
+            Console.WriteLine("Enter Order ID:");
+            int orderId = int.Parse(Console.ReadLine());
+
+            // Find the order
+            var order = context.Order.FirstOrDefault(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                Console.WriteLine("Order not found!");
+                return;
+            }
+
+            Console.WriteLine("\nOrder Details");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Order ID     : " + order.OrderId);
+            Console.WriteLine("Order Date   : " + order.OrderDate);
+            Console.WriteLine("Total Amount : " + order.TotalAmount);
+
+            Console.WriteLine("\nProducts:");
+            Console.WriteLine("--------------------------------");
+
+            // Get all products in the order
+            var orderProducts = context.Order_Product.Where(op => op.OrderId == orderId).ToList();
+
+            foreach (var op in orderProducts)
+            {
+                var product = context.Product .FirstOrDefault(p => p.ProductId == op.ProductId);
+
+                if (product != null)
+                {
+                    Console.WriteLine("Product  : " + product.ProductName);
+                    Console.WriteLine("Price    : " + product.Price);
+                    Console.WriteLine("Quantity : " + op.Quantity);
+                    Console.WriteLine("--------------------------------");
+                }
+            }
+
+            // Check if the order has a review
+            var review = context.Reviews.FirstOrDefault(r => r.OrderId == orderId);
+
+            Console.WriteLine("\nReview:");
+            if (review != null)
+            {
+                Console.WriteLine(review.Comment);
+                // If your Review class has a Rating property:
+                // Console.WriteLine("Rating: " + review.Rating);
+            }
+            else
+            {
+                Console.WriteLine("No review for this order.");
+            }
+        }
 
 
 
@@ -482,8 +539,5 @@ namespace E_Commerce_Database
 
 
 
-
-
-        
     }
 }
