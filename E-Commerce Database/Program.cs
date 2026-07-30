@@ -42,7 +42,7 @@ namespace E_Commerce_Database
                     case 2: Login(); break;
                     case 3: AddCategory(); break;
                     case 4: AddProduct(); break;
-                    case 5: //ViewAllProducts(); break;
+                    case 5: ViewAllProducts(); break;
                     case 6: //PlaceOrder(); break;
                     case 7: //ViewMyOrders(); break;
                     case 8: //ViewOrderDetails(); break;
@@ -265,7 +265,50 @@ namespace E_Commerce_Database
             Console.WriteLine("Product added successfully!");
         }
 
-      
+        // view all products
+
+        static void ViewAllProducts()
+        {
+            Console.WriteLine("Do you want to filter by category? (y/n)");
+            string choice = Console.ReadLine();
+
+
+            var products = context.Product.ToList();
+
+
+
+            if (choice.ToLower() == "y")
+            {
+                Console.WriteLine("Enter Category ID:");
+                int categoryId = int.Parse(Console.ReadLine());
+
+                products = products.Where(p => p.CategoryId == categoryId).ToList();
+
+            }
+
+
+
+
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No products found!");
+                return;
+            }
+
+
+            Console.WriteLine("\nProduct List:");
+            Console.WriteLine("--------------------------------");
+
+
+            foreach (var product in products)
+            {
+                Console.WriteLine($"Name     : {product.ProductName}");
+                Console.WriteLine($"Price    : {product.Price} OMR");
+                Console.WriteLine($"Category : {product.C.CategoryName}");
+                Console.WriteLine("--------------------------------");
+            }
+        }
+
 
 
 
