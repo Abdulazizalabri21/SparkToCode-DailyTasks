@@ -48,7 +48,7 @@ namespace E_Commerce_Database
                     case 7: ViewMyOrders(); break;
                     case 8: ViewOrderDetails(); break;
                     case 9: AddReview(); break;
-                    case 10://ViewReviewsForProduct(); break;
+                    case 10:ViewReviewsForProduct(); break;
                     case 11://Logout(); break;
                     case 0:
                         exitApp = true;
@@ -569,6 +569,57 @@ namespace E_Commerce_Database
             context.SaveChanges();
 
             Console.WriteLine("Review added successfully!");
+        }
+
+        // 10.View Reviews For the Product
+
+        static void ViewReviewsForProduct()
+        {
+            Console.WriteLine("Enter Product ID:");
+            int productId = int.Parse(Console.ReadLine());
+
+            // Check if the product exists
+            var product = context.Product.FirstOrDefault(p => p.ProductId == productId);
+
+            if (product == null)
+            {
+                Console.WriteLine("Product not found!");
+                return;
+            }
+
+            Console.WriteLine("\nProduct: " + product.ProductName);
+            Console.WriteLine("--------------------------------");
+
+            // Get all orders that contain this product
+            var orderProducts = context.Order_Product .Where(op => op.ProductId == productId).ToList();
+
+            if (orderProducts.Count == 0)
+            {
+                Console.WriteLine("This product has never been ordered.");
+                return;
+            }
+
+            bool hasReviews = false;
+
+            foreach (var op in orderProducts)
+            {
+                // Find the review for this order
+                var review = context.Reviews  .FirstOrDefault(r => r.OrderId == op.OrderId);
+
+                if (review != null)
+                {
+                    hasReviews = true;
+
+                    Console.WriteLine("Rating   : " + review.Ratings);
+                    Console.WriteLine("Comment  : " + review.Comment);
+                    Console.WriteLine("--------------------------------");
+                }
+            }
+
+            if (!hasReviews)
+            {
+                Console.WriteLine("No reviews found for this product.");
+            }
         }
 
 
