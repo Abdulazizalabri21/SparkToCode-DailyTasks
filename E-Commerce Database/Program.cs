@@ -40,7 +40,7 @@ namespace E_Commerce_Database
                 {
                     case 1: RegisterUser(); break;
                     case 2: Login(); break;
-                    case 3: //AddCategory(); break;
+                    case 3: AddCategory(); break;
                     case 4: //AddProduct(); break;
                     case 5: //ViewAllProducts(); break;
                     case 6: //PlaceOrder(); break;
@@ -63,7 +63,8 @@ namespace E_Commerce_Database
         }
 
 
-        // functions 
+        // functions
+       //-------------------------------------
         // 1. Register New User
         static void RegisterUser()
         {
@@ -173,6 +174,52 @@ namespace E_Commerce_Database
                 Console.WriteLine("\nInvalid email or password.");
             }
         }
+
+        // add new Category
+        public static void AddCategory()
+        {
+            Category category = new Category();
+
+            while (true)
+            {
+                Console.Write("Enter Category Name: ");
+                category.CategoryName = Console.ReadLine().Trim();
+
+                if (string.IsNullOrWhiteSpace(category.CategoryName))
+                {
+                    Console.WriteLine("Category name cannot be empty.");
+                    continue;
+                }
+
+                bool exists = context.Category.Any(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+
+                if (exists)
+                {
+                    Console.WriteLine("Category already exists.");
+                    continue;
+                }
+
+                break;
+            }
+
+            context.Category.Add(category);
+            context.SaveChanges();
+
+            Console.WriteLine("\nCategory added successfully.");
+            Console.WriteLine($"Category ID: {category.CategoryId}");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
