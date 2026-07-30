@@ -39,7 +39,7 @@ namespace E_Commerce_Database
                 switch (choice)
                 {
                     case 1: RegisterUser(); break;
-                    case 2: //Login(); break;
+                    case 2: Login(); break;
                     case 3: //AddCategory(); break;
                     case 4: //AddProduct(); break;
                     case 5: //ViewAllProducts(); break;
@@ -148,6 +148,30 @@ namespace E_Commerce_Database
 
             Console.WriteLine("\nUser registered successfully!");
             Console.WriteLine($"User ID: {users.userID}");
+        }
+
+        // 2.Login
+         static void Login()
+        {
+            Console.Write("Enter Email: ");
+            string email = Console.ReadLine().Trim();
+
+            Console.Write("Enter Password: ");
+            string password = Console.ReadLine();
+
+            Users user = context.User.FirstOrDefault(u =>    u.Email == email &&  u.Password == password);
+
+            if (user != null)
+            {
+                loggedInUserId = user.userID;
+
+                Console.WriteLine("\nLogin successful.");
+                Console.WriteLine($"Welcome " +user.Firstname + user.Lastname);
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid email or password.");
+            }
         }
 
 
