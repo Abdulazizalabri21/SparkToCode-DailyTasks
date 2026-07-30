@@ -49,7 +49,7 @@ namespace E_Commerce_Database
                     case 8: ViewOrderDetails(); break;
                     case 9: AddReview(); break;
                     case 10:ViewReviewsForProduct(); break;
-                    case 11://Logout(); break;
+                    case 11:Logout(); break;
                     case 0:
                         exitApp = true;
                         Console.WriteLine("Goodbye!");
@@ -620,6 +620,22 @@ namespace E_Commerce_Database
             {
                 Console.WriteLine("No reviews found for this product.");
             }
+        }
+
+        static void Logout()
+        { 
+            loggedInUserId = 0;
+            if (loggedInUserId == 0) 
+            
+            {
+                Console.WriteLine("You have been logged out successfully.");  
+
+            }
+
+          
+            
+        
+
         }
 
 
