@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_Database.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20260729065127_initialcrearte")]
-    partial class initialcrearte
+    [Migration("20260730092202_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -141,7 +141,7 @@ namespace E_Commerce_Database.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("E_Commerce_Database.Models.User", b =>
+            modelBuilder.Entity("E_Commerce_Database.Models.Users", b =>
                 {
                     b.Property<int>("userID")
                         .ValueGeneratedOnAdd()
@@ -172,7 +172,7 @@ namespace E_Commerce_Database.Migrations
 
             modelBuilder.Entity("E_Commerce_Database.Models.Order", b =>
                 {
-                    b.HasOne("E_Commerce_Database.Models.User", "Users")
+                    b.HasOne("E_Commerce_Database.Models.Users", "Users")
                         .WithMany("Orders")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -219,7 +219,7 @@ namespace E_Commerce_Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Commerce_Database.Models.User", "User")
+                    b.HasOne("E_Commerce_Database.Models.Users", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("userID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -248,7 +248,7 @@ namespace E_Commerce_Database.Migrations
                     b.Navigation("O");
                 });
 
-            modelBuilder.Entity("E_Commerce_Database.Models.User", b =>
+            modelBuilder.Entity("E_Commerce_Database.Models.Users", b =>
                 {
                     b.Navigation("Orders");
 

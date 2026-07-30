@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace E_Commerce_Database.Models
 {
+
     public class Review
     {
         [Key]
@@ -25,7 +25,7 @@ namespace E_Commerce_Database.Models
         // write Review << User M-1 Review
         [ForeignKey("User")]
         public int userID { get; set; }
-        public User User { get; set; }
+        public Users User { get; set; }
 
 
     }

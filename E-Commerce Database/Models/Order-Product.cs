@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace E_Commerce_Database.Models
 {
+
     [PrimaryKey(nameof(OrderId),nameof(ProductId))] // assigning the two FK as Primary Key as Component
     public class Order_Product
     {

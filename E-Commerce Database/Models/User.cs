@@ -5,7 +5,7 @@ using System.Text;
 
 namespace E_Commerce_Database.Models
 {
-    public class User
+    public class Users
     {
         [Key]
         public int userID { get; set; }
@@ -15,11 +15,11 @@ namespace E_Commerce_Database.Models
         public string Password { get; set; }
 
         // placing Ordder
-       public List<Order> Orders { get; set; }
+       public  ICollection <Order> Orders { get; set; }
 
         // write Review >> User 1-M Review
 
-        public List<Review> Reviews { get; set; }
+        public ICollection <Review> Reviews { get; set; }
 
 
     }

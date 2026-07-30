@@ -5,6 +5,7 @@ using System.Text;
 
 namespace E_Commerce_Database.Models
 {
+
     public class Category
     {
         [Key]
@@ -15,7 +16,7 @@ namespace E_Commerce_Database.Models
 
 
         // category M-1 Product
-        public List<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
 
 
     }
